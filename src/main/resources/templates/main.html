@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"></div>
+    <title>Cybermind</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <main class="container">
+        <div class="starter-template">
+            <h1>Cybermind</h1>
+            <h2>
+                <span th:text="'Our main page'"></span>
+            </h2>
+        </div>
+        <form th:action="@{/login}" method="GET">
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
