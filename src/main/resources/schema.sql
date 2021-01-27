@@ -13,10 +13,21 @@
 CREATE SCHEMA IF NOT EXISTS `cybermind` DEFAULT CHARACTER SET utf8 ;
 USE `cybermind` ;
 
+
+DROP TABLE IF EXISTS `cybermind`.`users_roles`;
+DROP TABLE IF EXISTS `cybermind`.`relationship`;
+DROP TABLE IF EXISTS `cybermind`.`solved_tasks`;
+DROP TABLE IF EXISTS `cybermind`.`user`;
+DROP TABLE IF EXISTS `cybermind`.`example`;
+DROP TABLE IF EXISTS `cybermind`.`task`;
+DROP TABLE IF EXISTS `cybermind`.`chapter`;
+DROP TABLE IF EXISTS `cybermind`.`learn`;
+DROP TABLE IF EXISTS `cybermind`.`role`;
+
+
 -- -----------------------------------------------------
 -- Table `cybermind`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`user`;
 CREATE TABLE `cybermind`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
@@ -32,7 +43,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `cybermind`.`relationship`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`relationship`;
 CREATE TABLE `cybermind`.`relationship` (
   `userId` INT NOT NULL,
   `friend` INT NOT NULL,
@@ -54,7 +64,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `cybermind`.`task`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`task`;
 CREATE TABLE `cybermind`.`task` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
@@ -67,9 +76,27 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `cybermind`.`example`
+-- -----------------------------------------------------
+CREATE TABLE `cybermind`.`example` (
+  `id` INT NOT NULL,
+  `taskId` INT NOT NULL,
+  `input` VARCHAR(1024) NOT NULL,
+  `output` VARCHAR(1024) NOT NULL,
+  `explanation` VARCHAR(1024) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_example_task1_idx` (`taskId` ASC) VISIBLE,
+  CONSTRAINT `fk_example_task1`
+    FOREIGN KEY (`taskId`)
+    REFERENCES `cybermind`.`task` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `cybermind`.`solved_tasks`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`solved_tasks`;
 CREATE TABLE `cybermind`.`solved_tasks` (
   `userId` INT NOT NULL,
   `taskId` INT NOT NULL,
@@ -91,29 +118,8 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `cybermind`.`example`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`example`;
-CREATE TABLE `cybermind`.`example` (
-  `id` INT NOT NULL,
-  `taskId` INT NOT NULL,
-  `input` VARCHAR(1024) NOT NULL,
-  `output` VARCHAR(1024) NOT NULL,
-  `explanation` VARCHAR(1024) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_example_task1_idx` (`taskId` ASC) VISIBLE,
-  CONSTRAINT `fk_example_task1`
-    FOREIGN KEY (`taskId`)
-    REFERENCES `cybermind`.`task` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `cybermind`.`learn`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`learn`;
 CREATE TABLE `cybermind`.`learn` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
@@ -124,7 +130,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `cybermind`.`chapter`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`chapter`;
 CREATE TABLE `cybermind`.`chapter` (
   `id` INT NOT NULL,
   `learnId` INT NOT NULL,
@@ -143,7 +148,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `cybermind`.`role`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`role`;
 CREATE TABLE `cybermind`.`role` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
@@ -155,7 +159,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `cybermind`.`users_roles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cybermind`.`users_roles`;
 CREATE TABLE `cybermind`.`users_roles` (
   `role_id` INT NOT NULL,
   `user_id` INT NOT NULL,
