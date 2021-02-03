@@ -4,10 +4,11 @@
 <head th:fragment="header-css(title,links)">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/footer.css}"/>
-    <link rel="icon" href="images/icon.png" sizes="16x16" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/menu.css}"/>
+    <link rel="icon" th:href="@{images/icon.png}" sizes="16x16" type="image/png">
 
     <th:block th:replace="${links}" />
 
@@ -15,18 +16,32 @@
 </head>
 <body>
 
-    <div th:fragment="header">
-        <header>
-            <nav>
-                <span sec:authorize="isAuthenticated()">
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Logout" />
-                        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                    </form>
-                </span>
-            </nav>
-        </header>
-    </div>
+    <header th:fragment="header">
+        <a href="#" class="menuIcon" id="showMenu">
+            <img src="images/menuIcon.png" alt="">
+        </a>
+        <div class="overlay"></div>
+        <div class="menu" id="menu">
+            <div class="avatar">
+                <a class="close-icon" id="closeMenu">
+                    <img src="images/close.png" alt="">
+                </a>
+                <div class="avatarText">
+                    <div class="avatarName">ProfileName</div>
+                    <h5>PROFILE POINT OR STATUS</h5>
+                </div>
+            </div>
+            <a th:href="@{/profile}" class="menu-item"><h3>Profile</h3></a>
+            <a th:href="@{/tasks}" class="menu-item"><h3>Tasks</h3></a>
+            <a th:href="@{/courses}" class="menu-item"><h3>Course</h3></a>
+            <a th:href="@{/leaderboard}" class="menu-item"><h3>Leaderboard</h3></a>
+            <form th:action="@{/logout}" method="post" class="menu-item logOut">
+                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                <button type="submit">Log out</button>
+            </form>
+<!--            <a href="@{/logout}" class="menu-item logOut"><h3>Log out</h3></a>-->
+        </div>
+    </header>
 
 </body>
 </html>

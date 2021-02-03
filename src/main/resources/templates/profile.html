@@ -1,19 +1,76 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link>
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/tasks.css}" />
     <title>Cybermind | Profile</title>
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<main class="container">
-    <div class="starter-template">
-        <h1>Cybermind</h1>
-        <h2>
-            <span th:text="'Hello, ' + ${name}"></span>
-        </h2>
+<!--    <main class="container">-->
+<!--        <div class="starter-template">-->
+<!--            <h1>Cybermind</h1>-->
+<!--            <h2>-->
+<!--                <span th:text="'Hello, ' + ${name}"></span>-->
+<!--            </h2>-->
+<!--        </div>-->
+<!--    </main>-->
+
+    <div class="content">
+        <div class="mainInform">
+            <div class="profile">
+                <div class="photo"></div>
+                <div class="information">
+                    <h2 id="name" class="pad" th:text="${name}"></h2>
+                    <h3 id="points" class="pad">Points</h3>
+                    <h3 class="pad">Status</h3>
+                    <h3 class="pad">Last seen</h3>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="totalStats">
+                    <h3 id="level" class="pad">Level 1</h3>
+                    <h3 id="points" class="pad">Points: 104</h3>
+                    <h3 id="leaderPosition" class="pad">Leaderboard position: 130</h3>
+                    <h3 id="totalTasks" class="pad">Total tasks: 10</h3>
+                    <h3 id="easyTasks" class="pad padl">1 level tasks: 5</h3>
+                    <h3 id="mediumTasks" class="pad padl">2 level tasks: 4</h3>
+                    <h3 id="hardTasks" class="pad padl">3 level tasks: 1</h3>
+                </div>
+                <div class="diagram" id="diagram">
+                    <script src="https://www.google.com/jsapi"></script>
+                    <script>
+                        google.load("visualization", "1", {packages:["corechart"]});
+                        google.setOnLoadCallback(drawChart);
+                        function drawChart() {
+                            var data = google.visualization.arrayToDataTable([
+                                ['task level', 'complited'],
+                                ['1 level tasks', 5],
+                                ['2 level tasks', 4],
+                                ['3 level tasks', 1]
+                            ]);
+                            var options = {
+                                title: 'Total tasks: 10',
+                                is3D: false,
+                                pieResidueSliceLabel: 'Остальное',
+                                color:'white'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('diagram'));
+                            chart.draw(data, options);
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="profileTasks">
+                <dl class="head flex">
+                    <dd class="headItem"><a href="#">All</a></dd>
+                    <dd class="headItem"><a href="#">Solved</a></dd>
+                    <dd class="headItem"><a href="#">Attempted</a></dd>
+                </dl>
+            </div>
+        </div>
     </div>
-</main>
+
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

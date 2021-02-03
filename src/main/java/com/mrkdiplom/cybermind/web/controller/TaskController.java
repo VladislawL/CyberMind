@@ -4,6 +4,7 @@ import com.mrkdiplom.cybermind.core.service.task.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,6 +17,12 @@ public class TaskController {
     public String tasksPage(Model model) {
         model.addAttribute("tasks", taskService.getAll());
         return "tasks";
+    }
+
+    @RequestMapping(value = "/task/{id}", method = RequestMethod.GET)
+    public String taskPage(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("task", taskService.getTask(id));
+        return "task";
     }
 
     @Autowired

@@ -18,6 +18,11 @@ public class DefaultTaskService implements TaskService {
         return taskRepository.findAll();
     }
 
+    @Override
+    public Task getTask(Integer id) {
+        return taskRepository.getOne(id);
+    }
+
     @Autowired
     public void setTaskRepository(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;

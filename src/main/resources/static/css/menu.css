@@ -30,14 +30,15 @@
     background-size: 100%;
 }
 
-.close img {
+.close-icon img {
     margin-top: 35px;
     margin-left: 30px;
     margin-bottom: 100px;
     transition: .3s linear;
+    cursor: pointer;
 }
 
-.close img:hover {
+.close-icon img:hover {
     transform: rotate(90deg);
 }
 
@@ -64,8 +65,20 @@
     transition: .3s linear;
 }
 
-.menu-item h3:hover {
+.menu-item h3:hover, .menu-item button:hover {
     background: #5c5a5a;
+}
+
+.menu-item button {
+    padding: 20px 0;
+    padding-left: 30px;
+    transition: .3s linear;
+    background: transparent;
+    border: none;
+    border-top: 1px solid #242431;
+    font-size: 23px;
+    text-align: left;
+    width: 100%;
 }
 
 .logOut {
