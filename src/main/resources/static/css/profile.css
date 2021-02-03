@@ -1,0 +1,105 @@
+/*//////////////////////////////////
+    Profile foto and profile points
+ */
+.content {
+    margin: auto;
+    padding: 100px 100px 100px 200px;
+    max-width: 1500px;
+    /* background: rgb(1,1,1); */
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainInform {
+    width: 70%;
+    /* background: rgb(100,100,100); */
+}
+
+.profile {
+    display: flex;
+    /* background: rgb(90,40,130);    */
+    margin: 0px 20px;
+}
+
+.photo {
+    background-image: linear-gradient(to right, rgba(50, 85, 148, 0.377), rgba(48, 52, 236, 0.548)), url('../images/avatar.jpg');
+    background-size: 100%;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.information {
+    color: white;
+    height: 200px;
+    width: 700px;
+    margin: 10px;
+    background: #353541;
+}
+
+.pad {
+    padding: 10px;
+}
+
+#name {
+    border-bottom: solid 1px;
+}
+
+/*//////////////////////////////////
+    Profile Stats
+ */
+.stats {
+    color: white;
+    margin: 30px;
+    background: #353541;
+    display: flex;
+}
+
+rect {
+    fill: none;
+}
+
+g > text {
+    fill: rgb(194, 194, 194);
+}
+
+/*//////////////////////////////////
+    Profile tasks
+ */
+.profileTasks {
+    margin: 30px;
+    background: #353541;
+}
+
+.headItem {
+    border: solid 1px white;
+    margin: 0px 10px;
+}
+
+.tasks1 {
+    padding: 20px 0px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.padl {
+    padding-left: 30px;
+}
+
+/*////////////////////////////////////////////  */
+
+/*//////////////////////////////////
+    Profile friends
+ */
+.friendsList {
+    height: 300px;
+    width: 20%;
+    background: rgb(100, 100, 100);
+}
+
+.friend {
+    color: white;
+    margin: 10px;
+    padding: 10px;
+    background: rgb(1, 1, 1);
+}

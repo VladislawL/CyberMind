@@ -1,0 +1,97 @@
+.menuIcon img {
+    position: fixed;
+    margin: 30px;
+    transition: .2s linear;
+}
+
+.menuIcon img:hover {
+    transform: rotate(15deg);
+}
+
+.menu {
+    display: block;
+    background: #353541;
+    z-index: 2;
+    flex-direction: column;
+    position: fixed;
+    transition: left .5s linear;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+.avatar {
+    height: 220px;
+    background-image: linear-gradient(to right, rgba(50, 85, 148, 0.377), rgba(48, 52, 236, 0.548)), url('../images/avatar.jpg');
+    background-position: top center;
+    background-size: 100%;
+}
+
+.close img {
+    margin-top: 35px;
+    margin-left: 30px;
+    margin-bottom: 100px;
+    transition: .3s linear;
+}
+
+.close img:hover {
+    transform: rotate(90deg);
+}
+
+.avatarText {
+    margin-left: 30px;
+}
+
+.avatarName {
+    color: white;
+    font-size: 22px;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.menu a {
+    text-decoration: none;
+    color: rgba(255, 255, 255);
+}
+
+.menu-item h3 {
+    padding: 20px 0;
+    border-bottom: 1px solid #242431;
+    padding-left: 30px;
+    transition: .3s linear;
+}
+
+.menu-item h3:hover {
+    background: #5c5a5a;
+}
+
+.logOut {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.open {
+    left: 0;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.block {
+    display: block;
+}

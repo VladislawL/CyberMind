@@ -1,0 +1,208 @@
+.flex {
+    display: flex;
+}
+
+.contant {
+    margin: 0 auto;
+    max-width: 2500px;
+}
+
+.pad {
+    padding: 50px;
+}
+
+.whiteText {
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+.blackText {
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+}
+
+.photo {
+    display: flex;
+    width: 50%;
+}
+
+.photo img {
+    margin: 0 auto;
+}
+
+.caption {
+    width: 50%;
+}
+
+.caption h1 {
+    padding-bottom: 15px;
+}
+
+/*
+  Gear transition
+*/
+.gear {
+    animation-name: movingBall;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes movingBall {
+    50% {
+        transform: rotateZ(180deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+
+    }
+}
+
+/* Header contant */
+
+header {
+    box-shadow: 0px 1px 0px 0px rgb(252, 214, 214);
+    background: #353541;
+    height: 50px;
+    width: 100%;
+    font-size: 40px;
+}
+
+header a {
+    text-decoration: none;
+    user-select: none;
+    color: white;
+}
+
+.headerContant {
+    padding: 0px 40px;
+}
+
+.headerContant .mainPage {
+    float: left;
+}
+
+.headerContant .mainPageImg {
+    height: 50px;
+    width: 50px;
+    transition: all .3s;
+}
+
+.mainPageImg:hover {
+    transform: rotate(90deg);
+}
+
+.headerContant .profile {
+    padding: 0px 10px;
+    float: right;
+}
+
+.profileImg {
+    width: 49px;
+    transition: 0.3s;
+}
+
+.profileImg:hover {
+    transform: rotate(9deg);
+}
+
+.darkBack {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.lightBack {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/*
+  ABOUT TASKS
+*/
+.aboutTasks {
+    margin: 0 auto;
+}
+
+/*
+  EARN POINTS AND LEVEL
+*/
+.aboutLevel {
+    margin: 0 auto;
+}
+
+/*
+  Creators 
+*/
+.cr1 {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.creators {
+    display: flex;
+}
+
+.creators .creator {
+    border-width: 2px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 50%;
+}
+
+.creator img {
+    transition: all 0.5s;
+}
+
+.creator img:hover {
+    transform: scale(1.3);
+}
+
+.creator h1 {
+    padding-top: 10px;
+    color: rgb(0, 0, 0);
+    padding-bottom: 10px;
+}
+
+.creator h2 {
+    letter-spacing: 0;
+    color: #81292f;
+}
+
+.creator h3 {
+    font-style: oblique;
+    padding-top: 50px;
+    opacity: 0.5;
+    color: black;
+}
+
+/*
+  Footer 
+*/
+.footer {
+    padding: 3px 0;
+    /* background-color: rgb(85, 85, 85); */
+    /* color: #000000; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-icons {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    padding: 5px 15px 0px;
+    transition: all .3s linear;
+}
+
+.social-icon img {
+    height: 20px;
+    width: 20px;
+}
+
+.social-icon:nth-child(2) {
+    border-left: 1px solid #a3a3a3;
+    border-right: 1px solid #a3a3a3;
+}

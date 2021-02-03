@@ -1,0 +1,72 @@
+
+
+
+
+.flex {
+    display: flex;
+}
+
+/*
+    Contant section
+*/
+.content {
+    height: 100vh;
+    margin: 0px 0px 0px 120px;
+}
+
+/*
+    Task description
+*/
+
+.taskDescription {
+    background: rgba(24, 24, 24, 0);
+    width: 50%;
+    height: 100%;
+    border-right: solid 5px rgb(129, 43, 43);
+}
+
+.head {
+    color: white;
+    height: 5%;
+}
+
+.headItem {
+    background: rgb(73, 73, 73);
+    margin: 10px;
+}
+
+.description {
+    height: 95%;
+}
+
+/*
+    Place for user code and server unswer
+*/
+.solutionPlace {
+    background: rgba(24, 24, 24, 0);
+    width: 50%;
+    height: 100%;
+}
+
+.codeEditor {
+    color: white;
+    height: 65%;
+    margin: 20px;
+}
+
+.full {
+    background: rgb(0, 0, 0, 0.4);
+    height: 100%;
+    padding: 10px;
+}
+
+.sub {
+    margin: 10px 20px;
+}
+
+.result {
+    height: 20%;
+    margin: 0px 20px;
+    background: rgb(0, 0, 0, 0.4);
+}
+

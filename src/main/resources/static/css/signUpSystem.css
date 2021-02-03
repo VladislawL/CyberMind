@@ -1,0 +1,25 @@
+.content {
+    padding: 100px 0px;
+}
+
+.inputClass {
+    padding: 10px 0px;
+}
+
+.privacyPolicy {
+    padding: 10px 60px;
+}
+
+.signUp {
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: rgb(63, 64, 73);
+    font-style: oblique;
+    font-size: 20px;
+    margin: 20px;
+    width: 250px;
+    height: 40px;
+    transition: all 0.4s ease;
+}
+
+
