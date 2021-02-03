@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+    <div th:fragment="task (task)" class="task flex">
+        <div class="taskContant">
+            <div class="taskMain flex">
+                <div class="taskLevel">4 level</div>
+                <div class="taskName"><a th:href="@{/task/{id}(id = ${task.id})}" th:text="${task.name}"></a></div>
+            </div>
+            <div class="taskStatic">
+                <div class="rating">rating: 49</div>
+                <div class="percentSolutions">percentSolutions: 69%</div>
+                <div class="viewers">122 views</div>
+            </div>
+            <div class="taskAttribute">attributes</div>
+        </div>
+        <div class="taskColor lvl1"></div>
+    </div>
+</body>
+</html>

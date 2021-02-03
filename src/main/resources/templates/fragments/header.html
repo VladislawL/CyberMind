@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
                 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head>
-    <div th:fragment="header-css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" th:href="@{/css/main.css}"/>
-        <link rel="stylesheet" th:href="@{/css/footer.css}"/>
-        <link rel="icon" href="images/icon.png" sizes="16x16" type="image/png">
-    </div>
+<head th:fragment="header-css(title,links)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/footer.css}"/>
+    <link rel="icon" href="images/icon.png" sizes="16x16" type="image/png">
+
+    <th:block th:replace="${links}" />
+
+    <title th:replace="${title}"></title>
 </head>
 <body>
 

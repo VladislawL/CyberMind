@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments/header :: header-css">
+<head th:replace="fragments/header :: header-css(~{::title},~{::link})">
     <link rel="stylesheet" th:href="@{/css/login.css}"/>
     <title>Cybermind | Login</title>
 </head>

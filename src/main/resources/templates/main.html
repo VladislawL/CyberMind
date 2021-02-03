@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <div th:replace="fragments/header :: header-css"></div>
+<head th:replace="fragments/header :: header-css(~{::title},~{::link})">
     <title>Cybermind</title>
 </head>
 <body>
