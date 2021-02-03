@@ -27,11 +27,6 @@ public class CybermindSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .passwordEncoder(passwordEncoder())
-//                .withUser("user")
-//                .password(passwordEncoder().encode("cybermind"))
-//                .roles("ADMIN","USER");
         auth.userDetailsService(userDetailsService())
                 .passwordEncoder(passwordEncoder());
     }
@@ -44,7 +39,7 @@ public class CybermindSecurityConfig extends WebSecurityConfigurerAdapter {
                             PathRequest
                                     .toStaticResources()
                                     .atCommonLocations()).permitAll()
-                    .antMatchers("/").permitAll()
+                    .antMatchers("/", "/registration").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin().defaultSuccessUrl("/profile", true).loginPage("/login").permitAll()
