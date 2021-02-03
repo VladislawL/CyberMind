@@ -17,7 +17,7 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "username")
@@ -30,7 +30,7 @@ public class User {
     private Boolean enabled;
 
     @Column(name = "points")
-    private Integer points;
+    private Integer points = 0;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
