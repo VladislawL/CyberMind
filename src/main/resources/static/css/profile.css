@@ -1,105 +1,109 @@
-/*//////////////////////////////////
-    Profile foto and profile points
- */
-.content {
-    margin: auto;
-    padding: 100px 100px 100px 200px;
-    max-width: 1500px;
-    /* background: rgb(1,1,1); */
-    display: flex;
-    justify-content: space-between;
+/* 
+    PROFILE MAIN STYLES
+*/
+.content{
+    padding-left: 150px;
 }
-
-.mainInform {
-    width: 70%;
-    /* background: rgb(100,100,100); */
+.contentWidth{
+    /* MUST BE DELETED */
+    width: 900px;
+    max-width: 900px;
 }
-
-.profile {
-    display: flex;
-    /* background: rgb(90,40,130);    */
-    margin: 0px 20px;
+.container{
+    max-width: 1300px;
 }
-
-.photo {
-    background-image: linear-gradient(to right, rgba(50, 85, 148, 0.377), rgba(48, 52, 236, 0.548)), url('../images/avatar.jpg');
-    background-size: 100%;
+.pad{
+    padding: 10px;
+}
+.blockMarg{
+    margin-top: 30px;
+}
+/* 
+    PROFILE PHOTO AND MAIN INFORMATION
+*/
+.photo{
+    background: url("../images/avatar.jpg");
+    background-size: cover;
     width: 200px;
     height: 200px;
-    margin: 10px;
+    margin-right: 20px;
 }
-
-.information {
+.mainInformation{
     color: white;
     height: 200px;
-    width: 700px;
-    margin: 10px;
-    background: #353541;
+    width: calc(100% - 228px);
+	background: #353541;
 }
-
-.pad {
-    padding: 10px;
+.profileName{
+    color: rgb(156, 68, 68);
+    font-size: 20px;
+    border-bottom: solid 1px white;
 }
-
-#name {
-    border-bottom: solid 1px;
+.mainStats{
+    padding:10px;
 }
-
-/*//////////////////////////////////
-    Profile Stats
+/*/
+    PROFILE FULL INFORMATION
  */
-.stats {
-    color: white;
-    margin: 30px;
-    background: #353541;
-    display: flex;
+.fullInformation{
+    color: rgb(255, 255, 255);
 }
-
-rect {
-    fill: none;
-}
-
-g > text {
-    fill: rgb(194, 194, 194);
-}
-
-/*//////////////////////////////////
-    Profile tasks
+/*
+    PROFILE FRIENDS LIST
  */
-.profileTasks {
-    margin: 30px;
-    background: #353541;
+ .friendsList{
+    margin-left: 50px;
+    height: 100%;
+    width: 300px;
 }
-
-.headItem {
-    border: solid 1px white;
-    margin: 0px 10px;
-}
-
-.tasks1 {
-    padding: 20px 0px;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.padl {
-    padding-left: 30px;
-}
-
-/*////////////////////////////////////////////  */
-
-/*//////////////////////////////////
-    Profile friends
- */
-.friendsList {
-    height: 300px;
-    width: 20%;
-    background: rgb(100, 100, 100);
-}
-
-.friend {
-    color: white;
+.friend{
+    color:white;
     margin: 10px;
     padding: 10px;
-    background: rgb(1, 1, 1);
+    background:rgb(1,1,1);
 }
+/*
+    PROFILE COMPLETED AND ATTEMPTED TASKS
+ */
+.head{
+    width: 300px;
+    justify-content: space-around;
+}
+.headItem{
+    padding: 5px;
+    color: rgb(255, 255, 255);
+}
+.tasks{
+    padding: 10px 20px 20px 100px;
+    background: none;
+}
+/* 
+    MEDIA CONTENT FOR PROFILE PAGE
+*/
+/* 
+    MUST BE CHANGED
+*/
+/* @media screen and (min-width:400px) and (max-width: 900px){
+    .content{
+        padding-left: 100px;
+        padding-right: 20px;
+    }
+    .container{
+        display: block;
+    }
+    .profile{
+        display: block;
+    }
+}
+@media screen and (min-width: 900px) and (max-width:1200px){
+    
+    .content{
+        padding-left: 50px;
+    }
+    .profile{
+        display: block;
+    }
+    .contentWidth{
+        width: 300px;
+    }
+}  */

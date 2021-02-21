@@ -1,110 +1,78 @@
-.menuIcon img {
-    position: fixed;
-    margin: 30px;
-    transition: .2s linear;
+/* 
+    Menu css styles
+*/
+.showMenu{
+	position: fixed;
+	margin: 30px;
+	transition: .2s linear;
 }
-
-.menuIcon img:hover {
-    transform: rotate(15deg);
+.showMenu:hover{
+	transform: rotate(15deg);
 }
-
-.menu {
-    display: block;
-    background: #353541;
-    z-index: 2;
-    flex-direction: column;
-    position: fixed;
-    transition: left .5s linear;
-    top: 0;
-    left: -280px;
-    width: 280px;
-    height: 100%;
+.menu{
+	display: block;
+	background: #353541;
+	z-index: 2;
+	flex-direction: column;
+	position: fixed;
+	transition: left .5s linear;
+	top: 0;
+	left: -280px;
+	width: 280px;
+	height: 100%;
     color: white;
-    font-family: 'Raleway', sans-serif;
 }
-
-.avatar {
-    height: 220px;
-    background-image: linear-gradient(to right, rgba(50, 85, 148, 0.377), rgba(48, 52, 236, 0.548)), url('../images/avatar.jpg');
-    background-position: top center;
-    background-size: 100%;
+.menu a{
+    color: rgb(255,255,255);
 }
-
-.close-icon img {
-    margin-top: 35px;
-    margin-left: 30px;
-    margin-bottom: 100px;
-    transition: .3s linear;
-    cursor: pointer;
+.menu  .avatar{
+	height: 220px;
+    /* must be changed in html */
+    background-image: linear-gradient(to right,rgba(50, 85, 148, 0.377), rgba(48, 52, 236, 0.548)), url('../images/avatar.jpg');
+    background-size: cover;
 }
-
-.close-icon img:hover {
-    transform: rotate(90deg);
-}
-
-.avatarText {
-    margin-left: 30px;
-}
-
-.avatarName {
-    color: white;
-    font-size: 22px;
-    font-weight: bolder;
-    display: inline-block;
-}
-
-.menu a {
-    text-decoration: none;
-    color: rgba(255, 255, 255);
-}
-
-.menu-item h3 {
-    padding: 20px 0;
-    border-bottom: 1px solid #242431;
-    padding-left: 30px;
-    transition: .3s linear;
-}
-
-.menu-item h3:hover, .menu-item button:hover {
-    background: #5c5a5a;
-}
-
-.menu-item button {
-    padding: 20px 0;
-    padding-left: 30px;
-    transition: .3s linear;
-    background: transparent;
-    border: none;
-    border-top: 1px solid #242431;
-    font-size: 23px;
-    text-align: left;
-    width: 100%;
-}
-
-.logOut {
+.closeMenu{
     position: absolute;
-    bottom: 0px;
-    width: 100%;
+    margin: 30px;
+	transition: .3s linear;
 }
-
-.open {
-    left: 0;
+.closeMenu:hover{
+	transform: rotate(90deg);
 }
-
-.overflow {
-    overflow: hidden;
+.avatarText{
+    margin: 170px 0px 0px 30px;
 }
-
-.overlay {
-    background: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+.menu-item .title{
+	padding: 20px 0;
+	border-bottom: 1px solid #242431;
+	padding-left: 30px;
+	transition:  .3s linear;
 }
-
-.block {
+.menu-item h3:hover{
+	background: #5c5a5a;
+}
+.logOut{
+	background: none;
+	border: none;
+	text-align: left;
+	color: white;
+	/*position: absolute;*/
+	/*bottom: 0px;*/
+	width: 100%;
+}
+/* DETAILS THAT CHANGE SHOW/HIDE MENU */
+.openMenu{
+	left: 0;
+}
+.overlayMenu{
+	background: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.block{
     display: block;
 }

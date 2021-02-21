@@ -1,0 +1,148 @@
+/* 
+    Main page CyberMind styles
+*/
+.fragment{
+    margin: 0 auto;
+    max-width: 2000px;
+    padding: 50px;
+}
+.fragment .photo,.description{
+    width: 50%;
+    text-align: justify;
+}
+.fragment .photo{
+    display: flex;
+}
+.photo>.fragmentImage{
+    display: flex;
+    margin: 0 auto;
+}
+.whiteText{
+    color: rgb(201, 201, 201);
+}
+.blackText{
+    color: rgb(0, 0, 0);
+}
+.darkBack{
+    background-color: rgba(0,0,0,0.3);
+}
+.lightBack{
+    background-color:rgba(255, 255, 255, 0.3);   
+}
+/* 
+    Main page HEADER
+*/
+.head{
+    margin: 0 auto;
+    max-width: 2100px;
+    box-shadow:  0px 1px 0px 0px rgb(252, 214, 214);
+    background: #353541;
+    height: 50px;
+    font-size: 40px;
+}
+.head a{
+  user-select: none;
+  color: white;
+}
+.head .headContent{
+  padding: 0px 40px;
+}
+.headContent .mainPage{
+  float: left;
+}
+.mainPage .mainPageImg{
+  height: 50px;
+  width: 50px;
+  transition:all .3s;
+}
+.mainPage .mainPageImg:hover{
+  transform: rotate(90deg);
+}
+.headContent .profile{
+  padding: 0px 10px;
+  float: right;
+}
+.profile .profileImg{
+  width: 49px;
+  transition: 0.3s;
+}
+.profile .profileImg:hover{
+  transform: rotate(9deg);
+}
+/* 
+    ABOUT CYBERMIND PLATFORM
+*/
+.gear{
+    animation-name:movingBall;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
+    animation-direction:normal;
+}
+@keyframes movingBall {
+    50%{
+        transform: rotateZ(180deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+/* 
+    ABOUT LEARN
+*/
+/* 
+    ABOUT TASKS
+*/
+/* 
+    EARN POINTS AND LEVEL
+*/
+/* 
+    CREATORS 
+*/
+.fragment>.title{
+  text-align: center;
+  padding-bottom: 10px;
+}
+.creators>.creator{
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+.creator  .creatorImage {
+    transition: all 0.5s;
+}
+.creator .creatorImage:hover {
+    transform: scale(1.3);
+}
+.creator .creatorName {
+    padding: 10px 0px;
+}
+.creator .creatorStatus {
+    color: #81292f;
+}
+.creator .statement{
+    padding-top: 40px;
+    opacity: 0.8;
+}
+/* 
+    FOOTER
+*/
+.footer{
+  padding: 3px;
+  flex-direction: column;
+  align-items: center;
+}
+.footer .social-icons{
+  margin-bottom: 10px;
+}
+.social-icon{
+  padding: 10px 15px 0px;
+  transition: all .3s linear;
+}
+.social-icon img{
+  height: 25px;
+  width: 25px;
+}
+.social-icon:nth-child(2){
+  border-left: 1px solid #a3a3a3;
+  border-right: 1px solid #a3a3a3;
+}

@@ -2,55 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
     <link rel="stylesheet" th:href="@{/css/tasks.css}" />
-    <link rel="stylesheet" th:href="@{/css/menu.css}" />
+    <link rel="stylesheet" th:href="@{/css/task.css}" />
     <title>Cybermind | Tasks</title>
 </head>
 <body>
     <div th:replace="fragments/header :: header"></div>
-
-    <section class="contant flex">
-
-        <!-- search -->
-        <div class="cl1">
+    <div class="content flex">
+        <!-- FIRST SORT BY NAME, LEVEL -->
+        <div class="sortBlock pagesBlock">
             <div class="search">
-                <input type="text" name="" id="">
-                <button>FIND</button>
+                <input class="searchInput" type="text" name="" id="">
+                <button class="searchButton sortItemLevel">FIND</button>
             </div>
-            <div class="sort">
-                <ul class="itemsSort">
-                    <li class="sortItemsLevel lvl1">Level 1</li>
-                    <li class="sortItemsLevel lvl2">Level 2</li>
-                    <li class="sortItemsLevel lvl3">Level 3</li>
-                </ul>
+            <div class="levelSort">
+                <button class="sortItemLevel lvl1">Level 1</button>
+                <button class="sortItemLevel lvl2">Level 2</button>
+                <button class="sortItemLevel lvl3">Level 3</button>
             </div>
         </div>
-
         <!-- Tasks -->
-        <div class="tasks block" th:each="t : ${tasks}">
+        <div class="tasks block pagesBlock" th:each="t : ${tasks}">
             <div th:replace="fragments/task :: task (task = ${t})">
             </div>
         </div>
-
         <!-- sort items by attributes -->
-        <div class="cl1">
-            <div class="sort">
-                <h2>Sort by:</h2>
-                <div class="itemsSort">
-                    <div class="itemSort">
-                        <h3>Rating</h3>
-                    </div>
-                    <div class="itemSort">
-                        <h3>Percent solutions</h3>
-                    </div>
-                    <div class="itemSort">
-                        <h3>Attributes</h3>
-                    </div>
+        <div class="sortBlock pagesBlock">
+            <h2>Sort by:</h2>
+            <div class="attributeSort">
+                <div class="itemSort">
+                    <h3>Rating</h3>
+                </div>
+                <div class="itemSort">
+                    <h3>Percent solutions</h3>
+                </div>
+                <div class="itemSort">
+                    <h3>Attributes</h3>
                 </div>
             </div>
-
         </div>
-
-    </section>
+    </div>
 
     <div th:replace="fragments/footer :: footer"></div>
 </body>
