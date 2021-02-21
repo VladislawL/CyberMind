@@ -22,6 +22,8 @@
     PROFILE PHOTO AND MAIN INFORMATION
 */
 .photo{
+    background: url("../images/avatar.jpg");
+    background-size: cover;
     width: 200px;
     height: 200px;
     margin-right: 20px;

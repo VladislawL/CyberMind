@@ -22,7 +22,7 @@ public class TaskController {
     @RequestMapping(value = "/task/{id}", method = RequestMethod.GET)
     public String taskPage(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("task", taskService.getTask(id));
-        return "task";
+        return "taskPage";
     }
 
     @Autowired

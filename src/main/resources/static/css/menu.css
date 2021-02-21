@@ -53,6 +53,9 @@
 }
 .logOut{
 	background: none;
+	border: none;
+	text-align: left;
+	color: white;
 	/*position: absolute;*/
 	/*bottom: 0px;*/
 	width: 100%;
