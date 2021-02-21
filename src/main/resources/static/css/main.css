@@ -1,89 +1,42 @@
-* {
+/* 
+    Main css styles for every page
+*/
+*{
     padding: 0;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    letter-spacing: .5px;
 }
-
-body {
+a{
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+body{
     background-attachment: fixed;
-    background-image: url("/images/back.png");
+    background-image: url("../images/back.png");
     background-size: cover;
 }
-
-header {
+.block {
+	display: block;
+}
+.flex{
     display: flex;
 }
-
-a {
-    text-decoration: none;
-    color: white;
+.none{
+    display: none;
 }
-
-ul {
-    list-style: none;
+.content{
+	margin-top: 70px;
+	margin: 0 auto;
+	padding: 100px 50px 50px 100px;
+	max-width: 1500px;
 }
-
-.login-form {
-    box-shadow: inset 0px 0px 10px 1px rgb(255, 255, 255);
-    margin: auto;
-    width: 400px;
-    height: 600px;
+.pagesBlock{
     background: #353541;
-    text-align: center;
-    border-radius: 20px;
+    border: 2px solid rgb(15, 15, 49);
+	border-radius: 10px;
 }
 
-.login-form img {
-    padding: 20px;
-    transition: 1s linear;
-}
-
-.login-form img:hover {
-    transform: rotate(90deg);
-}
-
-.login-form a {
-    color: grey;
-    transition: 0.5s all;
-}
-
-.login-form a:hover {
-    color: rgb(160, 34, 34);
-}
-
-.login-form h2 {
-    color: white;
-}
-
-.login-form p {
-    font-style: oblique;
-    padding-top: 10px;
-    color: white;
-}
-
-label {
-    font-size: 25px;
-}
-
-input {
-    box-shadow: 0 1px 2px 0 rgb(255, 255, 255);
-    border-radius: 2px;
-    border-color: rgb(75, 80, 133);
-    font-size: 20px;
-    height: 30px;
-    width: 250px;
-    color: black;
-}
-
-span {
-    color: white;
-}
-
-button:hover {
-    background-color: grey;
-}
-
-iframe {
-    width: 99%;
-    height: 99%;
-}

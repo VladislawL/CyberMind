@@ -1,0 +1,57 @@
+/* 
+    login page style
+*/
+.center{
+    padding: 100px;
+}
+.registrationForm{
+    box-shadow: inset 0px 0px 10px 1px rgb(255, 255, 255);
+    margin: auto;
+    width: 400px;
+    height: 600px;
+    text-align: center;
+    border-radius: 20px;
+}
+.registrationForm a{
+    text-decoration: underline;
+    color: grey;
+}
+.registrationForm a:hover{
+    color: rgb(255, 0, 0,0.8);
+}
+.registrationForm .mainImage{
+    padding: 20px;
+    transition: 1s linear all;
+}
+.registrationForm .mainImage:hover{
+    transform: rotate(90deg);
+}
+.registrationForm .title{
+    padding: 0px 30px 10px 30px;
+    color: rgb(255, 255, 255);
+}
+.registrationForm .input-item{
+    margin: 7px;
+    border-radius: 7px;
+    padding-left: 10px;
+    font-size: 20px;
+    height: 35px;
+    width: 230px;
+}
+.registrationForm .textArea{
+    padding: 15px 40px;
+    color: rgb(255, 255, 255);
+}
+.registrationForm .signButton{
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 10px;
+    width: 250px;
+    height: 40px;
+    transition: 0.4s ease;
+}
+.registrationForm .signButton:hover{
+    background-color: grey;
+}
+
+

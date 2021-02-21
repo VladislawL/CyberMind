@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <link>
+    <link rel="stylesheet" th:href="@{/css/registrationForm.css}"/>
     <title>Cybermind | Login</title>
 </head>
 <body>
@@ -21,32 +22,22 @@
 <!--        </form>-->
 <!--    </div>-->
 
-    <div class="content">
-        <form action="/login" method="POST" class="login-form">
+    <div class="content center">
+        <form action="/login" method="POST" class="registrationForm pagesBlock">
             <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
             <a href="/">
-                <img src="images/gear.png"  width=200px height=200px alt="">
+                <img  class="mainImage" src="images/gear.png"  width=200px height=200px alt="">
             </a>
-            <div class="title">
-                <h2>We are glad to see you there!</h2>
-            </div>
-            <p>
-                <!-- <label for="user_email">Login</label> -->
-                <input type="text" name="username" id="login" placeholder="Login" maxlength="30">
-            </p>
-            <p>
-                <!-- <label for="user_password">Password</label> -->
-                <input type="password" name="password" id="password" placeholder="Password" maxlength="15">
-            </p>
-            <p><a href="#">Forgot your password?</a></p>
-            <button class="signIn" type="submit">Sign in</button>
-            <div>
+            <h2 class="title">We are glad to see you there!</h2>
+            <input class="input-item" type="text" name="username" id="login" placeholder="Login" maxlength="30">
+            <input class="input-item" type="password" name="password" id="password" placeholder="Password" maxlength="15">
+            <p class="textArea"><a href="#">Forgot your password?</a></p>
+            <button class="signButton" type="submit">Sign in</button>
+            <div class="textArea">
                 <a href="/registration">Sign up</a>
-                <span>if you don't have an account yet.</span>
+                if you don't have an account yet.
             </div>
         </form>
     </div>
-
-    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

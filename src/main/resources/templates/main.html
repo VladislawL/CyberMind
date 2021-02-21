@@ -1,22 +1,106 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link>
-    <title>Cybermind</title>
+    <title>| CyberMind |</title>
+    <link rel="stylesheet" th:href="@{/css/cyberMind.css}">
+
 </head>
 <body>
-    <div th:replace="fragments/header :: header"></div>
-    <main class="container">
-        <div class="starter-template">
-            <h1>Cybermind</h1>
-            <h2>
-                <span th:text="'Our main page'"></span>
-            </h2>
+    <!-- HEADER CONTENT -->
+    <header class="head">
+        <div class="headContent">
+            <div class="mainPage">
+                <a href="#" class="flex">
+                    <img  class="mainPageImg" th:src="@{/images/gear.png}"  alt="">
+                    CyberMind
+                </a>
+            </div>
+            <div class="profile">
+                <a th:href="@{/login}" class="flex">
+                    <img th:src="@{/images/profile.svg}" class="profileImg" alt="">
+                    Sign in
+                </a>
+            </div>
         </div>
-        <form th:action="@{/login}" method="GET">
-            <button type="submit">Login</button>
-        </form>
-    </main>
-    <div th:replace="fragments/footer :: footer"></div>
+    </header>
+    <!-- ABOUT CYBERMIND PLATFORM -->
+    <section class="lightBack fragment flex">
+        <!-- <div class="aboutPlatform flex"> -->
+        <div class="photo">
+            <img class="gear fragmentImage" th:src="@{/images/gear.png}" height="250px" width="250px"  alt="">
+        </div>
+        <div class="description">
+            <h1 class="blackText">CyberMind is a platform to enchance your skills and knowledges</h1>
+        </div>
+        <!-- </div> -->
+    </section>
+    <!-- ABOUT LEARN -->
+    <section class="darkBack fragment flex">
+        <div class="description">
+            <h1 class="whiteText">Explore is a well-organized tool that helps you get the most out of Cybermind by providing
+                structure to guide your progress towards the next step in your programming career.</h1>
+        </div>
+        <div class="photo">
+            <img class="fragmentImage" th:src="@{/images/learn.JPG}" height="300px" width="300px" alt="">
+        </div>
+    </section>
+    <!-- ABOUT TASKS -->
+    <section class="lightBack fragment flex">
+        <div class="photo">
+            <img class="fragmentImage" th:src="@{/images/task.png}" height="200px" width="630px"  alt="">
+        </div>
+        <div class="description">
+            <h1 class="blackText">Train on tasks</h1>
+            <h1 class="blackText">Solve the kata with your coding style right in the browser and use test cases (TDD)
+                to check it as you progress. Retrain with new, creative, and optimized approaches.</h1>
+        </div>
+    </section>
+    <!-- EARN POINTS AND LEVEL -->
+    <section class="darkBack fragment flex">
+        <div class="description">
+            <h1 class="whiteText">Earn points and level</h1>
+                <h1 class="whiteText">Tasks are ranked to approximate difficulty. As you complete higher ranked task,
+                    you progress through the ranks so we can match you with relevant challenges.</h1>
+        </div>
+        <div class="photo">
+            <img class="fragmentImage" th:src="@{/images/levels.JPG}" alt="">
+        </div>
+    </section>
+    <!-- ABOUT CREATORS -->
+    <section class="lightBack fragment">
+        <div class="title">
+            <h1 class="blackText">Brought to you by</h1>
+        </div>
+        <div class="creators flex">
+            <div class="creator">
+                <figure><img class="creatorImage" th:src="@{/images/rectangle.png}" alt="photo" ></figure>
+                <figcaption>
+                    <h1 class="creatorName blackText">Trus Vladislav</h1>
+                    <h2 class="creatorStatus">Java developer</h2>
+                    <h3 class="statement blackText">“Отладка кода вдвое сложнее, чем его написание. Так что если вы пишете код настолько умно, насколько можете, то вы по определению недостаточно сообразительны, чтобы его отлаживать.”</h3>
+                </figcaption>
+            </div>
+
+            <div class="creator">
+                <figure><img class="creatorImage" th:src="@{/images/rectangle.png}" alt="photo"></figure>
+                <figcaption>
+                    <h1 class="creatorName blackText">Logvin Vladislav</h1>
+                    <h2 class="creatorStatus">Java developer</h2>
+                    <h3 class="statement blackText">“Измерять продуктивность программиста подсчетом строк кода — это так же, как оценивать постройку самолета по его весу.”</h3>
+                </figcaption>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="darkBack fragment footer flex">
+        <div class="social-icons flex">
+            <a href="#" class="social-icon"><img th:src="@{/images/Mail.png}" alt=""></a>
+            <a href="#" class="social-icon"><img th:src="@{/images/Skype.png}" alt=""></a>
+            <a href="#" class="social-icon"><img th:src="@{/images/Dribbble.png}" alt=""></a>
+        </div>
+        <p class="whiteText">Copyright: Trus Vladislav | Logvin Vladislav</p>
+        <p class="whiteText">All rights reserved</p>
+    </footer>
+<!--    <div th:replace="fragments/footer :: footer"></div>-->
 </body>
 </html>

@@ -1,72 +1,67 @@
-
-
-
-
-.flex {
-    display: flex;
-}
-
-/*
-    Contant section
+/* 
+    USING FOR ALL DOCUMENT
 */
-.content {
-    height: 100vh;
-    margin: 0px 0px 0px 120px;
+.noneBack{
+    background: none;
 }
-
-/*
-    Task description
+/* 
+      <!-- SHOW DESCRIPTION OR SOLUTION PLACE -->
 */
-
-.taskDescription {
-    background: rgba(24, 24, 24, 0);
-    width: 50%;
-    height: 100%;
-    border-right: solid 5px rgb(129, 43, 43);
+.head{
+    width: 200px;
+    justify-content: space-around;
 }
-
-.head {
-    color: white;
-    height: 5%;
+.headItem{
+    padding: 5px;
+    color: rgb(255, 255, 255);
 }
-
-.headItem {
-    background: rgb(73, 73, 73);
-    margin: 10px;
-}
-
-.description {
-    height: 95%;
-}
-
-/*
-    Place for user code and server unswer
+/* 
+    DESCRIPTION PLACE
 */
-.solutionPlace {
-    background: rgba(24, 24, 24, 0);
-    width: 50%;
-    height: 100%;
+.tasksPlace{
+    padding: 30px;
+    justify-content: center;
+}
+.task{
+    margin: 0 auto;
+}
+.descriptionPlace{
+    color: rgba(255, 255, 255, 0.7);
+    margin: 40px;
+    padding: 20px;
+}
+/* 
+    PLACE FOR USER CODE AND SERVER UNSWER
+*/
+.solutionPlace{
+    padding: 40px;
+}
+.codeEditor{
+    background: rgb(0,0,0,0.4);
+}
+.editor1{
+    color: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    min-height: 400px;
+    max-height: 550px;
+}
+.editor1:focus{
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.submit{
+    background: rgb(100,100,100);
+    transition: .3s;
+    margin: 20px 0px;
+    height: 50px;
+    font-size: 25px;
+    width: 100%;
+}
+.submit:hover{
+    background: rgb(70,70, 70);
 }
 
-.codeEditor {
-    color: white;
-    height: 65%;
-    margin: 20px;
+.result{
+    min-height: 200px;
+    max-height: 400px;
+    background: rgb(0,0,0,0.4);
 }
-
-.full {
-    background: rgb(0, 0, 0, 0.4);
-    height: 100%;
-    padding: 10px;
-}
-
-.sub {
-    margin: 10px 20px;
-}
-
-.result {
-    height: 20%;
-    margin: 0px 20px;
-    background: rgb(0, 0, 0, 0.4);
-}
-

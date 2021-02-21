@@ -2,75 +2,80 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
     <link rel="stylesheet" th:href="@{/css/profile.css}">
-    <link rel="stylesheet" th:href="@{/css/tasks.css}" />
+    <link rel="stylesheet" th:href="@{/css/task.css}">
     <title>Cybermind | Profile</title>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<!--    <main class="container">-->
-<!--        <div class="starter-template">-->
-<!--            <h1>Cybermind</h1>-->
-<!--            <h2>-->
-<!--                <span th:text="'Hello, ' + ${name}"></span>-->
-<!--            </h2>-->
-<!--        </div>-->
-<!--    </main>-->
-
+    <div th:replace="fragments/header :: header"></div>
     <div class="content">
-        <div class="mainInform">
-            <div class="profile">
-                <div class="photo"></div>
-                <div class="information">
-                    <h2 id="name" class="pad" th:text="${name}"></h2>
-                    <h3 id="points" class="pad">Points</h3>
-                    <h3 class="pad">Status</h3>
-                    <h3 class="pad">Last seen</h3>
+        <!-- PROFILE INFORMATION WITH FRIEND LIST -->
+        <div class="container flex">
+            <div class="contentWidth">
+                <!-- PROFILE PHOTO AND MAIN INFORMATION -->
+                <div class="profile flex">
+                    <div class="photo pagesBlock" style="background: url("/images/avatar.jpg"); background-size: cover;"></div>
+                    <div class="mainInformation pagesBlock">
+                        <div class="profileName pad">
+                            <h2 id="name" class="" th:text="${name}">Profile name</h2>
+                        </div>
+                        <div class="mainStats pad">
+                            <h3 id="points">Points</h3>
+                            <h3>Status</h3>
+                            <h3>Last seen</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- PROFILE FULL INFORMATION -->
+                <div class="fullInformation pagesBlock blockMarg">
+                    <div class="pad">
+                        <div class="totalStats">
+                            <h3 id="level" class="pad">Level 1</h3>
+                            <h3 id="points" class="pad">Points: 104</h3>
+                            <h3 id="leaderPosition" class="pad">Leaderboard position: 130</h3>
+                            <h3 id="totalTasks" class="pad">Total tasks: 10</h3>
+                            <h3 id="easyTasks" class="pad ">1 level tasks: 5</h3>
+                            <h3 id="mediumTasks" class="pad ">2 level tasks: 4</h3>
+                            <h3 id="hardTasks" class="pad">3 level tasks: 1</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="stats">
-                <div class="totalStats">
-                    <h3 id="level" class="pad">Level 1</h3>
-                    <h3 id="points" class="pad">Points: 104</h3>
-                    <h3 id="leaderPosition" class="pad">Leaderboard position: 130</h3>
-                    <h3 id="totalTasks" class="pad">Total tasks: 10</h3>
-                    <h3 id="easyTasks" class="pad padl">1 level tasks: 5</h3>
-                    <h3 id="mediumTasks" class="pad padl">2 level tasks: 4</h3>
-                    <h3 id="hardTasks" class="pad padl">3 level tasks: 1</h3>
+            <!-- PROFILE FRIENDS LIST -->
+            <div class="friendsList pagesBlock">
+                <div class="friend">
+                    <span> Friend 1</span>
                 </div>
-                <div class="diagram" id="diagram">
-                    <script src="https://www.google.com/jsapi"></script>
-                    <script>
-                        google.load("visualization", "1", {packages:["corechart"]});
-                        google.setOnLoadCallback(drawChart);
-                        function drawChart() {
-                            var data = google.visualization.arrayToDataTable([
-                                ['task level', 'complited'],
-                                ['1 level tasks', 5],
-                                ['2 level tasks', 4],
-                                ['3 level tasks', 1]
-                            ]);
-                            var options = {
-                                title: 'Total tasks: 10',
-                                is3D: false,
-                                pieResidueSliceLabel: 'Остальное',
-                                color:'white'
-                            };
-                            var chart = new google.visualization.PieChart(document.getElementById('diagram'));
-                            chart.draw(data, options);
-                        }
-                    </script>
+                <div class="friend">
+                    <span> Friend 2</span>
                 </div>
             </div>
-            <div class="profileTasks">
-                <dl class="head flex">
-                    <dd class="headItem"><a href="#">All</a></dd>
-                    <dd class="headItem"><a href="#">Solved</a></dd>
-                    <dd class="headItem"><a href="#">Attempted</a></dd>
-                </dl>
+        </div>
+        <!-- PROFILE COMPLETED AND ATTEMPTED TASKS -->
+        <div class="profileTasks blockMarg contentWidth">
+            <dl class="head flex pagesBlock">
+                <dd class="headItem">All</dd>
+                <dd class="headItem" style="border-left: 1px solid rgb(15, 15, 49); border-right: 1px solid rgb(15, 15, 49);">Solved</dd>
+                <dd class="headItem">Attempted</dd>
+            </dl>
+            <div class="tasks block pagesBlock">
+                <div class="task flex pagesBlock">
+                    <div class="taskContent">
+                        <div class="taskMain flex">
+                            <div class="taskLevel">1 level</div>
+                            <div class="taskName">&#10004;<a href="task.html">Task name</a></div>
+                        </div>
+                        <div class="taskStatic">
+                            <div class="rating">rating: 49</div>
+                            <div class="percentSolutions">percentSolutions: 69%</div>
+                            <div class="viewers">122 views</div>
+                        </div>
+                        <div class="taskAttribute">attributes</div>
+                    </div>
+                    <div class="taskColor lvl1"></div>
+                </div>
             </div>
         </div>
     </div>
-
-<div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

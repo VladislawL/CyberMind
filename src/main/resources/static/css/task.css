@@ -1,0 +1,61 @@
+/* 
+	TASK STYLE
+*/
+.task{
+	max-width: 900px;
+	width: 100%;
+	color: white;
+	margin-top:20px;
+	/* margin: 0 auto; */
+	border-radius: 20px;
+	background: #353541;
+	justify-content: space-between;
+}
+.task a{
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+.task:hover{
+	/* background: #2e2e38; */
+	background: #494958;
+}
+.taskContent{
+	width: 90%;
+}
+.taskMain{
+	border-bottom: solid 1px white;
+	font-size: 25px;
+}
+.taskColor{
+	border-left:solid 3px rgb(0, 0, 0);
+	width: 10%;
+	border-radius: 0px 20px 20px 0px;
+}
+.taskLevel{
+	padding: 15px;
+	border-right: 1px solid white;
+}
+.taskName{
+	padding: 15px;
+}
+.taskStatic{
+	padding: 15px;
+	border-bottom: 1px solid white;
+	display: flex;
+	justify-content: space-between;
+}
+.taskAttribute{
+	padding: 15px;
+}
+/* 
+	TASKS COLOR BY THEY LEVEL
+*/
+.lvl1{
+	background: linear-gradient(to right,rgba(202, 128, 128, 0.3),rgba(255, 255, 255, 0.7)) rgb(100,100,100);
+}
+.lvl2{
+	background: linear-gradient(to right,rgb(1,1,1,0.3),rgba(255, 255, 255, 0.7)) rgb(132,1,15);
+}
+.lvl3{
+	background: linear-gradient(to right,rgb(1,1,1,0.3),rgb(255,255,255,0.7)) rgb(62, 82, 199);
+}
