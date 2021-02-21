@@ -24,12 +24,6 @@ public class Task {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "output")
-    private String output;
-
-    @Column(name = "input")
-    private String input;
-
     @Column(name = "solution")
     private String solution;
 
@@ -39,11 +33,9 @@ public class Task {
     public Task() {
     }
 
-    public Task(String name, String description, String output, String input, String solution, List<Example> examples) {
+    public Task(String name, String description, String solution, List<Example> examples) {
         this.name = name;
         this.description = description;
-        this.output = output;
-        this.input = input;
         this.solution = solution;
         this.examples = examples;
     }
@@ -70,22 +62,6 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getOutput() {
-        return output;
-    }
-
-    public void setOutput(String output) {
-        this.output = output;
-    }
-
-    public String getInput() {
-        return input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
     }
 
     public String getSolution() {

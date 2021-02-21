@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/menu.css}"/>
     <link rel="stylesheet" th:href="@{/css/footer.css}"/>
-    <link rel="icon" th:href="@{images/icon.png}" sizes="16x16" type="image/png">
+    <link rel="icon" th:href="@{/images/icon.png}" sizes="16x16" type="image/png">
     <th:block th:replace="${links}" />
     <title th:replace="${title}"></title>
 </head>
@@ -17,12 +17,12 @@
     <header th:fragment="header">
         <div class="overlayMenu" id="overlayMenu"></div>
         <div class="showMenu" id="showMenu">
-            <img src="images/menuIcon.png" alt="">
+            <img th:src="@{/images/menuIcon.png}" alt="">
         </div>
         <!-- Menu  -->
         <div class="menu" id="menu">
             <div  class="closeMenu" id="closeMenu">
-                <img src="images/close.png" alt="">
+                <img th:src="@{/images/close.png}" alt="">
             </div>
             <div class="avatar flex">
                 <div class="avatarText">
