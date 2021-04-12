@@ -6,6 +6,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
@@ -16,7 +19,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -27,24 +30,29 @@ public class Task {
     @Column(name = "solution")
     private String solution;
 
-    @OneToMany(mappedBy = "taskId")
-    private List<Example> examples;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "task_tags",
+            joinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "tags_id", referencedColumnName = "id")
+    )
+    private List<Tag> tags;
 
     public Task() {
     }
 
-    public Task(String name, String description, String solution, List<Example> examples) {
+    public Task(String name, String description, String solution, List<Tag> tags) {
         this.name = name;
         this.description = description;
         this.solution = solution;
-        this.examples = examples;
+        this.tags = tags;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,7 +80,11 @@ public class Task {
         this.solution = solution;
     }
 
-    public List<Example> getExamples() {
-        return examples;
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 }

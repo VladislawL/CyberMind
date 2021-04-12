@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<ul th:fragment="pagination (paginationData)" class="pagination">
+<!--    Previous Page-->
+    <th:block th:if="${paginationData.currentPage > 0}">
+        <li class="previous">
+            <a th:href="@{/tasks(query=${param.query},page=${paginationData.currentPage - 1})}">
+                <span class="glyphicon glyphicon-menu-left"><</span>
+            </a>
+        </li>
+    </th:block>
+
+
+<!--    Prevous Pages-->
+    <th:block th:if="${paginationData.currentPage - paginationData.numberOfPagesToShow - 1 > 0}">
+        <li class="page-item">
+            <div th:replace="/fragments/pageLink :: pageLink (page = 0)"></div>
+        </li>
+        <li class="page-item disabled">...</li>
+        <th:block th:each="i : ${#numbers.sequence(paginationData.currentPage - paginationData.numberOfPagesToShow, paginationData.currentPage - 1, 1)}">
+            <li class="page-item">
+                <div th:replace="/fragments/pageLink :: pageLink (page = ${i})"></div>
+            </li>
+        </th:block>
+    </th:block>
+    <th:block th:if="${paginationData.numberOfPagesToShow - paginationData.currentPage + 1 >= 0}">
+        <th:block th:each="i : ${#numbers.sequence(0, paginationData.currentPage - 1, 1)}">
+            <li class="page-item">
+                <div th:replace="/fragments/pageLink :: pageLink (page = ${i})"></div>
+            </li>
+        </th:block>
+    </th:block>
+
+
+<!--    Current Page-->
+    <li class="page-item">
+        <div th:replace="/fragments/pageLink :: pageLink (page = ${paginationData.currentPage})"></div>
+    </li>
+
+
+<!--    Next Pages-->
+    <th:block th:if="${paginationData.currentPage + paginationData.numberOfPagesToShow + 1 < paginationData.numberOfPages - 1}">
+        <th:block th:each="i : ${#numbers.sequence(paginationData.currentPage + 1, paginationData.currentPage + paginationData.numberOfPagesToShow, 1)}">
+            <li class="page-item">
+                <div th:replace="/fragments/pageLink :: pageLink (page = ${i})"></div>
+            </li>
+        </th:block>
+        <li class="page-item disabled">...</li>
+        <li class="page-item">
+            <div th:replace="/fragments/pageLink :: pageLink (page = ${paginationData.numberOfPages - 1})"></div>
+        </li>
+    </th:block>
+    <th:block th:if="${paginationData.currentPage + paginationData.numberOfPagesToShow + 1 >= paginationData.numberOfPages - 1}">
+        <th:block th:each="i : ${#numbers.sequence(paginationData.currentPage + 1, paginationData.numberOfPages - 1, 1)}">
+            <li class="page-item">
+                <div th:replace="/fragments/pageLink :: pageLink (page = ${i})"></div>
+            </li>
+        </th:block>
+    </th:block>
+
+
+<!--    Next Page-->
+    <th:block th:if="${paginationData.currentPage < paginationData.numberOfPages - 1}">
+        <li class="previous">
+            <a th:href="@{/tasks(query=${param.query},page=${paginationData.currentPage + 1})}">
+                <span class="glyphicon glyphicon-menu-right">></span>
+            </a>
+        </li>
+    </th:block>
+</ul>
+</body>
+</html>

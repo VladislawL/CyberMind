@@ -1,6 +1,5 @@
 package com.mrkdiplom.cybermind.core.facade.dto.user;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 public class UserRegistrationDTO {

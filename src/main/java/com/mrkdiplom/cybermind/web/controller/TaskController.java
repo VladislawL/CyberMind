@@ -13,14 +13,8 @@ public class TaskController {
 
     private TaskService taskService;
 
-    @RequestMapping(value = "/tasks", method = RequestMethod.GET)
-    public String tasksPage(Model model) {
-        model.addAttribute("tasks", taskService.getAll());
-        return "tasks";
-    }
-
     @RequestMapping(value = "/task/{id}", method = RequestMethod.GET)
-    public String taskPage(@PathVariable("id") Integer id, Model model) {
+    public String taskPage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("task", taskService.getTask(id));
         return "taskPage";
     }

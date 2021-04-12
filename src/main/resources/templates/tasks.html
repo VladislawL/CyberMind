@@ -11,8 +11,10 @@
         <!-- FIRST SORT BY NAME, LEVEL -->
         <div class="sortBlock pagesBlock">
             <div class="search">
-                <input class="searchInput" type="text" name="" id="">
-                <button class="searchButton sortItemLevel">FIND</button>
+                <form method="GET">
+                    <input class="searchInput" type="text" name="query" id="query">
+                    <button type="submit" class="searchButton sortItemLevel">FIND</button>
+                </form>
             </div>
             <div class="levelSort">
                 <button class="sortItemLevel lvl1">Level 1</button>
@@ -21,9 +23,11 @@
             </div>
         </div>
         <!-- Tasks -->
-        <div class="tasks block pagesBlock" th:each="t : ${tasks}">
-            <div th:replace="fragments/task :: task (task = ${t})">
-            </div>
+        <div class="tasks block">
+            <th:block th:each="t : ${tasks}">
+                <div th:replace="fragments/task :: task (task = ${t})">
+                </div>
+            </th:block>
         </div>
         <!-- sort items by attributes -->
         <div class="sortBlock pagesBlock">
@@ -42,6 +46,14 @@
         </div>
     </div>
 
+<!--    <th:block th:each="i : ${#numbers.sequence(paginationData.numberOfPages - paginationData.numberOfPagesToShow, paginationData.currentPage, 1)}">-->
+<!--        <li class="page-item">-->
+<!--            <div th:replace="pageLink :: pageLink (page = ${i})"></div>-->
+<!--        </li>-->
+<!--    </th:block>-->
+
+    <div th:replace="fragments/pagination :: pagination (paginationData = ${paginationData})">
+    </div>
     <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
