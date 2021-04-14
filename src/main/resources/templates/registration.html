@@ -1,47 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link>
     <link rel="stylesheet" th:href="@{/css/registrationForm.css}">
     <title>Cybermind | Sign Up</title>
 </head>
 <body>
-
-<div class="container">
-    <form th:action="@{/registration}" th:object="${user}"
-          method="post" style="max-width: 600px; margin: 0 auto;">
-        <div class="m-3">
-            <div class="form-group row">
-                <label class="col-4 col-form-label">Username: </label>
-                <div class="col-8">
-                    <input th:field="*{username}" class="form-control" required />
-                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</p>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-4 col-form-label">Password: </label>
-                <div class="col-8">
-                    <input type="password" th:field="*{password}" class="form-control" />
-                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</p>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-4 col-form-label">Confirm Password: </label>
-                <div class="col-8">
-                    <input type="password" th:field="*{confirmPassword}" class="form-control" />
-                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</p>
-                </div>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </div>
-        </div>
+<div class="content center">
+    <form th:action="@{/registration}" th:object="${user}" method="post"
+          class="registrationForm pagesBlock">
+        <a href="CyberMind.html">
+            <img  class="mainImage" th:src="@{images/gear.png}"  width=200px height=200px alt="">
+        </a>
+        <input class="input-item" type="text" th:field="*{username}" placeholder="User name" maxlength="20" required />
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</p>
+        <input class="input-item" type="password" th:field="*{password}" placeholder="Password" required />
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</p>
+        <input class="input-item" type="password" th:field="*{confirmPassword}" placeholder="Confirm password" required />
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</p>
+        <p class="textArea">
+            <span>By creating an account, you agree to our </span>
+            <a href="singUpSystem.html">Privacy Policy</a>
+        </p>
+        <button class="signButton" type="submit">Sign Up</button>
     </form>
 </div>
-
-<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>

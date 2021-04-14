@@ -23,12 +23,14 @@
             </div>
         </div>
         <!-- Tasks -->
-        <div class="tasks block">
-            <th:block th:each="t : ${tasks}">
-                <div th:replace="fragments/task :: task (task = ${t})">
-                </div>
-            </th:block>
-        </div>
+            <div class="tasks block">
+                <th:block th:each="t : ${tasks}">
+                    <div th:replace="fragments/task :: task (task = ${t})">
+                    </div>
+                </th:block>
+                <div th:replace="fragments/pagination :: pagination (paginationData = ${paginationData})"></div>
+            </div>
+
         <!-- sort items by attributes -->
         <div class="sortBlock pagesBlock">
             <h2>Sort by:</h2>
@@ -52,8 +54,6 @@
 <!--        </li>-->
 <!--    </th:block>-->
 
-    <div th:replace="fragments/pagination :: pagination (paginationData = ${paginationData})">
-    </div>
     <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

@@ -1,43 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link>
     <link rel="stylesheet" th:href="@{/css/registrationForm.css}"/>
     <title>Cybermind | Login</title>
 </head>
 <body>
-
-<!--    <div class="container">-->
-<!--        <form class="form-signin" action="/login" method="POST">-->
-<!--            <h2 class="form-signin-heading">Please sign in</h2>-->
-<!--            <label for="username" class="sr-only">Username</label>-->
-<!--            <input type="text" name="username" class="form-control"-->
-<!--                   placeholder="Username" required autofocus>-->
-<!--            <label for="password" class="sr-only">Password</label>-->
-<!--            <input type="password" name="password" class="form-control"-->
-<!--                   placeholder="Password" required>-->
-<!--            <button class="btn btn-lg btn-primary btn-block" id="login"-->
-<!--                    type="submit">Sign in</button>-->
-<!--            <input type="hidden" name="_csrf" th:value="${_csrf.token}" />-->
-<!--        </form>-->
-<!--    </div>-->
-
-    <div class="content center">
-        <form action="/login" method="POST" class="registrationForm pagesBlock">
-            <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
-            <a href="/">
-                <img  class="mainImage" src="images/gear.png"  width=200px height=200px alt="">
-            </a>
-            <h2 class="title">We are glad to see you there!</h2>
-            <input class="input-item" type="text" name="username" id="login" placeholder="Login" maxlength="30">
-            <input class="input-item" type="password" name="password" id="password" placeholder="Password" maxlength="15">
-            <p class="textArea"><a href="#">Forgot your password?</a></p>
-            <button class="signButton" type="submit">Sign in</button>
-            <div class="textArea">
-                <a href="/registration">Sign up</a>
-                if you don't have an account yet.
-            </div>
-        </form>
-    </div>
+<div class="content center">
+    <form action="/login" method="POST" class="registrationForm pagesBlock">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <a href="/">
+            <img  class="mainImage" th:src="@{/images/gear.png}"  width=200px height=200px alt="">
+        </a>
+        <h2 class="title">We are glad to see you there!</h2>
+        <input class="input-item" type="text" name="username" id="login" placeholder="User name" maxlength="30">
+        <input class="input-item" type="password" name="password" id="password" placeholder="Password" maxlength="15">
+        <p class="textArea"><a href="#">Forgot your password?</a></p>
+        <button class="signButton" type="submit">Sign in</button>
+        <div class="textArea">
+            <a href="/registration">Sign up</a>
+            if you don't have an account yet.
+        </div>
+    </form>
+</div>
 </body>
 </html>

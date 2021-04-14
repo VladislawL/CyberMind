@@ -45,6 +45,36 @@
 	background: none;
 	width: 600px;
 }
+/* 
+    SECOND SORT ITEMS BY ATTRIBUTES
+*/
+.sortItem{
+	margin-top: 10px;
+	border: solid 1px white;
+	border-radius: 5px;
+}
+/*
+	PAGINATION
+ */
+.pagination{
+	padding-top: 20px;
+	text-align: center;
+}
+.pagination .current a{
+	color: rgb(179, 0, 0);
+}
+.pagination li{
+	color: white;
+	list-style: none;
+	display: inline-block;
+	padding-left: 10px;
+}
+.pagination li a{
+	color: white;
+}
+/*
+	@MEDIA
+*/
 @media screen and (min-width:1800px){
 	.tasks{
 		width: 900px;
@@ -54,12 +84,4 @@
 	.tasks{
 		width: 650px;
 	}
-}
-/* 
-    SECOND SORT ITEMS BY ATTRIBUTES
-*/
-.sortItem{
-	margin-top: 10px;
-	border: solid 1px white;
-	border-radius: 5px;
 }

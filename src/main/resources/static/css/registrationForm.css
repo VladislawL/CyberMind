@@ -17,11 +17,11 @@
     color: grey;
 }
 .registrationForm a:hover{
-    color: rgb(255, 0, 0,0.8);
+    color: rgba(255, 0, 0, 0.8);
 }
 .registrationForm .mainImage{
-    padding: 20px;
-    transition: 1s linear all;
+    margin: 20px;
+    transition: transform 1s linear;
 }
 .registrationForm .mainImage:hover{
     transform: rotate(90deg);
@@ -48,7 +48,7 @@
     margin: 10px;
     width: 250px;
     height: 40px;
-    transition: 0.4s ease;
+    transition: background-color 0.4s linear;
 }
 .registrationForm .signButton:hover{
     background-color: grey;
