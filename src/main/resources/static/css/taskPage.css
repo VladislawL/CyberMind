@@ -1,67 +1,58 @@
-/* 
-    USING FOR ALL DOCUMENT
+/*
+    CONTENT SECTION
 */
-.noneBack{
-    background: none;
-}
-/* 
-      <!-- SHOW DESCRIPTION OR SOLUTION PLACE -->
-*/
-.head{
-    width: 200px;
-    justify-content: space-around;
-}
-.headItem{
-    padding: 5px;
-    color: rgb(255, 255, 255);
-}
-/* 
-    DESCRIPTION PLACE
-*/
-.tasksPlace{
-    padding: 30px;
-    justify-content: center;
-}
-.task{
+.content{
+    height: 100vh;
     margin: 0 auto;
+    padding: 0px 0px 0px 120px;
+    max-height: 1500px;
 }
+/*
+    TASK DESCRIPTION
+*/
 .descriptionPlace{
-    color: rgba(255, 255, 255, 0.7);
-    margin: 40px;
-    padding: 20px;
+    width: 50%;
+    border-right: solid 5px rgb(129, 43, 43);
 }
-/* 
-    PLACE FOR USER CODE AND SERVER UNSWER
+.description{
+    overflow-y: auto;
+    margin: 20px;
+    padding: 10px;
+    height: calc(100% - 65px);
+    border: 2px solid white;
+    color: white;
+}
+/*
+    SOLUTION PLACE
 */
 .solutionPlace{
-    padding: 40px;
+    width: 50%;
+    height: 100%;
 }
-.codeEditor{
-    background: rgb(0,0,0,0.4);
+.backColor{
+    background: rgb(0,0,0,0.3);
 }
 .editor1{
+    margin: 20px;
+    padding: 10px;
+    height: calc(65% - 95px);
     color: rgba(255, 255, 255, 0.7);
-    padding: 15px;
-    min-height: 400px;
-    max-height: 550px;
 }
 .editor1:focus{
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.4);
 }
 .submit{
+    margin: 0px 20px;
+    height: 40px;
+    width: calc(100% - 40px);
+    font-size: 25px;
     background: rgb(100,100,100);
     transition: .3s;
-    margin: 20px 0px;
-    height: 50px;
-    font-size: 25px;
-    width: 100%;
 }
 .submit:hover{
     background: rgb(70,70, 70);
 }
-
 .result{
-    min-height: 200px;
-    max-height: 400px;
-    background: rgb(0,0,0,0.4);
+    height: calc(35% - 40px);
+    margin: 20px;
 }

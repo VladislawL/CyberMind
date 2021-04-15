@@ -6,70 +6,33 @@
     <title>Cybermind | Tasks</title>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<div class="content">
-    <!-- SHOW DESCRIPTION OR SOLUTION PLACE -->
-    <dl class="head pagesBlock flex">
-        <!-- <button class="headItem">Description</button> -->
-        <!-- <button class="headItem">Solution</button> -->
-        <dd class="headItem" onclick="change(0)" >Description</dd>
-        <dd class="headItem" onclick="change(1)">Solution</dd>
-    </dl>
-    <script>
-        function change(id){
-            if(id === 0){
-                document.getElementById('description').style.display = "block";
-                document.getElementById('solution').style.display = "none";
-            }else{
-                document.getElementById('description').style.display = "none";
-                document.getElementById('solution').style.display = "block";
-            }
-        }
-    </script>
-    <!-- DESCRIPTION PLACE -->
-    <div class="description pageItem noneBack pagesBlock block" id='description'>
-        <div class="tasksPlace">
-<!--                <div th:replace="fragments/task :: task (task = ${t})">-->
-<!--                </div>-->
-        </div>
-        <div class="descriptionPlace pagesBlock">
-            <h2 th:text="${task.name}">task1</h2>
-            <div>
-                <span th:text="${task.description}">description</span>
-            </div>
-        </div>
-    </div>
-    <!-- SOLUTION PLACE -->
-    <div class="solution pageItem noneBack pagesBlock none" id='solution'>
-        <div class="solutionPlace block">
-            <div class="codeEditor">
-                <!-- All that in comment must be correct -->
-                <div class="editor editor1 whiteText language-Java">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="content flex">
+        <!-- TASK DESCRIPTION -->
+        <div class="descriptionPlace">
+            <div class="description">
+                <h2 th:text="${task.name}">task1</h2>
+                <div>
+                    <span th:text="${task.description}">description</span>
                 </div>
-                <script type="module" id="code">
-                    import {CodeJar} from "/js/codejar.js"
-
-                    const jar = new CodeJar(
-                        document.querySelector(".editor"),
-                        Prism.highlightElement
-                    )
-                </script>
-                <script src="/js/prism-core.js"></script>
-                <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script> -->
-                <!-- JS code editor -->
-                <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>           -->
             </div>
-            <button class="submit" id='submit'>SUBMIT</button>
-
-            <script>
-                document.getElementById('submit').onclick = function(){
-                    document.getElementById('result').style.display = 'block';
-                }
+        </div>
+        <!-- SOLUTION PLACE -->
+        <div class="solutionPlace">
+            <div class="editor editor1 backColor language-Java">
+            </div>
+            <script type="module" id="code">
+                import {CodeJar} from  "/js/codejar.js"
+                const jar = new CodeJar(
+                    document.querySelector(".editor"),
+                    Prism.highlightElement
+                )
             </script>
-            <div class="result none" id='result'></div>
+            <script src="/js/prism-core.js"></script>
+            <button class="submit" id='submit'>SUBMIT</button>
+            <div class="result backColor"></div>
         </div>
     </div>
-</div>
-<div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
