@@ -2,7 +2,7 @@ package com.mrkdiplom.cybermind.web.controller;
 
 import com.mrkdiplom.cybermind.core.facade.TaskFacade;
 import com.mrkdiplom.cybermind.core.facade.dto.task.TaskDTO;
-import com.mrkdiplom.cybermind.core.service.task.TaskService;
+import com.mrkdiplom.cybermind.core.sandbox.TaskExecutionResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -26,13 +26,12 @@ public class TaskController {
         return "taskPage";
     }
 
-    @PostMapping(value = "/task/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/task/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String testTask(@PathVariable("id") Long id, @RequestBody TaskDTO code) throws IOException {
+    public TaskExecutionResult testTask(@PathVariable("id") Long id, @RequestBody TaskDTO code) throws IOException {
         code.setId(id);
         taskFacade.saveTaskCode(code);
-        taskFacade.startTask(code);
-        return "taskPage";
+        return taskFacade.startTask(code);
     }
 
     @Autowired

@@ -4,6 +4,7 @@ import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.facade.TaskFacade;
 import com.mrkdiplom.cybermind.core.facade.converter.task.TaskConverter;
 import com.mrkdiplom.cybermind.core.facade.dto.task.TaskDTO;
+import com.mrkdiplom.cybermind.core.sandbox.TaskExecutionResult;
 import com.mrkdiplom.cybermind.core.service.task.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,10 +39,10 @@ public class DefaultTaskFacade implements TaskFacade {
     }
 
     @Override
-    public void startTask(TaskDTO taskDTO) throws IOException {
+    public TaskExecutionResult startTask(TaskDTO taskDTO) throws IOException {
         Task task = taskService.getTask(taskDTO.getId());
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         taskService.createJavaFile(task, userDetails);
-        taskService.startTask(task, userDetails);
+        return taskService.startTask(task, userDetails);
     }
 }

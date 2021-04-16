@@ -10,29 +10,32 @@ import java.io.InputStreamReader;
 @Component
 public class SandBox {
 
-    public static void start(String path) throws IOException {
+    public static TaskExecutionResult start(String path) throws IOException {
         Process process = Runtime.getRuntime().exec("java.exe " + path);
 
         InputStream stdout = process.getInputStream();
         InputStream stderr = process.getErrorStream();
 
         String line = "";
+        String out = "";
+        String error = "";
 
         BufferedReader outReader = new BufferedReader(new InputStreamReader(stdout));
         while ((line = outReader.readLine()) != null) { //считываем поток выхода
-            System.out.println(line);
+            out += line + "\n";
         }
         outReader.close();
 
+
         BufferedReader errReader = new BufferedReader(new InputStreamReader(stderr));
         while ((line = errReader.readLine()) != null) { //считываем поток ошибок
-            System.out.println(line);
+            error += line + "\n";
             if (line.contains("Exception in thread")) {
                 break;
             }
         }
         errReader.close();
 
-        System.out.println(process.exitValue());
+        return new TaskExecutionResult(out, error, process.exitValue());
     }
 }

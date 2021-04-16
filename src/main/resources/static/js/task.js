@@ -21,7 +21,8 @@ submitButton.addEventListener("click", function() {
             code: code
         }),
         success: function(data) {
-
+            let result = document.getElementById("result");
+            result.innerText = data.out + "\n" + data.error + "\n" + data.codeResult;
         },
         error: function(request, status, error) {
 

@@ -4,6 +4,7 @@ import com.mrkdiplom.cybermind.core.entity.Tag;
 import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.repository.task.TaskRepository;
 import com.mrkdiplom.cybermind.core.sandbox.SandBox;
+import com.mrkdiplom.cybermind.core.sandbox.TaskExecutionResult;
 import com.mrkdiplom.cybermind.core.service.task.TaskService;
 import com.mrkdiplom.cybermind.utils.FileUtils;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
@@ -71,8 +72,8 @@ public class DefaultTaskService implements TaskService {
     }
 
     @Override
-    public void startTask(Task task, UserDetails userDetails) throws IOException {
-        SandBox.start(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Test.java"));
+    public TaskExecutionResult startTask(Task task, UserDetails userDetails) throws IOException {
+        return SandBox.start(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Test.java"));
     }
 
     @Autowired
