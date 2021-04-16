@@ -4,11 +4,15 @@ import com.mrkdiplom.cybermind.core.entity.Tag;
 import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.repository.task.TaskRepository;
 import com.mrkdiplom.cybermind.core.service.task.TaskService;
+import com.mrkdiplom.cybermind.utils.FileUtils;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
+import com.mrkdiplom.cybermind.web.siteconfig.SiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,6 +20,7 @@ import java.util.List;
 public class DefaultTaskService implements TaskService {
 
     private TaskRepository taskRepository;
+    private SiteConfig siteConfig;
 
     @Override
     public List<Task> getAll() {
@@ -41,8 +46,41 @@ public class DefaultTaskService implements TaskService {
         return taskRepository.countTasksByNameContainingIgnoreCase(query);
     }
 
+    @Override
+    public String getTaskCode(Task task, UserDetails userDetails) throws IOException {
+        if (!FileUtils.fileExists(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Solution.txt"))) {
+            return FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName().toLowerCase(), "Solution.txt"));
+        } else {
+            return FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Solution.txt"));
+        }
+    }
+
+    @Override
+    public void saveTaskCode(Task task, UserDetails userDetails, String code) throws IOException {
+        FileUtils.saveFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase()), "Solution.txt", code);
+    }
+
+    @Override
+    public void createJavaFile(Task task, UserDetails userDetails) throws IOException {
+        String testFile = FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName().toLowerCase(), "Test.txt"));
+        String solutionFile = FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Solution.txt"));
+        FileUtils.saveFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase()),
+                "Solution.java",
+                testFile + "\n" + solutionFile);
+    }
+
+    @Override
+    public void startTask(Task task, UserDetails userDetails) {
+
+    }
+
     @Autowired
     public void setTaskRepository(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
+    }
+
+    @Autowired
+    public void setSiteConfig(SiteConfig siteConfig) {
+        this.siteConfig = siteConfig;
     }
 }

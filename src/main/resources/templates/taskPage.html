@@ -19,7 +19,8 @@
         </div>
         <!-- SOLUTION PLACE -->
         <div class="solutionPlace">
-            <div class="editor editor1 backColor language-Java">
+            <div id="editor" class="editor editor1 backColor language-Java" th:text="${task.code}">
+
             </div>
             <script type="module" id="code">
                 import {CodeJar} from  "/js/codejar.js"
@@ -34,5 +35,6 @@
         </div>
     </div>
     <div th:replace="fragments/footer :: footer"></div>
+    <script th:src="@{/js/task.js}"></script>
 </body>
 </html>

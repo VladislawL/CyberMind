@@ -1,26 +1,42 @@
 package com.mrkdiplom.cybermind.web.controller;
 
+import com.mrkdiplom.cybermind.core.facade.TaskFacade;
+import com.mrkdiplom.cybermind.core.facade.dto.task.TaskDTO;
 import com.mrkdiplom.cybermind.core.service.task.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.io.IOException;
 
 @Controller
 public class TaskController {
 
-    private TaskService taskService;
+    private TaskFacade taskFacade;
 
-    @RequestMapping(value = "/task/{id}", method = RequestMethod.GET)
-    public String taskPage(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("task", taskService.getTask(id));
+    @GetMapping(value = "/task/{id}")
+    public String taskPage(@PathVariable("id") Long id, Model model) throws IOException {
+        model.addAttribute("task", taskFacade.getTask(id));
+        return "taskPage";
+    }
+
+    @PostMapping(value = "/task/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String testTask(@PathVariable("id") Long id, @RequestBody TaskDTO code) throws IOException {
+        code.setId(id);
+        taskFacade.saveTaskCode(code);
+        taskFacade.startTask(code);
         return "taskPage";
     }
 
     @Autowired
-    public void setTaskService(TaskService taskService) {
-        this.taskService = taskService;
+    public void setTaskFacade(TaskFacade taskFacade) {
+        this.taskFacade = taskFacade;
     }
 }
