@@ -53,6 +53,19 @@
     background: rgb(70,70, 70);
 }
 .result{
-    height: calc(35% - 40px);
     margin: 20px;
+    padding: 10px;
+    height: calc(35% - 60px);
+    overflow-y: auto;
+}
+.out{
+    color: rgba(255, 255, 255, 0.7);
+}
+.error{
+    color: rgb(131, 31, 31);
+}
+.success{
+    font-size: 40px;
+    text-align: center;
+    color: rgb(20, 117, 16);
 }

@@ -17,20 +17,22 @@ public class SandBox {
         InputStream stderr = process.getErrorStream();
 
         String line = "";
-        String out = "";
-        String error = "";
 
+        String out = "";
         BufferedReader outReader = new BufferedReader(new InputStreamReader(stdout));
         while ((line = outReader.readLine()) != null) { //считываем поток выхода
             out += line + "\n";
         }
         outReader.close();
 
-
+        String error = "";
         BufferedReader errReader = new BufferedReader(new InputStreamReader(stderr));
         while ((line = errReader.readLine()) != null) { //считываем поток ошибок
+            if(line.contains("error")){
+                line = line.substring(line.lastIndexOf("error"));
+            }
             error += line + "\n";
-            if (line.contains("Exception in thread")) {
+            if (line.contains("Exception in thread \"main\"")) {
                 break;
             }
         }

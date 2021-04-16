@@ -22,7 +22,24 @@ submitButton.addEventListener("click", function() {
         }),
         success: function(data) {
             let result = document.getElementById("result");
-            result.innerText = data.out + "\n" + data.error + "\n" + data.codeResult;
+            result.innerText = "";
+            if(data.codeResult == 0){
+                let success = document.createElement("p");
+                success.className = "success";
+                success.innerText = "Successful!"
+                result.appendChild(success);
+            }else{
+                let out = document.createElement("p");
+                out.className = "out";
+                out.innerText = data.out;
+                result.appendChild(out);
+
+                let error = document.createElement("p");
+                error.className = "error";
+                error.innerText = data.error;
+                result.appendChild(error)
+            }
+
         },
         error: function(request, status, error) {
 
