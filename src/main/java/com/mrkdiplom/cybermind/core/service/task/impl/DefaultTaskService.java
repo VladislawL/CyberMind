@@ -3,6 +3,7 @@ package com.mrkdiplom.cybermind.core.service.task.impl;
 import com.mrkdiplom.cybermind.core.entity.Tag;
 import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.repository.task.TaskRepository;
+import com.mrkdiplom.cybermind.core.sandbox.SandBox;
 import com.mrkdiplom.cybermind.core.service.task.TaskService;
 import com.mrkdiplom.cybermind.utils.FileUtils;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
@@ -65,13 +66,13 @@ public class DefaultTaskService implements TaskService {
         String testFile = FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName().toLowerCase(), "Test.txt"));
         String solutionFile = FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Solution.txt"));
         FileUtils.saveFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase()),
-                "Solution.java",
+                "Test.java",
                 testFile + "\n" + solutionFile);
     }
 
     @Override
-    public void startTask(Task task, UserDetails userDetails) {
-
+    public void startTask(Task task, UserDetails userDetails) throws IOException {
+        SandBox.start(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Test.java"));
     }
 
     @Autowired

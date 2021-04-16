@@ -16,5 +16,5 @@ public interface TaskService {
     String getTaskCode(Task task, UserDetails userDetails) throws IOException;
     void saveTaskCode(Task task, UserDetails userDetails, String code) throws IOException;
     void createJavaFile(Task task, UserDetails userDetails) throws IOException;
-    void startTask(Task task, UserDetails userDetails);
+    void startTask(Task task, UserDetails userDetails) throws IOException;
 }

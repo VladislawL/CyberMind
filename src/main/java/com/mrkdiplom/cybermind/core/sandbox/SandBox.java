@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 public class SandBox {
 
     public static void start(String path) throws IOException {
-        String[] strings = new String[]{""};
         Process process = Runtime.getRuntime().exec("java.exe " + path);
 
         InputStream stdout = process.getInputStream();
@@ -27,8 +26,8 @@ public class SandBox {
 
         BufferedReader errReader = new BufferedReader(new InputStreamReader(stderr));
         while ((line = errReader.readLine()) != null) { //считываем поток ошибок
+            System.out.println(line);
             if (line.contains("Exception in thread")) {
-                System.out.println(line);
                 break;
             }
         }
