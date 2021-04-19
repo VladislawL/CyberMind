@@ -2,7 +2,7 @@ package com.mrkdiplom.cybermind.core.service.task.impl;
 
 import com.mrkdiplom.cybermind.core.entity.Tag;
 import com.mrkdiplom.cybermind.core.entity.Task;
-import com.mrkdiplom.cybermind.core.repository.task.TaskRepository;
+import com.mrkdiplom.cybermind.core.repository.TaskRepository;
 import com.mrkdiplom.cybermind.core.sandbox.SandBox;
 import com.mrkdiplom.cybermind.core.sandbox.TaskExecutionResult;
 import com.mrkdiplom.cybermind.core.service.task.TaskService;
@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DefaultTaskService implements TaskService {
@@ -39,8 +40,8 @@ public class DefaultTaskService implements TaskService {
     }
 
     @Override
-    public Task getTask(Long id) {
-        return taskRepository.getOne(id);
+    public Optional<Task> getTask(Long id) {
+        return taskRepository.findById(id);
     }
 
     @Override

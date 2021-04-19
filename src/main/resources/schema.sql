@@ -47,12 +47,12 @@ ENGINE = InnoDB;
 -- Table `cybermind`.`relationship`
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`relationship` (
-  `userId` INT NOT NULL,
+  `user_id` INT NOT NULL,
   `friend` INT NOT NULL,
   INDEX `fk_relationship_user1_idx` (`friend` ASC) VISIBLE,
-  PRIMARY KEY (`userId`, `friend`),
+  PRIMARY KEY (`user_id`, `friend`),
   CONSTRAINT `fk_relationship_user`
-    FOREIGN KEY (`userId`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `cybermind`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -71,8 +71,6 @@ CREATE TABLE `cybermind`.`task` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(2048) NOT NULL,
-  `solution` VARCHAR(45) NULL,
-  `views` INT NULL,
   `level` INT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -82,19 +80,19 @@ ENGINE = InnoDB;
 -- Table `cybermind`.`solved_tasks`
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`solved_tasks` (
-  `userId` INT NOT NULL,
-  `taskId` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `task_id` INT NOT NULL,
   `is_solved` TINYINT NOT NULL,
-  PRIMARY KEY (`userId`, `taskId`),
-  INDEX `fk_user_has_task_task1_idx` (`taskId` ASC) VISIBLE,
-  INDEX `fk_user_has_task_user1_idx` (`userId` ASC) VISIBLE,
+  PRIMARY KEY (`user_id`, `task_id`),
+  INDEX `fk_user_has_task_task1_idx` (`task_id` ASC) VISIBLE,
+  INDEX `fk_user_has_task_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_has_task_user1`
-    FOREIGN KEY (`userId`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `cybermind`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_task_task1`
-    FOREIGN KEY (`taskId`)
+    FOREIGN KEY (`task_id`)
     REFERENCES `cybermind`.`task` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -116,13 +114,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`chapter` (
   `id` INT NOT NULL,
-  `learnId` INT NOT NULL,
+  `learn_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `text` VARCHAR(1024) NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_chapter_learn1_idx` (`learnId` ASC) VISIBLE,
+  INDEX `fk_chapter_learn1_idx` (`learn_id` ASC) VISIBLE,
   CONSTRAINT `fk_chapter_learn1`
-    FOREIGN KEY (`learnId`)
+    FOREIGN KEY (`learn_id`)
     REFERENCES `cybermind`.`learn` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

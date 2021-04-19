@@ -1,5 +1,8 @@
 package com.mrkdiplom.cybermind.core.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,11 +14,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "task")
-public class Task {
+public class Task implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,9 +31,7 @@ public class Task {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "solution")
-    private String solution;
-
+    @Fetch(FetchMode.SELECT)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "task_tags",
@@ -38,13 +40,16 @@ public class Task {
     )
     private List<Tag> tags;
 
+    @Fetch(FetchMode.SELECT)
+    @OneToMany(mappedBy = "task", fetch = FetchType.EAGER)
+    private List<SolvedTask> solvedTasks;
+
     public Task() {
     }
 
-    public Task(String name, String description, String solution, List<Tag> tags) {
+    public Task(String name, String description, List<Tag> tags) {
         this.name = name;
         this.description = description;
-        this.solution = solution;
         this.tags = tags;
     }
 
@@ -72,19 +77,19 @@ public class Task {
         this.description = description;
     }
 
-    public String getSolution() {
-        return solution;
-    }
-
-    public void setSolution(String solution) {
-        this.solution = solution;
-    }
-
     public List<Tag> getTags() {
         return tags;
     }
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public List<SolvedTask> getSolvedTasks() {
+        return solvedTasks;
+    }
+
+    public void setSolvedTasks(List<SolvedTask> solvedTasks) {
+        this.solvedTasks = solvedTasks;
     }
 }

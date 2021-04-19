@@ -1,11 +1,10 @@
 package com.mrkdiplom.cybermind.core.service.user.impl;
 
-import com.mrkdiplom.cybermind.core.entity.Role;
 import com.mrkdiplom.cybermind.core.entity.User;
 import com.mrkdiplom.cybermind.core.facade.converter.user.UserRegistrationDTOConverter;
 import com.mrkdiplom.cybermind.core.facade.dto.user.UserRegistrationDTO;
-import com.mrkdiplom.cybermind.core.repository.user.RoleRepository;
-import com.mrkdiplom.cybermind.core.repository.user.UserRepository;
+import com.mrkdiplom.cybermind.core.repository.RoleRepository;
+import com.mrkdiplom.cybermind.core.repository.UserRepository;
 import com.mrkdiplom.cybermind.core.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,6 +27,11 @@ public class DefaultUserService implements UserService {
         user.setEnabled(Boolean.TRUE);
         user.setRoles(Arrays.asList(roleRepository.getRoleByName("USER")));
         userRepository.save(user);
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
     }
 
     @Autowired

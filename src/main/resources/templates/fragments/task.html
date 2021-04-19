@@ -11,8 +11,8 @@
             </div>
             <div class="taskStatic">
                 <div class="rating">rating: 49</div>
-                <div class="percentSolutions">percentSolutions: 69%</div>
-                <div class="viewers">122 views</div>
+                <div class="percentSolutions" th:text="${task.views != 0} ? 'Solutions: ' + ${(task.solutions * 1.0)/task.views * 100} + '%' : ''"></div>
+                <div class="viewers" th:text="${task.views} + ' views'"></div>
             </div>
             <div class="taskAttribute">attributes</div>
         </div>

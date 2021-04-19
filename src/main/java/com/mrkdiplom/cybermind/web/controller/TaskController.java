@@ -22,7 +22,9 @@ public class TaskController {
 
     @GetMapping(value = "/task/{id}")
     public String taskPage(@PathVariable("id") Long id, Model model) throws IOException {
-        model.addAttribute("task", taskFacade.getTask(id));
+        TaskDTO task = taskFacade.getTask(id);
+        taskFacade.viewTask(task);
+        model.addAttribute("task", task);
         return "taskPage";
     }
 

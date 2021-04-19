@@ -1,5 +1,8 @@
 package com.mrkdiplom.cybermind.core.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,12 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +37,7 @@ public class User {
     @Column(name = "points")
     private Integer points = 0;
 
+    @Fetch(FetchMode.SELECT)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
@@ -39,6 +45,10 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
     )
     private List<Role> roles;
+
+    @Fetch(FetchMode.SELECT)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<SolvedTask> solvedTasks;
 
     public User() {
     }
@@ -96,5 +106,13 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<SolvedTask> getSolvedTasks() {
+        return solvedTasks;
+    }
+
+    public void setSolvedTasks(List<SolvedTask> solvedTasks) {
+        this.solvedTasks = solvedTasks;
     }
 }

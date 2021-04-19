@@ -1,7 +1,7 @@
 package com.mrkdiplom.cybermind.config.security.userdetails;
 
 import com.mrkdiplom.cybermind.core.entity.User;
-import com.mrkdiplom.cybermind.core.repository.user.UserRepository;
+import com.mrkdiplom.cybermind.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,7 @@
 package com.mrkdiplom.cybermind.web.controller;
 
-import com.mrkdiplom.cybermind.core.entity.Task;
+import com.mrkdiplom.cybermind.core.facade.TaskFacade;
+import com.mrkdiplom.cybermind.core.facade.dto.task.TaskDTO;
 import com.mrkdiplom.cybermind.core.service.task.TaskService;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
 import com.mrkdiplom.cybermind.web.siteconfig.SiteConfig;
@@ -18,6 +19,7 @@ import java.util.List;
 public class TaskListController {
 
     private TaskService taskService;
+    private TaskFacade taskFacade;
     private SiteConfig siteConfig;
 
     @GetMapping
@@ -28,7 +30,7 @@ public class TaskListController {
             @RequestParam(value = "SortOrder", defaultValue = "", required = false) String sortOrder,
             Model model) {
         PaginationData paginationData = createPaginationData(siteConfig.getPageSize(), page, siteConfig.getNumberOfPagesToShow(), query);
-        List<Task> taskList = taskService.getTaskPage(query, null, paginationData);
+        List<TaskDTO> taskList = taskFacade.getTasks(query, null, paginationData);
         model.addAttribute("tasks", taskList);
         model.addAttribute("paginationData", paginationData);
         return "tasks";
@@ -59,5 +61,10 @@ public class TaskListController {
     @Autowired
     public void setSiteConfig(SiteConfig siteConfig) {
         this.siteConfig = siteConfig;
+    }
+
+    @Autowired
+    public void setTaskFacade(TaskFacade taskFacade) {
+        this.taskFacade = taskFacade;
     }
 }

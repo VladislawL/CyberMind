@@ -8,11 +8,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public interface TaskService {
     List<Task> getAll();
     List<Task> getTaskPage(String query, List<Tag> tags, PaginationData paginationData);
-    Task getTask(Long id);
+    Optional<Task> getTask(Long id);
     long getNumberOfTasks(String query, List<Tag> tags);
     String getTaskCode(Task task, UserDetails userDetails) throws IOException;
     void saveTaskCode(Task task, UserDetails userDetails, String code) throws IOException;

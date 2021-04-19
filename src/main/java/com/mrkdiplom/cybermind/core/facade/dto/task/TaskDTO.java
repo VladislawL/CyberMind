@@ -5,6 +5,8 @@ public class TaskDTO {
     private String name;
     private String description;
     private String code;
+    private Long views;
+    private Long solutions;
 
     public TaskDTO() {
     }
@@ -46,5 +48,21 @@ public class TaskDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getViews() {
+        return views;
+    }
+
+    public void setViews(Long views) {
+        this.views = views;
+    }
+
+    public Long getSolutions() {
+        return solutions;
+    }
+
+    public void setSolutions(Long solutions) {
+        this.solutions = solutions;
     }
 }

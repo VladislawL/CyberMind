@@ -1,4 +1,4 @@
-package com.mrkdiplom.cybermind.core.repository.user;
+package com.mrkdiplom.cybermind.core.repository;
 
 import com.mrkdiplom.cybermind.core.entity.Role;
 import org.springframework.data.jpa.repository.Query;
