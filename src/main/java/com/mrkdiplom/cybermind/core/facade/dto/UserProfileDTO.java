@@ -11,9 +11,9 @@ public class UserProfileDTO {
     private Long points;
     private Long leaderBoardPosition;
     private Map<Long, Long> numberOfSolvedTasks;
-    private List<Task> tasks;
-    private List<Task> solvedTasks;
-    private List<Task> attemptedTasks;
+    private List<TaskDTO> tasks;
+    private List<TaskDTO> solvedTasks;
+    private List<TaskDTO> attemptedTasks;
 
     public UserProfileDTO() {
     }
@@ -58,27 +58,27 @@ public class UserProfileDTO {
         this.numberOfSolvedTasks = numberOfSolvedTasks;
     }
 
-    public List<Task> getTasks() {
+    public List<TaskDTO> getTasks() {
         return tasks;
     }
 
-    public void setTasks(List<Task> tasks) {
+    public void setTasks(List<TaskDTO> tasks) {
         this.tasks = tasks;
     }
 
-    public List<Task> getSolvedTasks() {
+    public List<TaskDTO> getSolvedTasks() {
         return solvedTasks;
     }
 
-    public void setSolvedTasks(List<Task> solvedTasks) {
+    public void setSolvedTasks(List<TaskDTO> solvedTasks) {
         this.solvedTasks = solvedTasks;
     }
 
-    public List<Task> getAttemptedTasks() {
+    public List<TaskDTO> getAttemptedTasks() {
         return attemptedTasks;
     }
 
-    public void setAttemptedTasks(List<Task> attemptedTasks) {
+    public void setAttemptedTasks(List<TaskDTO> attemptedTasks) {
         this.attemptedTasks = attemptedTasks;
     }
 }

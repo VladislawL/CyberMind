@@ -7,6 +7,15 @@ public class TaskDTO {
     private String code;
     private Long views;
     private Long solutions;
+    private Long level;
+
+    public Long getLevel() {
+        return level;
+    }
+
+    public void setLevel(Long level) {
+        this.level = level;
+    }
 
     public TaskDTO() {
     }

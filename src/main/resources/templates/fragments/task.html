@@ -6,7 +6,7 @@
     <div th:fragment="task (task)" class="task flex pagesBlock">
         <div class="taskContent">
             <div class="taskMain flex">
-                <div class="taskLevel">1 level</div>
+                <div class="taskLevel" th:text="${task.level} + ' level'"></div>
                 <div class="taskName">&#10004;<a th:href="@{/task/{id}(id = ${task.id})}" th:text="${task.name}"></a></div>
             </div>
             <div class="taskStatic">
@@ -16,7 +16,8 @@
             </div>
             <div class="taskAttribute">attributes</div>
         </div>
-        <div class="taskColor lvl1"></div>
+        <div th:class="'taskColor lvl' + ${task.level}"></div>
     </div>
+
 </body>
 </html>

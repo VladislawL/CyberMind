@@ -54,25 +54,14 @@
         <div class="profileTasks blockMarg contentWidth">
             <dl class="head flex pagesBlock">
                 <dd class="headItem">All</dd>
-                <dd class="headItem" style="border-left: 1px solid rgb(15, 15, 49); border-right: 1px solid rgb(15, 15, 49);">Solved</dd>
+                <dd class="headItem">Solved</dd>
                 <dd class="headItem">Attempted</dd>
             </dl>
             <div class="tasks block pagesBlock">
-                <div class="task flex pagesBlock">
-                    <div class="taskContent">
-                        <div class="taskMain flex">
-                            <div class="taskLevel">1 level</div>
-                            <div class="taskName">&#10004;<a href="taskPage.html">Task name</a></div>
-                        </div>
-                        <div class="taskStatic">
-                            <div class="rating">rating: 49</div>
-                            <div class="percentSolutions">percentSolutions: 69%</div>
-                            <div class="viewers">122 views</div>
-                        </div>
-                        <div class="taskAttribute">attributes</div>
+                <th:block th:each="t : ${userProfile.getTasks()}">
+                    <div th:replace="fragments/task :: task (task = ${t})">
                     </div>
-                    <div class="taskColor lvl1"></div>
-                </div>
+                </th:block>
             </div>
         </div>
     </div>

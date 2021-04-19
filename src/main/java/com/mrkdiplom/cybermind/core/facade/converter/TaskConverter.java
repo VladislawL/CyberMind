@@ -10,6 +10,7 @@ public class TaskConverter implements GenericConverter<Task, TaskDTO> {
     public TaskDTO apply(Task task) {
         TaskDTO taskDTO = new TaskDTO();
         taskDTO.setId(task.getId());
+        taskDTO.setLevel(task.getLevel());
         taskDTO.setName(task.getName());
         taskDTO.setDescription(task.getDescription());
         taskDTO.setViews((long) task.getSolvedTasks().size());

@@ -20,6 +20,9 @@ public class UserProfileConverter implements GenericConverter<User, UserProfileD
     private UserService userService;
 
     @Autowired
+    private TaskConverter taskConverter;
+
+    @Autowired
     private SolvedTaskService solvedTaskService;
 
     @Override
@@ -32,17 +35,17 @@ public class UserProfileConverter implements GenericConverter<User, UserProfileD
         userProfileDTO.setLeaderBoardPosition(userService.getUserPosition(user.getId()));
         userProfileDTO.setNumberOfSolvedTasks(getNumberOfSolvedTasks(solvedTasks));
         userProfileDTO.setPoints(user.getPoints());
-        userProfileDTO.setTasks(solvedTasks.stream()
+        userProfileDTO.setTasks(taskConverter.convert(solvedTasks.stream()
                 .map(SolvedTask::getTask)
-                .collect(Collectors.toList()));
-        userProfileDTO.setSolvedTasks(solvedTasks.stream()
+                .collect(Collectors.toList())));
+        userProfileDTO.setSolvedTasks(taskConverter.convert(solvedTasks.stream()
                 .filter(SolvedTask::getSolved)
                 .map(SolvedTask::getTask)
-                .collect(Collectors.toList()));
-        userProfileDTO.setAttemptedTasks(solvedTasks.stream()
+                .collect(Collectors.toList())));
+        userProfileDTO.setAttemptedTasks(taskConverter.convert(solvedTasks.stream()
                 .filter(solvedTask -> !solvedTask.getSolved())
                 .map(SolvedTask::getTask)
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList())));
 
         return userProfileDTO;
     }
