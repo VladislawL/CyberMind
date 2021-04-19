@@ -1,4 +1,4 @@
-package com.mrkdiplom.cybermind.core.facade.dto.user;
+package com.mrkdiplom.cybermind.core.facade.dto;
 
 import javax.validation.constraints.NotEmpty;
 

@@ -1,11 +1,11 @@
-package com.mrkdiplom.cybermind.core.service.task.impl;
+package com.mrkdiplom.cybermind.core.service.impl;
 
 import com.mrkdiplom.cybermind.core.entity.Tag;
 import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.repository.TaskRepository;
 import com.mrkdiplom.cybermind.core.sandbox.SandBox;
 import com.mrkdiplom.cybermind.core.sandbox.TaskExecutionResult;
-import com.mrkdiplom.cybermind.core.service.task.TaskService;
+import com.mrkdiplom.cybermind.core.service.TaskService;
 import com.mrkdiplom.cybermind.utils.FileUtils;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
 import com.mrkdiplom.cybermind.web.siteconfig.SiteConfig;

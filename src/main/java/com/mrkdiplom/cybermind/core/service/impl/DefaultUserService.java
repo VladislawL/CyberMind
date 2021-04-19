@@ -1,11 +1,11 @@
-package com.mrkdiplom.cybermind.core.service.user.impl;
+package com.mrkdiplom.cybermind.core.service.impl;
 
 import com.mrkdiplom.cybermind.core.entity.User;
-import com.mrkdiplom.cybermind.core.facade.converter.user.UserRegistrationDTOConverter;
-import com.mrkdiplom.cybermind.core.facade.dto.user.UserRegistrationDTO;
+import com.mrkdiplom.cybermind.core.facade.converter.UserRegistrationDTOConverter;
+import com.mrkdiplom.cybermind.core.facade.dto.UserRegistrationDTO;
 import com.mrkdiplom.cybermind.core.repository.RoleRepository;
 import com.mrkdiplom.cybermind.core.repository.UserRepository;
-import com.mrkdiplom.cybermind.core.service.user.UserService;
+import com.mrkdiplom.cybermind.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

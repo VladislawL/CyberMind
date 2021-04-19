@@ -1,7 +1,7 @@
 package com.mrkdiplom.cybermind.web.controller;
 
 import com.mrkdiplom.cybermind.core.facade.TaskFacade;
-import com.mrkdiplom.cybermind.core.facade.dto.task.TaskDTO;
+import com.mrkdiplom.cybermind.core.facade.dto.TaskDTO;
 import com.mrkdiplom.cybermind.core.sandbox.TaskExecutionResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

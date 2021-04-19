@@ -1,8 +1,7 @@
-package com.mrkdiplom.cybermind.core.facade.converter.task;
+package com.mrkdiplom.cybermind.core.facade.converter;
 
 import com.mrkdiplom.cybermind.core.entity.Task;
-import com.mrkdiplom.cybermind.core.facade.converter.GenericConverter;
-import com.mrkdiplom.cybermind.core.facade.dto.task.TaskDTO;
+import com.mrkdiplom.cybermind.core.facade.dto.TaskDTO;
 import org.springframework.stereotype.Component;
 
 @Component

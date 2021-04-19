@@ -1,8 +1,7 @@
-package com.mrkdiplom.cybermind.core.facade.converter.user;
+package com.mrkdiplom.cybermind.core.facade.converter;
 
 import com.mrkdiplom.cybermind.core.entity.User;
-import com.mrkdiplom.cybermind.core.facade.converter.GenericConverter;
-import com.mrkdiplom.cybermind.core.facade.dto.user.UserRegistrationDTO;
+import com.mrkdiplom.cybermind.core.facade.dto.UserRegistrationDTO;
 import org.springframework.stereotype.Component;
 
 @Component

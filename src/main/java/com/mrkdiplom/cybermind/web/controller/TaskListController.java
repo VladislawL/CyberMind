@@ -1,8 +1,8 @@
 package com.mrkdiplom.cybermind.web.controller;
 
 import com.mrkdiplom.cybermind.core.facade.TaskFacade;
-import com.mrkdiplom.cybermind.core.facade.dto.task.TaskDTO;
-import com.mrkdiplom.cybermind.core.service.task.TaskService;
+import com.mrkdiplom.cybermind.core.facade.dto.TaskDTO;
+import com.mrkdiplom.cybermind.core.service.TaskService;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
 import com.mrkdiplom.cybermind.web.siteconfig.SiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;

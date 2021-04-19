@@ -1,6 +1,6 @@
 package com.mrkdiplom.cybermind.core.validation;
 
-import com.mrkdiplom.cybermind.core.facade.dto.user.UserRegistrationDTO;
+import com.mrkdiplom.cybermind.core.facade.dto.UserRegistrationDTO;
 import com.mrkdiplom.cybermind.core.validation.constraints.PasswordMatches;
 
 import javax.validation.ConstraintValidator;

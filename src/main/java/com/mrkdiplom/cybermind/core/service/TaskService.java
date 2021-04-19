@@ -1,4 +1,4 @@
-package com.mrkdiplom.cybermind.core.service.task;
+package com.mrkdiplom.cybermind.core.service;
 
 import com.mrkdiplom.cybermind.core.entity.Tag;
 import com.mrkdiplom.cybermind.core.entity.Task;
