@@ -31,6 +31,9 @@ public class Task implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "level")
+    private Long level;
+
     @Fetch(FetchMode.SELECT)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -75,6 +78,14 @@ public class Task implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getLevel() {
+        return level;
+    }
+
+    public void setLevel(Long level) {
+        this.level = level;
     }
 
     public List<Tag> getTags() {

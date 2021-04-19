@@ -34,6 +34,11 @@ public class DefaultUserService implements UserService {
         return userRepository.getUserByUsername(username);
     }
 
+    @Override
+    public Long getUserPosition(Integer id) {
+        return userRepository.getUserPosition(id);
+    }
+
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;

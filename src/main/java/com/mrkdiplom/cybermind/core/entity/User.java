@@ -35,7 +35,7 @@ public class User implements Serializable {
     private Boolean enabled;
 
     @Column(name = "points")
-    private Integer points = 0;
+    private Long points = (long) 0;
 
     @Fetch(FetchMode.SELECT)
     @ManyToMany(fetch = FetchType.EAGER)
@@ -53,7 +53,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String password, Boolean enabled, Integer points) {
+    public User(String username, String password, Boolean enabled, Long points) {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
@@ -92,11 +92,11 @@ public class User implements Serializable {
         this.enabled = enabled;
     }
 
-    public Integer getPoints() {
+    public Long getPoints() {
         return points;
     }
 
-    public void setPoints(Integer points) {
+    public void setPoints(Long points) {
         this.points = points;
     }
 

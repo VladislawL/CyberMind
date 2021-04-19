@@ -2,11 +2,13 @@ package com.mrkdiplom.cybermind.core.service.impl;
 
 import com.mrkdiplom.cybermind.core.entity.SolvedTask;
 import com.mrkdiplom.cybermind.core.entity.SolvedTaskId;
+import com.mrkdiplom.cybermind.core.entity.User;
 import com.mrkdiplom.cybermind.core.repository.SolvedTaskRepository;
 import com.mrkdiplom.cybermind.core.service.SolvedTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,5 +25,10 @@ public class DefaultSolvedTaskService implements SolvedTaskService {
         } else if (optionalSolvedTask.get().getSolved() != Boolean.TRUE && newSolvedTask.getSolved() != Boolean.FALSE) {
             solvedTaskRepository.save(newSolvedTask);
         }
+    }
+
+    @Override
+    public List<SolvedTask> getSolvedTasksForUser(User user) {
+        return solvedTaskRepository.findAllByUser(user);
     }
 }

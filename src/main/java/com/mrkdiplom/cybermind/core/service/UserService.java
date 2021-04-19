@@ -6,4 +6,5 @@ import com.mrkdiplom.cybermind.core.facade.dto.UserRegistrationDTO;
 public interface UserService {
     void register(UserRegistrationDTO userRegistrationDTO);
     User getUserByUsername(String username);
+    Long getUserPosition(Integer id);
 }

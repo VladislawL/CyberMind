@@ -16,10 +16,10 @@
                     <div class="photo pagesBlock"></div>
                     <div class="mainInformation pagesBlock">
                         <div class="profileName pad">
-                            <h2 id="name" class="" th:text="${name}">Profile name</h2>
+                            <h2 id="name" class="" th:text="${userProfile.username}">Profile name</h2>
                         </div>
                         <div class="mainStats pad">
-                            <h3 th:text="${point}" >Points</h3>
+                            <h3 th:text="'Points: ' + ${userProfile.points}" >Points</h3>
                             <h3>Status</h3>
                             <h3>Last seen</h3>
                         </div>
@@ -30,12 +30,12 @@
                     <div class="pad">
                         <div class="totalStats">
                             <h3 id="level" class="pad">Level 1</h3>
-                            <h3 id="points" class="pad">Points: 104</h3>
-                            <h3 id="leaderPosition" class="pad">Leaderboard position: 130</h3>
-                            <h3 id="totalTasks" class="pad">Total tasks: 10</h3>
-                            <h3 id="easyTasks" class="pad ">1 level tasks: 5</h3>
-                            <h3 id="mediumTasks" class="pad ">2 level tasks: 4</h3>
-                            <h3 id="hardTasks" class="pad">3 level tasks: 1</h3>
+                            <h3 id="points" class="pad" th:text="'Points: ' + ${userProfile.points}"></h3>
+                            <h3 id="leaderPosition" class="pad" th:text="'Leaderboard position: ' + ${userProfile.leaderBoardPosition}"></h3>
+                            <h3 id="totalTasks" class="pad" th:text="'Total tasks: ' + ${userProfile.getSolvedTasks().size()}"></h3>
+                            <th:block th:each="solvedTask : ${userProfile.numberOfSolvedTasks}">
+                                <h3 class="pad" th:text="${solvedTask.key} + ' level: ' + ${solvedTask.value}"></h3>
+                            </th:block>
                         </div>
                     </div>
                 </div>
