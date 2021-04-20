@@ -53,12 +53,26 @@
         <!-- PROFILE COMPLETED AND ATTEMPTED TASKS -->
         <div class="profileTasks blockMarg contentWidth">
             <dl class="head flex pagesBlock">
-                <dd class="headItem">All</dd>
-                <dd class="headItem">Solved</dd>
-                <dd class="headItem">Attempted</dd>
+                <dd th:class="${listType == 'all'} ? 'headItem selected' : 'headItem'">
+                    <a th:href="@{/profile/all}">All</a>
+                </dd>
+                <dd th:class="${listType == 'solved'} ? 'headItem selected' : 'headItem'">
+                    <a th:href="@{/profile/solved}">Solved</a>
+                </dd>
+                <dd th:class="${listType == 'attempted'} ? 'headItem selected' : 'headItem'">
+                    <a th:href="@{/profile/attempted}">Attempted</a>
+                </dd>
             </dl>
             <div class="tasks block pagesBlock">
-                <th:block th:each="t : ${userProfile.getTasks()}">
+                <th:block th:if="${listType == 'all'}" th:each="t : ${userProfile.getTasks()}">
+                    <div th:replace="fragments/task :: task (task = ${t})">
+                    </div>
+                </th:block>
+                <th:block th:if="${listType == 'solved'}" th:each="t : ${userProfile.getSolvedTasks()}">
+                    <div th:replace="fragments/task :: task (task = ${t})">
+                    </div>
+                </th:block>
+                <th:block th:if="${listType == 'attempted'}" th:each="t : ${userProfile.getAttemptedTasks()}">
                     <div th:replace="fragments/task :: task (task = ${t})">
                     </div>
                 </th:block>

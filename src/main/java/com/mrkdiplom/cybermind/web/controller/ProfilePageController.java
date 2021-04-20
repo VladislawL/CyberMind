@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -21,11 +22,18 @@ public class ProfilePageController {
     private UserService userService;
 
     @GetMapping
+    public String profile() {
+        return "redirect:/profile/all";
+    }
+
+    @GetMapping(value = "/{listType}")
     public String profile(@CurrentSecurityContext(expression="authentication.name") String username,
+                          @PathVariable("listType") String listType,
                           Model model) {
         model.addAttribute("name", username);
         User user = userService.getUserByUsername(username);
         model.addAttribute("userProfile", userProfileConverter.convert(user));
+        model.addAttribute("listType", listType);
         return "profile";
     }
 }
