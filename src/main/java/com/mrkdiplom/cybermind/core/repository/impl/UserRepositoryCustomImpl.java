@@ -2,12 +2,14 @@ package com.mrkdiplom.cybermind.core.repository.impl;
 
 import com.mrkdiplom.cybermind.core.repository.UserRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import java.math.BigInteger;
 
+@Transactional
 public class UserRepositoryCustomImpl implements UserRepositoryCustom {
 
     @Autowired
@@ -23,6 +25,8 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
         Query query = entityManager.createNativeQuery(GET_USER_POSITION);
         query.setParameter("id", id);
         Long position = ((BigInteger) query.getSingleResult()).longValue();
+
+        entityManager.close();
 
         return position;
     }
