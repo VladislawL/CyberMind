@@ -4,6 +4,7 @@
 .chapters-name-list{
     width: 300px;
     height: fit-content;
+    height: -moz-fit-content;
 }
 .chapterName{
     padding: 20px;
@@ -24,6 +25,7 @@
     margin-left: 30px;
     width:calc(100% - 350px);
     height: fit-content;
+    height: -moz-fit-content;
 }
 .chapterText{
     padding: 20px;
