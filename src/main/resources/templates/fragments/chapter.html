@@ -11,6 +11,12 @@
         </a>
     </div>
 
+    <div th:fragment="adminChapterName (chapterName)" class="chapterName">
+        <a th:href="@{/admin/learn/{learnId}/chapter/{chapterId}(learnId = ${learnId}, chapterId = ${chapterName.id})}">
+            <div class="chapter" th:text="${chapter == chapterName ? '&#9899;': '&#9898;'} + ${chapterName.name}"></div>
+        </a>
+    </div>
+
     <!--  Chapter text  -->
     <div th:fragment="chapterText (chapterText)" class="chapterText">
         <div class="text" th:utext="${chapterText.text}">

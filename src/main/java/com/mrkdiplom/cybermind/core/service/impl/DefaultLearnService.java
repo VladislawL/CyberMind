@@ -43,4 +43,14 @@ public class DefaultLearnService implements LearnService {
     public Chapter getFirstChapterForLearn(Long id) {
         return chapterRepository.findFirstByLearn(learnRepository.findById(id).get());
     }
+
+    @Override
+    public Learn saveLearn(Learn learn) {
+        return learnRepository.save(learn);
+    }
+
+    @Override
+    public Chapter saveChapter(Chapter chapter) {
+        return chapterRepository.save(chapter);
+    }
 }

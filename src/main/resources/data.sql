@@ -7,12 +7,18 @@ INSERT INTO `cybermind`.`user` (`id`, `username`, `password`, `enabled`)
 INSERT INTO `cybermind`.`user` (`id`, `username`, `password`, `enabled`)
     VALUES ('3', 'user3', '$2a$10$JJdewR3oK93pdv0fGmazGOWsAZlJhWoVTTt.VmPtmFWOLxMa27.Q6', '1');
 
-INSERT INTO `cybermind`.`role` (`id`, `name`) VALUES ('1', 'USER');
-INSERT INTO `cybermind`.`role` (`id`, `name`) VALUES ('2', 'ADMIN');
+INSERT INTO `cybermind`.`user` (`id`, `username`, `password`, `enabled`)
+    VALUES ('4', 'admin', '$2a$10$JJdewR3oK93pdv0fGmazGOWsAZlJhWoVTTt.VmPtmFWOLxMa27.Q6', '1');
+
+INSERT INTO `cybermind`.`role` (`id`, `name`) VALUES ('1', 'ROLE_USER');
+INSERT INTO `cybermind`.`role` (`id`, `name`) VALUES ('2', 'ROLE_ADMIN');
 
 INSERT INTO `cybermind`.`users_roles` (`role_id`, `user_id`) VALUES ('1', '1');
 INSERT INTO `cybermind`.`users_roles` (`role_id`, `user_id`) VALUES ('1', '2');
 INSERT INTO `cybermind`.`users_roles` (`role_id`, `user_id`) VALUES ('1', '3');
+
+INSERT INTO `cybermind`.`users_roles` (`role_id`, `user_id`) VALUES ('1', '4');
+INSERT INTO `cybermind`.`users_roles` (`role_id`, `user_id`) VALUES ('2', '4');
 
 INSERT INTO `cybermind`.`task` (`id`, `name`, `description`, `level`) VALUES ('1', 'Riceboard', '<h1>Riceboard</h1> <p>In th eSOLAR Laboratory,the Reply Social Lab,students and Replyers like stop lay table games while</p>', '3');
 INSERT INTO `cybermind`.`task` (`id`, `name`, `description`, `level`) VALUES ('2', 'Scoreboard', 'There  are  five  problerris,  each  one  requiresto  solve  five different  inputs  of  increasing  score (100,  200,  300,  400  and  500  respectively  for  inputs  one,  two,three,  four  and five).  The  points  for  a specific problem and input will be assigned once perteam.', '2');

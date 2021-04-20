@@ -26,6 +26,10 @@ public class Learn {
     public Learn() {
     }
 
+    public Learn(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

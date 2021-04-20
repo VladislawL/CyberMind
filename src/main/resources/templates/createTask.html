@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css(~{::title},~{::link})">
+    <link rel="stylesheet" th:href="@{/css/taskPage.css}"/>
+    <link rel="stylesheet" th:href="@{/css/task.css}"/>
+    <title>Cybermind | Tasks</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="content flex">
+    <form id="createTask" th:method="POST">
+        <!-- TASK DESCRIPTION -->
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="text" name="name">
+        <input type="text" name="level">
+        <div class="descriptionPlace">
+            <div class="description">
+                <input type="text" name="description">
+            </div>
+        </div>
+        <!-- SOLUTION PLACE -->
+        <div class="solutionPlace">
+            <div id="test" name="test" class="editor editor1 backColor language-Java">
+
+            </div>
+            <div id="solution" name="solution" class="editor editor1 backColor language-Java">
+
+            </div>
+            <script type="module" id="code">
+                import {CodeJar} from  "/js/codejar.js"
+                const jar1 = new CodeJar(
+                    document.querySelector("#test"),
+                    Prism.highlightElement
+                )
+                const jar2 = new CodeJar(
+                    document.querySelector("#solution"),
+                    Prism.highlightElement
+                )
+            </script>
+            <script src="/js/prism-core.js"></script>
+            <button class="submit" id='submit'>SUBMIT</button>
+            <div id="result" class="result backColor"></div>
+        </div>
+    </form>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+<script th:src="@{/js/createTask.js}"></script>
+</body>
+</html>

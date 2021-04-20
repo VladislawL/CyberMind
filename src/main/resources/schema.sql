@@ -68,7 +68,7 @@ ENGINE = InnoDB;
 -- Table `cybermind`.`task`
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`task` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(2048) NOT NULL,
   `level` INT NULL,
@@ -103,7 +103,7 @@ ENGINE = InnoDB;
 -- Table `cybermind`.`learn`
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`learn` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -113,7 +113,7 @@ ENGINE = InnoDB;
 -- Table `cybermind`.`chapter`
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`chapter` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `learn_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `text` VARCHAR(1024) NULL,
@@ -131,7 +131,7 @@ ENGINE = InnoDB;
 -- Table `cybermind`.`role`
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`role` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
@@ -164,7 +164,7 @@ ENGINE = InnoDB;
 -- Table `cybermind`.`tags`
 -- -----------------------------------------------------
 CREATE TABLE `cybermind`.`tags` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(64) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)

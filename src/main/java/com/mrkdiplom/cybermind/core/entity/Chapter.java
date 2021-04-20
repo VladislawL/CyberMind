@@ -30,6 +30,12 @@ public class Chapter {
     public Chapter() {
     }
 
+    public Chapter(String name, String text, Learn learn) {
+        this.name = name;
+        this.text = text;
+        this.learn = learn;
+    }
+
     public Long getId() {
         return id;
     }

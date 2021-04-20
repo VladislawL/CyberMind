@@ -41,6 +41,9 @@
                 <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
                 <button type="submit" class="menu-item logOut"><h3 class="title">Log out</h3></button>
             </form>
+            <a th:href="@{/admin}" class="menu-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                Admin
+            </a>
             <!-- add logOut class to logOut -->
         </div>
     </header>

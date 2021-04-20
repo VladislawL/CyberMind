@@ -11,4 +11,6 @@ public interface LearnService {
     List<Chapter> getChaptersForLearn(Long id);
     Chapter getChapterForLearnById(Long id, Long chapterId);
     Chapter getFirstChapterForLearn(Long id);
+    Learn saveLearn(Learn learn);
+    Chapter saveChapter(Chapter chapter);
 }

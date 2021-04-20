@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css(~{::title},~{::link})">
+    <link rel="stylesheet" th:href="@{/css/learnPage.css}" />
+    <link rel="stylesheet" th:href="@{/css/chapter.css}" />
+    <title>Cybermind | Learn</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="content flex">
+
+    <form method="post">
+        <input type="text" name="learnName" th:value="${learn.name}">
+        <input type="text" name="name" th:value="${chapter.name}">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+
+        <!-- Chapters name -->
+        <div class="chapters-name-list pagesBlock">
+            <th:block th:each="c : ${chapters}">
+                <div th:replace="fragments/chapter :: chapterName (chapterName = ${c})">
+                </div>
+            </th:block>
+            <a th:href="@{/admin/learn/{learnId}/createNewChapter(learnId = ${learn.id})}">
+                <div class="chapter">New Chapter</div>
+            </a>
+        </div>
+
+        <!--  Chapters text  -->
+        <div class="textPlace pagesBlock">
+            <textarea name="text" th:text="${chapter.text}">
+            </textarea>
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

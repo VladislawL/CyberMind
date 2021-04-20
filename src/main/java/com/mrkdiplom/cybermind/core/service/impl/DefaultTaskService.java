@@ -77,6 +77,13 @@ public class DefaultTaskService implements TaskService {
         return SandBox.start(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Test.java"));
     }
 
+    @Override
+    public void saveTask(Task task, String solution, String test) throws IOException {
+        taskRepository.save(task);
+        FileUtils.saveFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName().toLowerCase()), "Solution.txt", solution);
+        FileUtils.saveFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName().toLowerCase()), "Test.txt", test);
+    }
+
     @Autowired
     public void setTaskRepository(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
