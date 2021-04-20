@@ -66,12 +66,18 @@
     PROFILE COMPLETED AND ATTEMPTED TASKS
  */
 .head{
-    width: 300px;
-    justify-content: space-around;
+    padding: 5px 0px;
 }
 .headItem{
-    padding: 5px;
-    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-right: 10px;
+    padding: 5px 30px;
+}
+.headItem a{
+    color: white;
+}
+.headItem.selected a{
+    color: rgb(179, 0, 0);
 }
 .tasks{
     padding: 10px 20px 20px 100px;

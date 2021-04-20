@@ -52,14 +52,14 @@
         </div>
         <!-- PROFILE COMPLETED AND ATTEMPTED TASKS -->
         <div class="profileTasks blockMarg contentWidth">
-            <dl class="head flex pagesBlock">
-                <dd th:class="${listType == 'all'} ? 'headItem selected' : 'headItem'">
+            <dl class="head flex">
+                <dd th:class="'headItem pagesBlock ' + ${listType == 'all' ? 'selected' : ''}">
                     <a th:href="@{/profile/all}">All</a>
                 </dd>
-                <dd th:class="${listType == 'solved'} ? 'headItem selected' : 'headItem'">
+                <dd th:class="'headItem pagesBlock ' + ${listType == 'solved' ? 'selected' : ''}">
                     <a th:href="@{/profile/solved}">Solved</a>
                 </dd>
-                <dd th:class="${listType == 'attempted'} ? 'headItem selected' : 'headItem'">
+                <dd th:class="'headItem pagesBlock ' + ${listType == 'attempted' ? 'selected' : ''}">
                     <a th:href="@{/profile/attempted}">Attempted</a>
                 </dd>
             </dl>
