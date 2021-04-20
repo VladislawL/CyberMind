@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+
+    <!--  Chapter name  -->
+    <div th:fragment="chapterName (chapterName)" class="chapterName">
+        <a th:href="@{/learn/{learnId}/chapter/{chapterId}(learnId = ${learnId}, chapterId = ${chapterName.id})}">
+            <div class="chapter" th:text="${chapter == chapterName ? '&#9899;': '&#9898;'} + ${chapterName.name}"></div>
+        </a>
+    </div>
+
+    <!--  Chapter text  -->
+    <div th:fragment="chapterText (chapterText)" class="chapterText">
+        <div class="text" th:utext="${chapterText.text}">
+        </div>
+    </div>
+
+</body>
+</html>

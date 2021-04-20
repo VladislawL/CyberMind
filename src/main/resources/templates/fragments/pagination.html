@@ -4,9 +4,9 @@
 </head>
 <body>
     <ul th:fragment="pagination (paginationData)" class="pagination">
-    <!--    Previous Page-->
+        <!--    Previous Page-->
         <th:block th:if="${paginationData.currentPage > 0}">
-            <li class="previous">
+            <li class="page-item previous">
                 <a th:href="@{/tasks(query=${param.query},page=${paginationData.currentPage - 1})}">
                     <span class="glyphicon glyphicon-menu-left"><</span>
                 </a>
@@ -14,7 +14,7 @@
         </th:block>
 
 
-    <!--    Previous Pages-->
+        <!--    Previous Pages-->
         <th:block th:if="${paginationData.currentPage - paginationData.numberOfPagesToShow - 1 > 0}">
             <li class="page-item">
                 <div th:replace="/fragments/pageLink :: pageLink (page = 0)"></div>
@@ -35,12 +35,12 @@
             </th:block>
         </th:block>
 
-    <!--    Current Page-->
+        <!--    Current Page-->
         <li class="page-item current">
             <div th:replace="/fragments/pageLink :: pageLink (page = ${paginationData.currentPage})"></div>
         </li>
 
-    <!--    Next Pages-->
+        <!--    Next Pages-->
         <th:block th:if="${paginationData.currentPage + paginationData.numberOfPagesToShow + 1 < paginationData.numberOfPages - 1}">
             <th:block th:each="i : ${#numbers.sequence(paginationData.currentPage + 1, paginationData.currentPage + paginationData.numberOfPagesToShow, 1)}">
                 <li class="page-item">
@@ -62,9 +62,9 @@
         </th:block>
 
 
-    <!--    Next Page-->
+        <!--    Next Page-->
         <th:block th:if="${paginationData.currentPage < paginationData.numberOfPages - 1}">
-            <li class="previous">
+            <li class="page-item previous">
                 <a th:href="@{/tasks(query=${param.query},page=${paginationData.currentPage + 1})}">
                     <span class="glyphicon glyphicon-menu-right">></span>
                 </a>

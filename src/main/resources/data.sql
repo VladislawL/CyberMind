@@ -61,6 +61,7 @@ INSERT INTO `cybermind`.`solved_tasks` (`user_id`, `task_id`, `is_solved`) VALUE
 
 INSERT INTO `cybermind`.`solved_tasks` (`user_id`, `task_id`, `is_solved`) VALUES ('2', '1', '0');
 
+
 INSERT INTO `cybermind`.`learn` (`id`, `name`) VALUES ('1', 'Java basics');
 INSERT INTO `cybermind`.`learn` (`id`, `name`) VALUES ('2', 'Thread in Java');
 

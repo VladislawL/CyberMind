@@ -1,0 +1,19 @@
+/*
+	LEARN-LIST PLACE STYLE
+*/
+.learn-list{
+
+}
+.learn-item{
+    margin: 20px auto 0;
+    padding: 20px;
+    width: 50%;
+    font-size: 30px;
+    text-align:center;
+}
+.learn-item a{
+    color: white;
+}
+.learn-item:hover{
+    background: #494958;
+}

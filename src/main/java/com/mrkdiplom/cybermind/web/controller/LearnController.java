@@ -21,7 +21,7 @@ public class LearnController {
     @GetMapping
     private String learnList(Model model) {
         model.addAttribute("learnList", learnService.getAll());
-        return "learnList";
+        return "learns";
     }
 
     @GetMapping(value = "/{id}")
@@ -49,7 +49,7 @@ public class LearnController {
         model.addAttribute("chapter", chapter);
         model.addAttribute("learnId", id);
 
-        return "chapter";
+        return "learnPage";
     }
 
 }

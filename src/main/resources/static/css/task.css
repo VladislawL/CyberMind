@@ -16,7 +16,6 @@
     color: rgb(255, 255, 255);
 }
 .task:hover{
-	/* background: #2e2e38; */
 	background: #494958;
 }
 .taskContent{

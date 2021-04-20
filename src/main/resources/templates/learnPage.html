@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css(~{::title},~{::link})">
+    <link rel="stylesheet" th:href="@{/css/learnPage.css}" />
+    <link rel="stylesheet" th:href="@{/css/chapter.css}" />
+    <title>Cybermind | Learn</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="content flex">
+
+        <!-- Chapters name -->
+        <div class="chapters-name-list pagesBlock">
+            <th:block th:each="c : ${chapters}">
+                <div th:replace="fragments/chapter :: chapterName (chapterName = ${c})">
+                </div>
+            </th:block>
+        </div>
+
+        <!--  Chapters text  -->
+        <div class="textPlace pagesBlock">
+            <th:block th:replace="fragments/chapter :: chapterText (chapterText = ${chapter})">
+            </th:block>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

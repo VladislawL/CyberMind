@@ -1,0 +1,33 @@
+/*
+	CHAPTER-LIST PLACE STYLE
+*/
+.chapters-name-list{
+    width: 300px;
+    height: fit-content;
+}
+.chapterName{
+    padding: 20px;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 20px;
+}
+.chapterName:last-child{
+    border: none;
+}
+.chapterName a{
+    color:white;
+}
+/*
+    CHAPTER TEXT PLACE
+*/
+.textPlace{
+    margin-left: 30px;
+    width:calc(100% - 350px);
+    height: fit-content;
+}
+.chapterText{
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+}

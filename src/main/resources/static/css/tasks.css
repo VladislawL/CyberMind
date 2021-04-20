@@ -60,12 +60,13 @@
 	padding-top: 20px;
 	text-align: center;
 }
-.pagination li{
+.pagination .page-item{
+	color:white;
 	list-style: none;
 	display: inline-block;
 	padding-left: 10px;
 }
-.pagination .page-item a{
+.pagination li a{
 	color: white;
 }
 .pagination .page-item.current a{
