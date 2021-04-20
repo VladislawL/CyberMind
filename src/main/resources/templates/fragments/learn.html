@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="learn (learn)" class="task flex pagesBlock">
+    <div class="taskContent">
+        <div class="taskMain flex">
+            <div class="taskName">&#10004;<a th:href="@{/learn/{id}(id = ${learn.id})}" th:text="${learn.name}"></a></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

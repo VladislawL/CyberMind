@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css(~{::title},~{::link})">
+    <link rel="stylesheet" th:href="@{/css/tasks.css}" />
+    <link rel="stylesheet" th:href="@{/css/task.css}" />
+    <title>Cybermind | Learn</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="content flex">
+    <!-- Learn List -->
+    <div class="tasks block">
+        <th:block th:each="l : ${learnList}">
+            <div th:replace="fragments/learn :: learn (learn = ${l})">
+            </div>
+        </th:block>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
