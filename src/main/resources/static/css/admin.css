@@ -1,0 +1,19 @@
+/*
+	ADMIN-LIST PLACE STYLE
+*/
+.admin-list{
+
+}
+.admin-item{
+    margin: 20px auto 0;
+    padding: 20px;
+    width: 50%;
+    font-size: 30px;
+    text-align:center;
+}
+.admin-item a{
+    color: white;
+}
+.admin-item:hover{
+    background: #494958;
+}

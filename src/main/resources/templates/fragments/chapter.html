@@ -7,13 +7,13 @@
     <!--  Chapter name  -->
     <div th:fragment="chapterName (chapterName)" class="chapterName">
         <a th:href="@{/learn/{learnId}/chapter/{chapterId}(learnId = ${learnId}, chapterId = ${chapterName.id})}">
-            <div class="chapter" th:text="${chapter == chapterName ? '&#9899;': '&#9898;'} + ${chapterName.name}"></div>
+            <div class="chapter" th:text="${chapter == chapterName ? '&#9899;': '&#9898;'} + ' ' + ${chapterName.name}"></div>
         </a>
     </div>
 
     <div th:fragment="adminChapterName (chapterName)" class="chapterName">
-        <a th:href="@{/admin/learn/{learnId}/chapter/{chapterId}(learnId = ${learnId}, chapterId = ${chapterName.id})}">
-            <div class="chapter" th:text="${chapter == chapterName ? '&#9899;': '&#9898;'} + ${chapterName.name}"></div>
+        <a th:href="@{/admin/learn/{learnId}/chapter/{chapterId}(learnId = ${learn.id}, chapterId = ${chapterName.id})}">
+            <div class="chapter" th:text="${chapter == chapterName ? '&#9899;': '&#9898;'} + ' ' + ${chapterName.name}"></div>
         </a>
     </div>
 

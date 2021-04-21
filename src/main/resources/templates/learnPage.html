@@ -3,7 +3,7 @@
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
     <link rel="stylesheet" th:href="@{/css/learnPage.css}" />
     <link rel="stylesheet" th:href="@{/css/chapter.css}" />
-    <title>Cybermind | Learn</title>
+    <title th:text="'Cybermind | ' + ${learn.name} +' | ' + ${chapter.name}"></title>
 </head>
 <body>
     <div th:replace="fragments/header :: header"></div>

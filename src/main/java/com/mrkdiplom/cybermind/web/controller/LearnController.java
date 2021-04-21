@@ -48,6 +48,7 @@ public class LearnController {
         model.addAttribute("chapters", chapters);
         model.addAttribute("chapter", chapter);
         model.addAttribute("learnId", id);
+        model.addAttribute("learn",learnService.getLearnById(id));
 
         return "learnPage";
     }

@@ -1,0 +1,81 @@
+.backColor{
+    background: rgb(0,0,0,0.3);
+}
+/*
+    FORM PLACE
+*/
+.createForm{
+    width: 100%;
+    height: 100%;
+}
+/*
+    MAIN FORM INPUTS AND BUTTON
+*/
+.input-item{
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto 20px;
+    border: 0px;
+    font-size: 20px;
+    color: white;
+}
+.input-item:focus{
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.submit{
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto 20px;
+    color: black;
+    font-size: 25px;
+    background: rgb(100,100,100);
+    transition: .3s;
+}
+.submit:hover{
+    background: rgb(70,70, 70);
+}
+/*
+	CHAPTER-LIST PLACE STYLE
+*/
+.chapters-name-list{
+    width: 300px;
+    height: fit-content;
+    height: -moz-fit-content;
+}
+.chapterName{
+    padding: 20px;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 20px;
+}
+.chapterName:last-child{
+    border: none;
+}
+.chapterName a{
+    color:white;
+}
+.newChapter{
+    text-align: center;
+}
+/*
+    CHAPTER TEXT PLACE
+*/
+.textPlace{
+    margin-left: 30px;
+    padding: 15px;
+    width:calc(100% - 370px);
+    height: fit-content;
+    height: -moz-fit-content;
+}
+/*
+    CHAPTER DESCRIPTION
+*/
+.editorPlace{
+    padding: 15px;
+    min-height: 200px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.editorPlace:focus{
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}

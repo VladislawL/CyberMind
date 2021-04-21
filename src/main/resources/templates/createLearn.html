@@ -1,40 +1,53 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link rel="stylesheet" th:href="@{/css/learnPage.css}" />
-    <link rel="stylesheet" th:href="@{/css/chapter.css}" />
-    <title>Cybermind | Learn</title>
+    <link rel="stylesheet" th:href="@{/css/createLearn.css}" />
+    <title>Cybermind | Create Learn</title>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<div class="content flex">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="content">
+        <form method="post" class="createForm">
+            <div class="learnMain">
+                <input type="text" name="learnName" required class="input-item block backColor" placeholder="Learn name" th:value="${learn.name}">
+                <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+            </div>
+            <div class="learnContent flex">
+                <!-- Chapters name -->
+                <div class="chapters-name-list pagesBlock">
+                    <!--  All learn chapters  -->
+                    <th:block th:each="c : ${chapters}">
+                        <div th:replace="fragments/chapter :: adminChapterName (chapterName = ${c})">
+                        </div>
+                    </th:block>
 
-    <form method="post">
-        <input type="text" name="learnName" th:value="${learn.name}">
-        <input type="text" name="name" th:value="${chapter.name}">
-        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-
-        <!-- Chapters name -->
-        <div class="chapters-name-list pagesBlock">
-            <th:block th:each="c : ${chapters}">
-                <div th:replace="fragments/chapter :: chapterName (chapterName = ${c})">
+                    <div class="chapterName">
+                        <a th:href="@{/admin/learn/{learnId}/createNewChapter(learnId = ${learn.id})}">
+                            <div class="chapter newChapter">New Chapter</div>
+                        </a>
+                    </div>
                 </div>
-            </th:block>
-            <a th:href="@{/admin/learn/{learnId}/createNewChapter(learnId = ${learn.id})}">
-                <div class="chapter">New Chapter</div>
-            </a>
-        </div>
 
-        <!--  Chapters text  -->
-        <div class="textPlace pagesBlock">
-            <textarea name="text" th:text="${chapter.text}">
-            </textarea>
-        </div>
+                <!--  Chapters text  -->
+                <div class="textPlace pagesBlock">
+                    <input type="submit" class="submit block" value="Save Chapter">
+                    <input type="text" name="name" class="input-item block backColor" placeholder="Chapter name" th:value="${chapter.name}">
+                    <textarea class="block" name="text" th:text="${chapter.text}">
+                    </textarea>
+                    <div id="chapterText" name="chapterText" class="editor editorPlace backColor" th:text="${chapter.text}" ></div>
+                    <script type="module" id="code">
+                        import {CodeJar} from  "/js/codejar.js"
+                        const jar1 = new CodeJar(
+                            document.querySelector("#chapterText"),
+                            Prism.highlightElement
+                        )
+                    </script>
+                    <script src="/js/prism-core.js"></script>
+                </div>
+            </div>
+        </form>
+    </div>
 
-        <button type="submit">Save</button>
-    </form>
-</div>
-
-<div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

@@ -37,14 +37,13 @@
             <a th:href="@{/tasks}" class="menu-item"><h3 class="title">Tasks</h3></a>
             <a th:href="@{/learn}" class="menu-item"><h3 class="title">Course</h3></a>
             <a th:href="@{/leaderboard}" class="menu-item"><h3 class="title">Leaderboard</h3></a>
+            <a th:href="@{/admin}" class="menu-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                <h3 class="title">Admin panel</h3>
+            </a>
             <form th:action="@{/logout}" method="post" class="menu-item">
                 <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
                 <button type="submit" class="menu-item logOut"><h3 class="title">Log out</h3></button>
             </form>
-            <a th:href="@{/admin}" class="menu-item" sec:authorize="hasRole('ROLE_ADMIN')">
-                Admin
-            </a>
-            <!-- add logOut class to logOut -->
         </div>
     </header>
 </body>

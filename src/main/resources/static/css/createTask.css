@@ -1,0 +1,72 @@
+/*
+    CONTENT SECTION
+*/
+.content{
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0px 0px 0px 120px;
+    max-height: 1500px;
+}
+.createForm{
+    height: 100%;
+    width: 100%;
+}
+/*
+    TASK DESCRIPTION
+*/
+.input-item{
+    padding: 5px;
+    margin: 20px 20px 0px;
+    width:-webkit-fill-available;
+    border: 0px;
+    color: white;
+    font-size: 20px;
+}
+.input-item:focus{
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.descriptionPlace{
+    width: 50%;
+    border-right: solid 5px rgb(129, 43, 43);
+}
+.descriptionMain{
+    margin: 20px;
+    height:-webkit-fill-available;
+    border: 2px solid white;
+    overflow-y: auto;
+    color: white;
+}
+/*
+    SOLUTION PLACE
+*/
+.solutionPlace{
+    width: 50%;
+    height: 100%;
+}
+.backColor{
+    background: rgb(0,0,0,0.3);
+}
+.editorPlace{
+    margin: 20px;
+    padding: 10px;
+    height: 40%;
+    color: rgba(255, 255, 255, 0.7);
+}
+.editorPlace:focus{
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.description{
+    height: auto;
+    min-height: 200px;
+}
+.submit{
+    margin: 0px 20px;
+    height: 40px;
+    width: calc(100% - 40px);
+    font-size: 25px;
+    background: rgb(100,100,100);
+    transition: .3s;
+}
+.submit:hover{
+    background: rgb(70,70, 70);
+}

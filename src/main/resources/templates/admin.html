@@ -1,22 +1,24 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link rel="stylesheet" th:href="@{/css/learns.css}" />
-    <link rel="stylesheet" th:href="@{/css/learn.css}" />
+    <link rel="stylesheet" th:href="@{/css/admin.css}" />
     <title>Cybermind | Learn</title>
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/header :: header"></div>
 
-<div class="content">
-    <div class="learn-item pagesBlock">
-        <a th:href="@{/admin/createTask}" th:text="'Create Task'"></a>
-    </div>
-    <div class="learn-item pagesBlock">
-        <a th:href="@{/admin/learn}" th:text="'Create Learn'"></a>
-    </div>
-</div>
+    <div class="content">
+        <div class="learn-list block">
+            <div class="admin-item pagesBlock">
+                <a th:href="@{/admin/createTask}" th:text="'Create Task'"></a>
+            </div>
+            <div class="admin-item pagesBlock">
+                <a th:href="@{/admin/learn}" th:text="'Create Learn'"></a>
+            </div>
+        </div>
 
-<div th:replace="fragments/footer :: footer"></div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
