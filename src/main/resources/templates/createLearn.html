@@ -7,7 +7,7 @@
 <body>
     <div th:replace="fragments/header :: header"></div>
     <div class="content">
-        <form method="post" class="createForm">
+        <form id="createLearn" method="post" class="createForm">
             <div class="learnMain">
                 <input type="text" name="learnName" required class="input-item block backColor" placeholder="Learn name" th:value="${learn.name}">
                 <input type="hidden" name="_csrf" th:value="${_csrf.token}">
@@ -32,8 +32,8 @@
                 <div class="textPlace pagesBlock">
                     <input type="submit" class="submit block" value="Save Chapter">
                     <input type="text" name="name" class="input-item block backColor" placeholder="Chapter name" th:value="${chapter.name}">
-                    <textarea class="block" name="text" th:text="${chapter.text}">
-                    </textarea>
+<!--                    <textarea class="block" name="text" th:text="${chapter.text}">-->
+<!--                    </textarea>-->
                     <div id="chapterText" name="chapterText" class="editor editorPlace backColor" th:text="${chapter.text}" ></div>
                     <script type="module" id="code">
                         import {CodeJar} from  "/js/codejar.js"
@@ -43,11 +43,13 @@
                         )
                     </script>
                     <script src="/js/prism-core.js"></script>
+
                 </div>
             </div>
         </form>
     </div>
 
     <div th:replace="fragments/footer :: footer"></div>
+    <script th:src="@{/js/createLearn.js}"></script>
 </body>
 </html>
