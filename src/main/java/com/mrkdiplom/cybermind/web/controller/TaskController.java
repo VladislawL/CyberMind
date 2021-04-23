@@ -30,7 +30,7 @@ public class TaskController {
 
     @PostMapping(value = "/task/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public TaskExecutionResult testTask(@PathVariable("id") Long id, @RequestBody TaskDTO code) throws IOException {
+    public TaskExecutionResult testTask(@PathVariable("id") Long id, @RequestBody TaskDTO code) throws IOException, InterruptedException {
         code.setId(id);
         taskFacade.saveTaskCode(code);
         return taskFacade.startTask(code);

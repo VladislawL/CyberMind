@@ -57,7 +57,7 @@ public class DefaultTaskFacade implements TaskFacade {
     }
 
     @Override
-    public TaskExecutionResult startTask(TaskDTO taskDTO) throws IOException {
+    public TaskExecutionResult startTask(TaskDTO taskDTO) throws IOException, InterruptedException {
         Task task = taskService.getTask(taskDTO.getId()).get();
         UserDetails userDetails = getUserDetails();
         User user = userService.getUserByUsername(userDetails.getUsername());

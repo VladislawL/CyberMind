@@ -73,7 +73,7 @@ public class DefaultTaskService implements TaskService {
     }
 
     @Override
-    public TaskExecutionResult startTask(Task task, UserDetails userDetails) throws IOException {
+    public TaskExecutionResult startTask(Task task, UserDetails userDetails) throws IOException, InterruptedException {
         return SandBox.start(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), userDetails.getUsername(), task.getName().toLowerCase(), "Test.java"));
     }
 

@@ -11,6 +11,15 @@ $.ajaxSetup({
 });
 
 submitButton.addEventListener("click", function() {
+    let result = document.getElementById("result");
+    document.getElementById('submit').disabled = true;
+    result.innerText = "";
+
+    let waiting = document.createElement("p");
+    waiting.className = "success";
+    waiting.innerText = "Wait, we're running your code!"
+    result.appendChild(waiting);
+
     let code = document.getElementById("editor").innerText;
     console.log(code);
     $.ajax({
@@ -21,9 +30,9 @@ submitButton.addEventListener("click", function() {
             code: code
         }),
         success: function(data) {
-            let result = document.getElementById("result");
             result.innerText = "";
-            if(data.codeResult == 0){
+            document.getElementById('submit').disabled = false;
+            if(data.codeResult === 0){
                 let success = document.createElement("p");
                 success.className = "success";
                 success.innerText = "Successful!"

@@ -10,22 +10,28 @@ import java.io.InputStreamReader;
 @Component
 public class SandBox {
 
-    public static TaskExecutionResult start(String path) throws IOException {
+    public static TaskExecutionResult start(String path) throws IOException, InterruptedException {
         Process process = Runtime.getRuntime().exec("java.exe " + path);
 
         InputStream stdout = process.getInputStream();
         InputStream stderr = process.getErrorStream();
 
         String line = "";
-
         String out = "";
+        String error = "";
+
+        Thread.sleep(2000);
+        if(process.isAlive()){
+            process.destroy();
+            error += "Request time out! Your code is running too long. Change it and try again!";
+        }
+
         BufferedReader outReader = new BufferedReader(new InputStreamReader(stdout));
         while ((line = outReader.readLine()) != null) { //считываем поток выхода
             out += line + "\n";
         }
         outReader.close();
 
-        String error = "";
         BufferedReader errReader = new BufferedReader(new InputStreamReader(stderr));
         while ((line = errReader.readLine()) != null) { //считываем поток ошибок
             if(line.contains("error")){
