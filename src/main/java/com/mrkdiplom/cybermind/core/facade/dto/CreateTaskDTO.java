@@ -1,6 +1,7 @@
 package com.mrkdiplom.cybermind.core.facade.dto;
 
 public class CreateTaskDTO {
+    private Long id;
     private String test;
     private String solution;
     private String description;
@@ -8,6 +9,14 @@ public class CreateTaskDTO {
     private Long level;
 
     public CreateTaskDTO() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTest() {

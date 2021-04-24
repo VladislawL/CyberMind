@@ -54,13 +54,13 @@
         <div class="profileTasks blockMarg contentWidth">
             <dl class="head flex">
                 <dd th:class="'headItem pagesBlock ' + ${listType == 'all' ? 'selected' : ''}">
-                    <a th:href="@{/profile/all}">All</a>
+                    <a th:href="@{/profile/{username}/all(username = ${username})}">All</a>
                 </dd>
                 <dd th:class="'headItem pagesBlock ' + ${listType == 'solved' ? 'selected' : ''}">
-                    <a th:href="@{/profile/solved}">Solved</a>
+                    <a th:href="@{/profile/{username}/solved(username = ${username})}">Solved</a>
                 </dd>
                 <dd th:class="'headItem pagesBlock ' + ${listType == 'attempted' ? 'selected' : ''}">
-                    <a th:href="@{/profile/attempted}">Attempted</a>
+                    <a th:href="@{/profile/{username}/attempted(username = ${username})}">Attempted</a>
                 </dd>
             </dl>
             <div class="tasks block pagesBlock">

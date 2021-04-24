@@ -2,10 +2,15 @@ package com.mrkdiplom.cybermind.web.controller;
 
 import com.mrkdiplom.cybermind.core.entity.Chapter;
 import com.mrkdiplom.cybermind.core.entity.Learn;
+import com.mrkdiplom.cybermind.core.entity.Task;
+import com.mrkdiplom.cybermind.core.facade.TaskFacade;
 import com.mrkdiplom.cybermind.core.facade.converter.CreateTaskDTOConverter;
 import com.mrkdiplom.cybermind.core.facade.dto.CreateTaskDTO;
+import com.mrkdiplom.cybermind.core.facade.dto.TaskDTO;
 import com.mrkdiplom.cybermind.core.service.LearnService;
 import com.mrkdiplom.cybermind.core.service.TaskService;
+import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
+import com.mrkdiplom.cybermind.web.siteconfig.SiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +32,13 @@ public class AdminController {
     private TaskService taskService;
 
     @Autowired
+    private TaskFacade taskFacade;
+
+    @Autowired
     private LearnService learnService;
+
+    @Autowired
+    private SiteConfig siteConfig;
 
     @Autowired
     private CreateTaskDTOConverter createTaskDTOConverter;
@@ -37,20 +48,47 @@ public class AdminController {
         return "admin";
     }
 
+    @GetMapping("/tasks")
+    public String tasksPage(
+            @RequestParam(value = "query", defaultValue = "", required = false) String query,
+            @RequestParam(value = "page", defaultValue = "0", required = false) Integer page,
+            @RequestParam(value = "SortField", defaultValue = "", required = false) String sortField,
+            @RequestParam(value = "SortOrder", defaultValue = "", required = false) String sortOrder,
+            Model model) {
+        PaginationData paginationData = createPaginationData(siteConfig.getPageSize(), page, siteConfig.getNumberOfPagesToShow(), query);
+        List<TaskDTO> taskList = taskFacade.getTasks(query, null, paginationData);
+        model.addAttribute("tasks", taskList);
+        model.addAttribute("paginationData", paginationData);
+        return "tasks";
+    }
+
     @GetMapping(value = "/createTask")
-    public String createTaskPage() {
+    public String createTaskPage(@ModelAttribute Task task) {
         return "createTask";
     }
 
-    @PostMapping(value = "/createTask")
-    public String createTask(@ModelAttribute CreateTaskDTO createTaskDTO, Model model) throws IOException {
-        taskService.saveTask(createTaskDTOConverter.convert(createTaskDTO), createTaskDTO.getSolution(), createTaskDTO.getTest());
-        return "redirect:/admin/createTask";
+    @GetMapping(value = "/task/{id}")
+    public String updateTask(
+            @PathVariable("id") Long id,
+            @ModelAttribute CreateTaskDTO createTaskDTO, Model model) throws IOException {
+        createTaskDTO.setId(id);
+        TaskDTO task = taskFacade.getTask(id);
+        model.addAttribute("task", task);
+        model.addAttribute("solution", taskService.getSolution(id));
+        model.addAttribute("test", taskService.getTest(id));
+        return "createTask";
     }
 
-    @GetMapping(value = "/updateTask/{id}")
-    public String updateTask(@PathVariable("id") Long id) {
-        return "";
+    @PostMapping(value = "/saveTask")
+    public String saveTask(@ModelAttribute CreateTaskDTO createTaskDTO) throws IOException {
+        Long id = taskService.saveTask(createTaskDTOConverter.convert(createTaskDTO), createTaskDTO.getSolution(), createTaskDTO.getTest());
+        return "redirect:/admin/task/" + id;
+    }
+
+    @GetMapping(value = "/learns")
+    public String learnList(Model model) {
+        model.addAttribute("learnList", learnService.getAll());
+        return "learns";
     }
 
     @GetMapping(value = "/learn")
@@ -131,6 +169,23 @@ public class AdminController {
         chapter.setText("");
 
         return chapter;
+    }
+
+    private PaginationData createPaginationData(int pageSize, int currentPage, int numberOfPagesToShow, String query) {
+        PaginationData paginationData = new PaginationData();
+
+        paginationData.setPageSize(pageSize);
+        paginationData.setCurrentPage(currentPage);
+
+        long numberOfTasks = taskService.getNumberOfTasks(query, null);
+        if (numberOfTasks % pageSize == 0) {
+            paginationData.setNumberOfPages(numberOfTasks / pageSize);
+        } else {
+            paginationData.setNumberOfPages(numberOfTasks / pageSize + 1);
+        }
+        paginationData.setNumberOfPagesToShow(numberOfPagesToShow);
+
+        return paginationData;
     }
 
 }

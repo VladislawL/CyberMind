@@ -7,10 +7,12 @@ import com.mrkdiplom.cybermind.core.repository.RoleRepository;
 import com.mrkdiplom.cybermind.core.repository.UserRepository;
 import com.mrkdiplom.cybermind.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class DefaultUserService implements UserService {
@@ -37,6 +39,11 @@ public class DefaultUserService implements UserService {
     @Override
     public Long getUserPosition(Integer id) {
         return userRepository.getUserPosition(id);
+    }
+
+    @Override
+    public List<User> getTopNUsers(Long n) {
+        return userRepository.getTopUsersByPoints(PageRequest.of(0, n.intValue()));
     }
 
     @Autowired

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 </head>
 <body>
 
     <div th:fragment="learn (learn)" class="learn-item pagesBlock">
         <a th:href="@{/learn/{id}(id = ${learn.id})}" th:text="${learn.name}"></a>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <div class="taskName">&#10004;<a th:href="@{/admin/learn/{id}(id = ${learn.id})}" th:text="'Edit'"></a></div>
+        </div>
     </div>
 
 </body>

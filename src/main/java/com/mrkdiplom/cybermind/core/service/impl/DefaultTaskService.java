@@ -78,10 +78,23 @@ public class DefaultTaskService implements TaskService {
     }
 
     @Override
-    public void saveTask(Task task, String solution, String test) throws IOException {
-        taskRepository.save(task);
+    public Long saveTask(Task task, String solution, String test) throws IOException {
+        Long id = taskRepository.save(task).getId();
         FileUtils.saveFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName().toLowerCase()), "Solution.txt", solution);
         FileUtils.saveFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName().toLowerCase()), "Test.txt", test);
+        return id;
+    }
+
+    @Override
+    public String getSolution(Long id) throws IOException {
+        Task task = taskRepository.getOne(id);
+        return FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName(), "Solution.txt"));
+    }
+
+    @Override
+    public String getTest(Long id) throws IOException {
+        Task task = taskRepository.getOne(id);
+        return FileUtils.readFile(String.join(FileUtils.getFileDelimiter(), siteConfig.getUploadDir(), task.getName(), "Test.txt"));
     }
 
     @Autowired

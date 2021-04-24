@@ -16,6 +16,9 @@ public class SiteConfig {
     @Value("${upload.dir}")
     private String uploadDir;
 
+    @Value("${top}")
+    private Long top;
+
     public int getPageSize() {
         return pageSize;
     }
@@ -26,5 +29,9 @@ public class SiteConfig {
 
     public String getUploadDir() {
         return uploadDir;
+    }
+
+    public Long getTop() {
+        return top;
     }
 }

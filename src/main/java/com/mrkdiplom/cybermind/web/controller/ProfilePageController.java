@@ -4,7 +4,8 @@ import com.mrkdiplom.cybermind.core.entity.User;
 import com.mrkdiplom.cybermind.core.facade.converter.UserProfileConverter;
 import com.mrkdiplom.cybermind.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.CurrentSecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +24,17 @@ public class ProfilePageController {
 
     @GetMapping
     public String profile() {
-        return "redirect:/profile/all";
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return "redirect:/profile/" + userDetails.getUsername() + "/all";
     }
 
-    @GetMapping(value = "/{listType}")
-    public String profile(@CurrentSecurityContext(expression="authentication.name") String username,
+    @GetMapping(value = "/{username}")
+    public String profile(@PathVariable("username") String username) {
+        return "redirect:/profile/" + username + "/all";
+    }
+
+    @GetMapping(value = "/{username}/{listType}")
+    public String profile(@PathVariable("username") String username,
                           @PathVariable("listType") String listType,
                           Model model) {
         model.addAttribute("name", username);

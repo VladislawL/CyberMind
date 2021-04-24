@@ -11,6 +11,7 @@ public class CreateTaskDTOConverter implements GenericConverter<CreateTaskDTO, T
     public Task apply(CreateTaskDTO createTaskDTO) {
         Task task = new Task();
 
+        task.setId(createTaskDTO.getId());
         task.setName(createTaskDTO.getName());
         task.setDescription(createTaskDTO.getDescription());
         task.setLevel(createTaskDTO.getLevel());

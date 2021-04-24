@@ -7,23 +7,23 @@
 <body>
 <div th:replace="fragments/header :: header"></div>
 <div class="content">
-    <form id="createTask" class="createForm flex" th:method="POST">
+    <form th:action="@{/admin/saveTask}" id="createTask" class="createForm flex" th:method="POST">
         <!-- TASK DESCRIPTION -->
         <div class="descriptionPlace">
             <div class="descriptionMain">
                 <input type="hidden" name="_csrf" class="input-item" th:value="${_csrf.token}" />
-                <input type="text" name="name" class="input-item backColor" placeholder="Name">
-                <input type="text" name="level" class="input-item backColor" placeholder="Level (1..3)">
+                <input type="text" name="name" class="input-item backColor" th:value="${task.name}" placeholder="Name">
+                <input type="text" name="level" class="input-item backColor" th:value="${task.level}" placeholder="Level (1..3)">
 <!--                <input type="text" id="description" name="description" class="input-item backColor" placeholder="Description">-->
-                <div id="description" name="description" class="input-item editor editorPlace description backColor language-Java"></div>
+                <div id="description" name="description" th:text="${task.description}" class="input-item editor editorPlace description backColor language-Java"></div>
             </div>
         </div>
         <!-- SOLUTION PLACE -->
         <div class="solutionPlace">
             <!--     Admin class solution       -->
-            <div id="test" name="test" class="editor editorPlace backColor language-Java"></div>
+            <div id="test" name="test" th:text="${test}" class="editor editorPlace backColor language-Java"></div>
             <!--     User  class solution       -->
-            <div id="solution" name="solution" class="editor editorPlace backColor language-Java"></div>
+            <div id="solution" name="solution" th:text="${solution}" class="editor editorPlace backColor language-Java"></div>
             <script type="module" id="code">
                 import {CodeJar} from  "/js/codejar.js"
                 const jar1 = new CodeJar(

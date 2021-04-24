@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+</head>
+<body>
+
+<div th:fragment="user (user)" class="learn-item pagesBlock">
+    <a th:href="@{/profile/{username}(username = ${user.username})}" th:text="${user.username}"></a>
+    <span th:text="${user.points}"></span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css(~{::title},~{::link})">
+    <link rel="stylesheet" th:href="@{/css/tasks.css}" />
+    <link rel="stylesheet" th:href="@{/css/task.css}" />
+    <title>Cybermind | Leaderboard</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="content flex">
+
+    <!-- Tasks -->
+    <div class="tasks block">
+        <th:block th:each="u : ${users}">
+            <div th:replace="fragments/user :: user (user = ${u})">
+            </div>
+        </th:block>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
