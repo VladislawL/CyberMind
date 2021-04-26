@@ -40,7 +40,7 @@ public class CybermindSecurityConfig extends WebSecurityConfigurerAdapter {
                                     .toStaticResources()
                                     .atCommonLocations()).permitAll()
                     .antMatchers("/", "/registration").permitAll()
-                    .antMatchers("/admin**").access("hasRole('ADMIN')")
+                    .antMatchers("/admin/**").access("hasRole('ADMIN')")
                     .anyRequest().authenticated()
                 .and()
                     .formLogin().defaultSuccessUrl("/profile", true).loginPage("/login").permitAll()

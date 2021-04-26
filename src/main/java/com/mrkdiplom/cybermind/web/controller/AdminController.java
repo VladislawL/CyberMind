@@ -57,6 +57,7 @@ public class AdminController {
             Model model) {
         PaginationData paginationData = createPaginationData(siteConfig.getPageSize(), page, siteConfig.getNumberOfPagesToShow(), query);
         List<TaskDTO> taskList = taskFacade.getTasks(query, null, paginationData);
+        model.addAttribute("adminPanel",true);
         model.addAttribute("tasks", taskList);
         model.addAttribute("paginationData", paginationData);
         return "tasks";
@@ -88,6 +89,7 @@ public class AdminController {
     @GetMapping(value = "/learns")
     public String learnList(Model model) {
         model.addAttribute("learnList", learnService.getAll());
+        model.addAttribute("adminPanel",true);
         return "learns";
     }
 

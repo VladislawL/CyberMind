@@ -4,7 +4,7 @@
 </head>
 <body>
 <ul class="pagination">
-    <a th:fragment="pageLink (page)" th:href="@{/tasks(query=${param.query},page=${page})}"
+    <a th:fragment="pageLink (page)" th:href="@{${#httpServletRequest.requestURI}(query=${param.query},page=${page})}"
         th:text="${page + 1}">
     </a>
 </ul>

@@ -16,8 +16,8 @@
                 <div class="viewers" th:text="${task.views} + ' views'"></div>
             </div>
             <div class="taskAttribute">attributes</div>
-            <div sec:authorize="hasRole('ROLE_ADMIN')">
-                <div class="taskName">&#10004;<a th:href="@{/admin/task/{id}(id = ${task.id})}" th:text="'Edit'"></a></div>
+            <div th:if="${adminPanel}">
+                <div class="taskName"><a th:href="@{/admin/task/{id}(id = ${task.id})}" th:text="'Edit'"></a></div>
             </div>
         </div>
         <div th:class="'taskColor lvl' + ${task.level}"></div>

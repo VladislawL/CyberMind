@@ -7,8 +7,8 @@
 
     <div th:fragment="learn (learn)" class="learn-item pagesBlock">
         <a th:href="@{/learn/{id}(id = ${learn.id})}" th:text="${learn.name}"></a>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
-            <div class="taskName">&#10004;<a th:href="@{/admin/learn/{id}(id = ${learn.id})}" th:text="'Edit'"></a></div>
+        <div th:if="${adminPanel}">
+            <div><a th:href="@{/admin/learn/{id}(id = ${learn.id})}" th:text="'Edit'"></a></div>
         </div>
     </div>
 
