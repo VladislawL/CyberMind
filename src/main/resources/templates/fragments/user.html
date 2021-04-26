@@ -5,9 +5,28 @@
 </head>
 <body>
 
-<div th:fragment="user (user)" class="learn-item pagesBlock">
-    <a th:href="@{/profile/{username}(username = ${user.username})}" th:text="${user.username}"></a>
-    <span th:text="${user.points}"></span>
+<!--<div th:fragment="user (user)" class="learn-item pagesBlock">-->
+<!--    <a th:href="@{/profile/{username}(username = ${user.username})}" th:text="${user.username}"></a>-->
+<!--    <span th:text="${user.points}"></span>-->
+<!--</div>-->
+<div th:fragment="user (user,position)" class="user pagesBlock">
+    <div class="position">
+        <div th:text="${position}+' position'"></div>
+    </div>
+    <div class="userInformation flex">
+        <div class="photoPlace">
+            <img src="/images/avatar.jpg" width="150px" alt="">
+        </div>
+        <div class="mainInformation">
+            <div class="name">
+                <a th:href="@{/profile/{username}(username = ${user.username})}" th:text="${user.username}"></a>
+            </div>
+            <div class="static">
+                <div th:text="'Points: ' + ${user.points}" class="poitns"></div>
+                <div class="level">Level</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
