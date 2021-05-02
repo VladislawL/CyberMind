@@ -1,0 +1,41 @@
+.leaderboard{
+    color: white;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.user-list{
+    padding: 10px;
+}
+.user{
+    margin-top: 10px;
+    color: white;
+    margin: 20px auto;
+    max-width: 900px;
+    font-size: 25px;
+}
+.position{
+    padding: 10px;
+    font-size:30px;
+    border-bottom: 3px solid rgb(126, 62, 62);
+    text-align: center;
+}
+.photoPlace{
+    padding: 15px;
+    border-right: 3px solid rgb(126, 62, 62);
+}
+.mainInformation{
+    width: 100%;
+}
+.name{
+    padding: 15px;
+
+    border-bottom: 3px solid rgb(126, 62, 62);
+}
+.name>a{
+    font-size:30px;
+    color: rgb(138, 66, 66);
+}
+.static{
+    line-height:1.5;
+    padding: 15px;
+}

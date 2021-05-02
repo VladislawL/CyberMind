@@ -20,7 +20,7 @@
                     <span th:text="${tag.name}"></span>
                 </div>
             </div>
-            <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <div th:if="${adminPanel}">
                 <div class="taskName">&#10004;<a th:href="@{/admin/task/{id}(id = ${task.id})}" th:text="'Edit'"></a></div>
             </div>
         </div>

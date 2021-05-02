@@ -7,7 +7,7 @@
         <!--    Previous Page-->
         <th:block th:if="${paginationData.currentPage > 0}">
             <li class="page-item previous">
-                <a th:href="@{/tasks(query=${param.query},page=${paginationData.currentPage - 1},sortField=${paginationData.sortField},sortOrder=${paginationData.sortOrder},tags=${paramTags})}">
+                <a th:href="@{${#httpServletRequest.requestURI}(query=${param.query},page=${paginationData.currentPage - 1},sortField=${paginationData.sortField},sortOrder=${paginationData.sortOrder},tags=${paramTags})}">
                     <span class="glyphicon glyphicon-menu-left"><</span>
                 </a>
             </li>
@@ -65,7 +65,7 @@
         <!--    Next Page-->
         <th:block th:if="${paginationData.currentPage < paginationData.numberOfPages - 1}">
             <li class="page-item previous">
-                <a th:href="@{/tasks(query=${param.query},page=${paginationData.currentPage + 1},sortField=${paginationData.sortField},sortOrder=${paginationData.sortOrder},tags=${paramTags})}">
+                <a th:href="@{${#httpServletRequest.requestURI}(query=${param.query},page=${paginationData.currentPage + 1},sortField=${paginationData.sortField},sortOrder=${paginationData.sortOrder},tags=${paramTags})}">
                     <span class="glyphicon glyphicon-menu-right">></span>
                 </a>
             </li>
