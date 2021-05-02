@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface TaskFacade {
     TaskDTO getTask(long id) throws IOException;
-    List<TaskDTO> getTasks(String query, List<Tag> tags, PaginationData paginationData);
+    List<TaskDTO> getTasks(String query, String level, List<Tag> tags, PaginationData paginationData);
     void saveTaskCode(TaskDTO taskDTO) throws IOException;
     TaskExecutionResult startTask(TaskDTO taskDTO) throws IOException, InterruptedException;
     void viewTask(TaskDTO taskDTO);

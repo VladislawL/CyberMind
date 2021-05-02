@@ -68,6 +68,16 @@ INSERT INTO `cybermind`.`solved_tasks` (`user_id`, `task_id`, `is_solved`) VALUE
 INSERT INTO `cybermind`.`solved_tasks` (`user_id`, `task_id`, `is_solved`) VALUES ('2', '1', '0');
 
 
+INSERT INTO `cybermind`.`tags` (id, name) VALUE ('1', 'Array');
+INSERT INTO `cybermind`.`tags` (id, name) VALUE ('2', 'String');
+INSERT INTO `cybermind`.`tags` (id, name) VALUE ('3', 'Hash Table');
+INSERT INTO `cybermind`.`tags` (id, name) VALUE ('4', 'Linked List');
+INSERT INTO `cybermind`.`tags` (id, name) VALUE ('5', 'Math');
+
+INSERT INTO `cybermind`.`task_tags` (task_id, tags_id) VALUE ('1', '5');
+
+
+
 INSERT INTO `cybermind`.`learn` (`id`, `name`) VALUES ('1', 'Java basics');
 INSERT INTO `cybermind`.`learn` (`id`, `name`) VALUES ('2', 'Thread in Java');
 

@@ -1,7 +1,9 @@
 package com.mrkdiplom.cybermind.config.mvc;
 
+import com.mrkdiplom.cybermind.web.converter.StringToTagConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -17,6 +19,11 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         exposeDirectory(uploadDir, registry);
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new StringToTagConverter());
     }
 
     private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) {

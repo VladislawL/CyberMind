@@ -12,12 +12,17 @@ import com.mrkdiplom.cybermind.core.service.SolvedTaskService;
 import com.mrkdiplom.cybermind.core.service.TaskService;
 import com.mrkdiplom.cybermind.core.service.UserService;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
+import com.mrkdiplom.cybermind.web.siteconfig.SiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -35,6 +40,9 @@ public class DefaultTaskFacade implements TaskFacade {
     @Autowired
     private SolvedTaskService solvedTaskService;
 
+    @Autowired
+    private SiteConfig siteConfig;
+
     @Override
     public TaskDTO getTask(long id) throws IOException {
         Task task = taskService.getTask(id).get();
@@ -45,8 +53,20 @@ public class DefaultTaskFacade implements TaskFacade {
     }
 
     @Override
-    public List<TaskDTO> getTasks(String query, List<Tag> tags, PaginationData paginationData) {
-        return taskConverter.convert(taskService.getTaskPage(query, null, paginationData));
+    public List<TaskDTO> getTasks(String query, String level, List<Tag> tags, PaginationData paginationData) {
+        if (paginationData.getSortField() == null || "".equals(paginationData.getSortField())) {
+            paginationData.setSortField(siteConfig.getDefaultSortField());
+        }
+
+        if (paginationData.getSortOrder() == null || "".equals(paginationData.getSortOrder())) {
+            paginationData.setSortOrder(siteConfig.getDefaultSortOrder());
+        }
+
+        PageRequest pageRequest = PageRequest.of(
+                paginationData.getCurrentPage(), paginationData.getPageSize(),
+                Sort.by(new Sort.Order(Sort.Direction.fromString(paginationData.getSortOrder()), paginationData.getSortField())));
+
+        return taskConverter.convert(taskService.getTaskPage(query, level, tags, pageRequest));
     }
 
     @Override

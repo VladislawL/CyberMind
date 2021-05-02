@@ -32,7 +32,7 @@ public class Task implements Serializable {
     private String description;
 
     @Column(name = "level")
-    private Long level;
+    private String level;
 
     @Fetch(FetchMode.SELECT)
     @ManyToMany(fetch = FetchType.EAGER)
@@ -80,11 +80,11 @@ public class Task implements Serializable {
         this.description = description;
     }
 
-    public Long getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(Long level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 

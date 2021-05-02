@@ -11,15 +11,15 @@
         <!-- FIRST SORT BY NAME, LEVEL -->
         <div class="sortBlock pagesBlock">
             <div class="search">
-                <form method="GET">
+                <form id="searchForm" method="GET">
                     <input class="searchInput" type="text" name="query" id="query">
                     <button type="submit" class="searchButton sortItemLevel">FIND</button>
                 </form>
             </div>
             <div class="levelSort">
-                <button class="sortItemLevel lvl1">Level 1</button>
-                <button class="sortItemLevel lvl2">Level 2</button>
-                <button class="sortItemLevel lvl3">Level 3</button>
+                <div th:replace="fragments/links :: levelLink (level = '1', currentLevel = ${currentLevel}, tags = ${paramTags}, paginationData = ${paginationData})"></div>
+                <div th:replace="fragments/links :: levelLink (level = '2', currentLevel = ${currentLevel}, tags = ${paramTags}, paginationData = ${paginationData})"></div>
+                <div th:replace="fragments/links :: levelLink (level = '3', currentLevel = ${currentLevel}, tags = ${paramTags}, paginationData = ${paginationData})"></div>
             </div>
         </div>
         <!-- Tasks -->
@@ -28,7 +28,7 @@
                     <div th:replace="fragments/task :: task (task = ${t})">
                     </div>
                 </th:block>
-                <div th:replace="fragments/pagination :: pagination (paginationData = ${paginationData})"></div>
+                <div th:replace="fragments/pagination :: pagination (paginationData = ${paginationData}, tags = ${appliedTags}, paramTags = ${paramTags})"></div>
             </div>
 
         <!-- sort items by attributes -->
@@ -36,18 +36,26 @@
             <h2>Sort by:</h2>
             <div class="attributeSort">
                 <div class="itemSort">
-                    <h3>Rating</h3>
+                    <h3>ID</h3>
+                    <div th:replace="fragments/links :: sortLink (field = 'id', order = 'ASC', tags = ${paramTags}, paginationData = ${paginationData})"></div>
+                    <div th:replace="fragments/links :: sortLink (field = 'id', order = 'DESC', tags = ${paramTags}, paginationData = ${paginationData})"></div>
                 </div>
                 <div class="itemSort">
-                    <h3>Percent solutions</h3>
+                    <h3>Name</h3>
+                    <div th:replace="fragments/links :: sortLink (field = 'name', order = 'ASC', tags = ${paramTags}, paginationData = ${paginationData})"></div>
+                    <div th:replace="fragments/links :: sortLink (field = 'name', order = 'DESC', tags = ${paramTags}, paginationData = ${paginationData})"></div>
                 </div>
-                <div class="itemSort">
-                    <h3>Attributes</h3>
+            </div>
+            <h2>Tags</h2>
+            <div>
+                <div th:each="t : ${allTags}">
+                    <span th:class="${paramTags.contains(t.name)} ? 'tag selected' : 'tag'" th:text="${t.name}"></span>
                 </div>
             </div>
         </div>
     </div>
 
     <div th:replace="fragments/footer :: footer"></div>
+    <script th:src="@{/js/tasks.js}"></script>
 </body>
 </html>

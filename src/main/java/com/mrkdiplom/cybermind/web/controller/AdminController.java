@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -56,7 +57,7 @@ public class AdminController {
             @RequestParam(value = "SortOrder", defaultValue = "", required = false) String sortOrder,
             Model model) {
         PaginationData paginationData = createPaginationData(siteConfig.getPageSize(), page, siteConfig.getNumberOfPagesToShow(), query);
-        List<TaskDTO> taskList = taskFacade.getTasks(query, null, paginationData);
+        List<TaskDTO> taskList = taskFacade.getTasks(query, "", new ArrayList<>(), paginationData);
         model.addAttribute("tasks", taskList);
         model.addAttribute("paginationData", paginationData);
         return "tasks";
@@ -177,7 +178,7 @@ public class AdminController {
         paginationData.setPageSize(pageSize);
         paginationData.setCurrentPage(currentPage);
 
-        long numberOfTasks = taskService.getNumberOfTasks(query, null);
+        long numberOfTasks = taskService.getNumberOfTasks(query, "", new ArrayList<>());
         if (numberOfTasks % pageSize == 0) {
             paginationData.setNumberOfPages(numberOfTasks / pageSize);
         } else {

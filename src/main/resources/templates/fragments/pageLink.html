@@ -4,7 +4,12 @@
 </head>
 <body>
 <ul class="pagination">
-    <a th:fragment="pageLink (page)" th:href="@{/tasks(query=${param.query},page=${page})}"
+    <a th:fragment="pageLink (page, tags, paginationData)" th:href="@{/tasks(query=${param.query},
+        page=${page},
+        level=${param.level},
+        sortField=${paginationData.sortField},
+        sortOrder=${paginationData.sortOrder},
+        tags=${tags})}"
         th:text="${page + 1}">
     </a>
 </ul>

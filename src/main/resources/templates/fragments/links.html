@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<ul class="pagination">
+    <a th:fragment="sortLink (field, order, tags, paginationData)" th:href="@{/tasks(query=${param.query},
+        page=0,
+        level=${param.level},
+        sortField=${field},
+        sortOrder=${order},
+        tags=${tags})}"
+       th:utext="${order eq 'DESC'} ? '<i class=\'fas fa-arrow-down\'>DESC</i>' : '<i class=\'fas fa-arrow-up\'>ASC</i>'">
+    </a>
+
+    <button th:fragment="levelLink (level, currentLevel, tags, paginationData)" th:class="'sortItemLevel lvl' + ${level}">
+        <a th:href="@{/tasks(query=${param.query},
+            page=0,
+            level=${level == currentLevel} ? '' : ${level},
+            sortField=${field},
+            sortOrder=${order},
+            tags=${tags})}"
+            th:text="'Level ' + ${level}">
+        </a>
+    </button>
+</ul>
+</body>
+</html>

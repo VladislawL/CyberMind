@@ -1,5 +1,9 @@
 package com.mrkdiplom.cybermind.core.facade.dto;
 
+import com.mrkdiplom.cybermind.core.entity.Tag;
+
+import java.util.List;
+
 public class TaskDTO {
     private Long id;
     private String name;
@@ -7,24 +11,10 @@ public class TaskDTO {
     private String code;
     private Long views;
     private Long solutions;
-    private Long level;
-
-    public Long getLevel() {
-        return level;
-    }
-
-    public void setLevel(Long level) {
-        this.level = level;
-    }
+    private String level;
+    private List<Tag> tags;
 
     public TaskDTO() {
-    }
-
-    public TaskDTO(Long id, String name, String description, String code) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.code = code;
     }
 
     public Long getId() {
@@ -73,5 +63,21 @@ public class TaskDTO {
 
     public void setSolutions(Long solutions) {
         this.solutions = solutions;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }

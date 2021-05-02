@@ -10,6 +10,8 @@ import com.mrkdiplom.cybermind.utils.FileUtils;
 import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
 import com.mrkdiplom.cybermind.web.siteconfig.SiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -17,7 +19,9 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DefaultTaskService implements TaskService {
@@ -31,12 +35,15 @@ public class DefaultTaskService implements TaskService {
     }
 
     @Override
-    public List<Task> getTaskPage(String query, List<Tag> tags, PaginationData paginationData) {
-        PageRequest pageRequest = PageRequest.of(paginationData.getCurrentPage(), paginationData.getPageSize());
-        if (tags == null) {
-            tags = Collections.emptyList();
+    public List<Task> getTaskPage(String query, String level, List<Tag> tags, PageRequest pageRequest) {
+        if (tags.size() == 0) {
+            return taskRepository.findAllByNameContainingIgnoreCaseAndLevelContaining(query, level, pageRequest);
+        } else {
+            List<String> tagsName = tags.stream()
+                    .map(Tag::getName)
+                    .collect(Collectors.toList());
+            return taskRepository.findAllByNameContainingIgnoreCaseAndLevelContainingAndTags_nameIn(query, level, tagsName, pageRequest);
         }
-        return taskRepository.findAllByNameContainingIgnoreCase(query, pageRequest);
     }
 
     @Override
@@ -45,8 +52,15 @@ public class DefaultTaskService implements TaskService {
     }
 
     @Override
-    public long getNumberOfTasks(String query, List<Tag> tags) {
-        return taskRepository.countTasksByNameContainingIgnoreCase(query);
+    public long getNumberOfTasks(String query, String level, List<Tag> tags) {
+        if (tags.size() == 0) {
+            return taskRepository.countTasksByNameContainingIgnoreCaseAndLevelContaining(query, level);
+        } else {
+            List<String> tagsName = tags.stream()
+                    .map(Tag::getName)
+                    .collect(Collectors.toList());
+            return taskRepository.countTasksByNameContainingIgnoreCaseAndLevelContainingAndTags_nameIn(query, level, tagsName);
+        }
     }
 
     @Override

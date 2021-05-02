@@ -17,6 +17,7 @@ public class TaskConverter implements GenericConverter<Task, TaskDTO> {
         taskDTO.setSolutions(task.getSolvedTasks().stream()
                 .filter(solvedTask -> solvedTask.getSolved() == Boolean.TRUE)
                 .count());
+        taskDTO.setTags(task.getTags());
         return taskDTO;
     }
 }

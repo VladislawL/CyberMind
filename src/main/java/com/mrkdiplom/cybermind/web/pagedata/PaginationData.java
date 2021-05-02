@@ -5,6 +5,8 @@ public class PaginationData {
     private int currentPage;
     private long numberOfPages;
     private int numberOfPagesToShow;
+    private String sortField;
+    private String sortOrder;
 
     public PaginationData() {
     }
@@ -46,5 +48,21 @@ public class PaginationData {
 
     public void setNumberOfPagesToShow(int numberOfPagesToShow) {
         this.numberOfPagesToShow = numberOfPagesToShow;
+    }
+
+    public String getSortField() {
+        return sortField;
+    }
+
+    public void setSortField(String sortField) {
+        this.sortField = sortField;
+    }
+
+    public String getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(String sortOrder) {
+        this.sortOrder = sortOrder;
     }
 }

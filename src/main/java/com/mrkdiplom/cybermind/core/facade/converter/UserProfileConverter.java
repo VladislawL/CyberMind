@@ -54,7 +54,8 @@ public class UserProfileConverter implements GenericConverter<User, UserProfileD
         Map<Long, Long> numberOfSolvedTasks = new HashMap<>();
 
         for (SolvedTask solvedTask: solvedTasks) {
-            numberOfSolvedTasks.put(solvedTask.getTask().getLevel(), numberOfSolvedTasks.getOrDefault(solvedTask.getTask().getLevel(), (long) 0) + 1);
+            numberOfSolvedTasks.put(Long.valueOf(solvedTask.getTask().getLevel()),
+                    numberOfSolvedTasks.getOrDefault(Long.valueOf(solvedTask.getTask().getLevel()), (long) 0) + 1);
         }
 
         return numberOfSolvedTasks;

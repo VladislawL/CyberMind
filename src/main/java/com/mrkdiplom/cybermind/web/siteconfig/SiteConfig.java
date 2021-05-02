@@ -19,6 +19,12 @@ public class SiteConfig {
     @Value("${top}")
     private Long top;
 
+    @Value("${page.default.sortField}")
+    private String defaultSortField;
+
+    @Value("${page.default.sortOrder}")
+    private String defaultSortOrder;
+
     public int getPageSize() {
         return pageSize;
     }
@@ -33,5 +39,13 @@ public class SiteConfig {
 
     public Long getTop() {
         return top;
+    }
+
+    public String getDefaultSortField() {
+        return defaultSortField;
+    }
+
+    public String getDefaultSortOrder() {
+        return defaultSortOrder;
     }
 }

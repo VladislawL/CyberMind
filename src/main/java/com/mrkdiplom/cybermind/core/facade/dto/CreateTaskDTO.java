@@ -6,7 +6,7 @@ public class CreateTaskDTO {
     private String solution;
     private String description;
     private String name;
-    private Long level;
+    private String level;
 
     public CreateTaskDTO() {
     }
@@ -51,11 +51,11 @@ public class CreateTaskDTO {
         this.name = name;
     }
 
-    public Long getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(Long level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 }
