@@ -33,3 +33,22 @@
     font-size: 20px;
     text-align: justify;
 }
+.chapterDescription{
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.chapterTitle{
+    color: rgb(152, 46, 46);
+    margin: 10px 0px;
+}
+.examples{
+    width: 100%;
+    border-collapse: collapse;
+}
+.examplesHead{
+    color: rgb(152, 46, 46);
+}
+.examples th{
+    border: 1px solid rgb(140, 140, 140);
+    padding: 10px;
+}

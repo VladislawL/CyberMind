@@ -1,0 +1,29 @@
+<!---->
+    <h2 class="taskTitle">Description</h2>
+    <p class="taskDescription">description</p>
+    <h2 class="taskTitle">Examples</h2>
+    <table class="examples">
+        <thead class="examplesHead">
+            <tr>
+                <th>Inputs</th>
+                <th>Outputs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+    <h2 class="taskTitle">Explanation</h2>
+    <p class="taskDescription">explanation</p>
+<!---->

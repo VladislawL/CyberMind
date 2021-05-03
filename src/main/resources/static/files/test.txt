@@ -1,0 +1,32 @@
+import java.security.AccessControlException;
+import java.util.Random;
+
+class Test {
+
+    private static void createTest(){
+        // create inputs for fields
+    }
+
+    public static int solve() {
+        return -1;
+    }
+
+    //some input fields
+
+    public static void main(String[] args) throws Exception {
+        SecurityManager manager = new SecurityManager();
+        System.setSecurityManager(manager);
+        for (int i = 0; i < 100; i++) {
+            try{
+                createTest();
+                int expected = solve(); //put fields as arguments
+                int actual = Solution.solve(); //put fields as arguments
+                if (expected != actual) {
+                    throw new Exception("Expected: " + expected +" , but was: " + actual);
+                }
+            }catch(AccessControlException ex){
+                throw new Exception("Message");
+            }
+        }
+    }
+}

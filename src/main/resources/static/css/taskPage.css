@@ -21,6 +21,30 @@
     height: calc(100% - 65px);
     border: 2px solid white;
     color: white;
+    text-align: justify;
+}
+.taskName{
+    color: rgb(152, 46, 46);
+    padding-bottom: 15px;
+}
+.taskDescription{
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.taskTitle{
+    color: rgb(152, 46, 46);
+    margin: 10px 0px;
+}
+.examples{
+    width: 100%;
+    border-collapse: collapse;
+}
+.examplesHead{
+    color: rgb(152, 46, 46);
+}
+.examples th{
+    border: 1px solid rgb(140, 140, 140);
+    padding: 10px;
 }
 /*
     SOLUTION PLACE

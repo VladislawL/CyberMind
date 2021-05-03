@@ -53,6 +53,9 @@ public class TaskListController {
                 .map(Tag::getName)
                 .collect(Collectors.joining(",")));
         model.addAttribute("currentLevel", level);
+        model.addAttribute("currentQuery",query);
+        model.addAttribute("currentField",sortField);
+        model.addAttribute("currentOrder",sortOrder);
 
         return "tasks";
     }

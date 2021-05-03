@@ -3,26 +3,29 @@
 <head>
 </head>
 <body>
-<ul class="pagination">
-    <a th:fragment="sortLink (field, order, tags, paginationData)" th:href="@{/tasks(query=${param.query},
-        page=0,
-        level=${param.level},
-        sortField=${field},
-        sortOrder=${order},
-        tags=${tags})}"
-       th:utext="${order eq 'DESC'} ? '<i class=\'fas fa-arrow-down\'>DESC</i>' : '<i class=\'fas fa-arrow-up\'>ASC</i>'">
-    </a>
 
-    <button th:fragment="levelLink (level, currentLevel, tags, paginationData)" th:class="'sortItemLevel lvl' + ${level}">
-        <a th:href="@{/tasks(query=${param.query},
+    <a th:fragment="sortLink (field, order, tags, paginationData)"
+       th:class="${currentField == field && currentOrder == order ? 'selected' : ''}"
+       th:href="@{/tasks(query=${param.query},
             page=0,
-            level=${level == currentLevel} ? '' : ${level},
+            level=${param.level},
             sortField=${field},
             sortOrder=${order},
             tags=${tags})}"
-            th:text="'Level ' + ${level}">
+       th:utext="${order}">
+    </a>
+
+    <button>
+        <a th:fragment="levelLink (level, currentLevel, tags, paginationData)"
+           th:href="@{/tasks(query=${param.query},
+                page=0,
+                level=${level == currentLevel} ? '' : ${level},
+                sortField=${field},
+                sortOrder=${order},
+                tags=${tags})}">
+            <h2 th:class="'sortItemLevel lvl' + ${level} + ${currentLevel == level ? ' selected':''}" th:text="'Level ' + ${level}"></h2>
         </a>
     </button>
-</ul>
+
 </body>
 </html>

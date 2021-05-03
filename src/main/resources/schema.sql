@@ -116,7 +116,7 @@ CREATE TABLE `cybermind`.`chapter` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `learn_id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
-  `text` VARCHAR(1024) NULL,
+  `text` VARCHAR(15000) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_chapter_learn1_idx` (`learn_id` ASC) VISIBLE,
   CONSTRAINT `fk_chapter_learn1`

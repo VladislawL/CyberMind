@@ -1,6 +1,8 @@
 $(".tag").click(function () {
     let $this = $(this);
-    $this.toggleClass("selected");
+    $this.hasClass("selected")?
+        $this.removeClass("selected"):
+        $this.toggleClass("selected");
 });
 
 $('#searchForm').submit(function() {

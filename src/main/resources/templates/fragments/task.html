@@ -8,11 +8,11 @@
         <div class="taskContent">
             <div class="taskMain flex">
                 <div class="taskLevel" th:text="${task.level} + ' level'"></div>
-                <div class="taskName">&#10004;<a th:href="@{/task/{id}(id = ${task.id})}" th:text="${task.name}"></a></div>
+                <div class="taskName"><a th:href="@{/task/{id}(id = ${task.id})}" th:text="${task.name}"></a></div>
             </div>
             <div class="taskStatic">
-                <div class="rating">rating: 49</div>
-                <div class="percentSolutions" th:text="${task.views != 0} ? 'Solutions: ' + ${(task.solutions * 1.0)/task.views * 100} + '%' : ''"></div>
+                <div class="rating" th:text="'Rating: ' + ${ (task.level == '1'? 1 : task.level == '2' ? 2 : 3) * (task.views + 2 * task.solutions)}"></div>
+                <div class="percentSolutions" th:text="'Solutions: ' + ${task.views != 0 ? (task.solutions * 1.0)/task.views * 100 : '0'} + '%' "></div>
                 <div class="viewers" th:text="${task.views} + ' views'"></div>
             </div>
             <div class="taskAttribute">

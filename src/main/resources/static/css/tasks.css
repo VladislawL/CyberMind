@@ -1,21 +1,28 @@
-/* 
+/*
     width: 100px + 50px + 250px*2 + 30px* 2 = 710px
 */
 
-/* 
-    SORT PLACE 
+/*
+    SORT PLACE
 */
 .sortBlock{
+	color: white;
 	margin-top: 20px;
     padding: 20px;
-	width: 230px;
-	height: 100%;
+	width: 220px;
+	height: fit-content;
 }
-/* 
+.sortBlock a{
+	color: white;
+}
+.sortBlock a.selected{
+	color: rgb(161, 159, 38);
+}
+/*
     FIRST SORT ITEMS BY NAME, LEVEL
 */
 .search{
-	padding-bottom: 20px;
+	padding-bottom: 40px;
 	border-bottom: solid 1px white;
 }
 .searchInput{
@@ -25,13 +32,21 @@
     width: 100%;
 }
 .searchButton{
-	background: linear-gradient(to right,rgba(150, 89, 92, 0.377),rgba(99, 28, 28, 0.7)) rgb(33, 35, 138)}
-.sortItemLevel{
 	border-radius: 5px;
 	font-size: 25px;
 	margin-top: 10px;
-	padding: 10px;
-    width: 100%;
+	padding: 5px;
+	width: 100%;
+	background: linear-gradient(to right,rgba(150, 89, 92, 0.377),rgba(99, 28, 28, 0.7)) rgb(33, 35, 138)
+}
+.sortItemLevel{
+	color: black;
+	padding: 10px 5px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.sortItemLevel.selected{
+	font-size: 30px;
 }
 .sortItemLevel:hover{
 	opacity: 0.7;
@@ -45,13 +60,23 @@
 	background: none;
 	width: 600px;
 }
-/* 
+/*
     SECOND SORT ITEMS BY ATTRIBUTES
 */
-.sortItem{
-	margin-top: 10px;
-	border: solid 1px white;
-	border-radius: 5px;
+.itemSort{
+	margin-top: 15px;
+}
+.itemHeading{
+	margin-bottom: 5px;
+}
+.tag{
+	line-height: 1.5;
+}
+.tag:hover{
+	cursor: pointer;
+}
+.tag.selected{
+	color: rgb(161, 159, 38);
 }
 /*
 	PAGINATION
