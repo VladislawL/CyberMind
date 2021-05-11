@@ -88,7 +88,7 @@ public class DefaultTaskFacade implements TaskFacade {
             solvedTaskService.saveSolvedTask(new SolvedTask( user, task, Boolean.TRUE));
         }
 
-        return taskService.startTask(task, userDetails);
+        return result;
     }
 
     @Override

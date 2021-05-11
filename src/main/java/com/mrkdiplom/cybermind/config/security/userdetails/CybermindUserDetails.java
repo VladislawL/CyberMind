@@ -28,6 +28,8 @@ public class CybermindUserDetails implements UserDetails {
         return user.getPassword();
     }
 
+    public Long getPoints(){return user.getPoints();}
+
     @Override
     public String getUsername() {
         return user.getUsername();

@@ -35,7 +35,7 @@ public class User implements Serializable {
     private Boolean enabled;
 
     @Column(name = "points")
-    private Long points = (long) 0;
+    private Long points;
 
     @Fetch(FetchMode.SELECT)
     @ManyToMany(fetch = FetchType.EAGER)

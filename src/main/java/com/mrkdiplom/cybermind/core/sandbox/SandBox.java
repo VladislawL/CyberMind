@@ -11,8 +11,7 @@ import java.io.InputStreamReader;
 public class SandBox {
 
     public static TaskExecutionResult start(String path) throws IOException, InterruptedException {
-        Process process = Runtime.getRuntime().exec("java.exe " + path);
-
+        Process process = new ProcessBuilder("java.exe", path).start();
         InputStream stdout = process.getInputStream();
         InputStream stderr = process.getErrorStream();
 
@@ -37,6 +36,8 @@ public class SandBox {
             if(line.contains("error")){
                 line = line.substring(line.lastIndexOf("error"));
             }
+            if(line.startsWith("Note"))
+                continue;
             error += line + "\n";
             if (line.contains("Exception in thread \"main\"")) {
                 break;

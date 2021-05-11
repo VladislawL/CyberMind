@@ -19,8 +19,8 @@ class Test {
         for (int i = 0; i < 100; i++) {
             try{
                 createTest();
-                int expected = solve(); //put fields as arguments
-                int actual = Solution.solve(); //put fields as arguments
+                var expected = solve(); //put fields as arguments
+                var actual = Solution.solve(); //put fields as arguments
                 if (expected != actual) {
                     throw new Exception("Expected: " + expected +" , but was: " + actual);
                 }
