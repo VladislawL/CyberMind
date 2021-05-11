@@ -3,7 +3,6 @@ package com.mrkdiplom.cybermind.core.service;
 import com.mrkdiplom.cybermind.core.entity.Tag;
 import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.sandbox.TaskExecutionResult;
-import com.mrkdiplom.cybermind.web.pagedata.PaginationData;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.UserDetails;
 

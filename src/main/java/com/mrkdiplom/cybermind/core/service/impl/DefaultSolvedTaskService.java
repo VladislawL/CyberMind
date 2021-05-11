@@ -2,6 +2,7 @@ package com.mrkdiplom.cybermind.core.service.impl;
 
 import com.mrkdiplom.cybermind.core.entity.SolvedTask;
 import com.mrkdiplom.cybermind.core.entity.SolvedTaskId;
+import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.entity.User;
 import com.mrkdiplom.cybermind.core.repository.SolvedTaskRepository;
 import com.mrkdiplom.cybermind.core.service.SolvedTaskService;
@@ -30,5 +31,10 @@ public class DefaultSolvedTaskService implements SolvedTaskService {
     @Override
     public List<SolvedTask> getSolvedTasksForUser(User user) {
         return solvedTaskRepository.findAllByUser(user);
+    }
+
+    @Override
+    public SolvedTask getSolvedTaskByUserAndTask(User user, Task task) {
+        return solvedTaskRepository.findByUserAndTask(user, task);
     }
 }

@@ -2,6 +2,7 @@ package com.mrkdiplom.cybermind.core.repository;
 
 import com.mrkdiplom.cybermind.core.entity.SolvedTask;
 import com.mrkdiplom.cybermind.core.entity.SolvedTaskId;
+import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,5 +14,7 @@ public interface SolvedTaskRepository extends JpaRepository<SolvedTask, SolvedTa
 
     @Query("select s from SolvedTask s where s.user = :user")
     List<SolvedTask> findAllByUser(@Param("user") User user);
+
+    SolvedTask findByUserAndTask(User user, Task task);
 
 }

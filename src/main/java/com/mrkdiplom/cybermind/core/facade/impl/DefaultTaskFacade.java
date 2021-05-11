@@ -85,6 +85,7 @@ public class DefaultTaskFacade implements TaskFacade {
         TaskExecutionResult result = taskService.startTask(task, userDetails);
 
         if (result.getError().isEmpty()) {
+            userService.addPoints(user, task);
             solvedTaskService.saveSolvedTask(new SolvedTask( user, task, Boolean.TRUE));
         }
 

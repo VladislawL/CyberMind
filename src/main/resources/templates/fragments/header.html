@@ -33,16 +33,16 @@
                         <h5 id="avatarpoints" th:text="${#authentication.getPrincipal().getPoints()}">PROFILE POINT OR STATUS</h5>
                 </div>
             </div>
-            <a th:href="@{/profile}" class="menu-item"><h3 class="title">Profile</h3></a>
-            <a th:href="@{/tasks}" class="menu-item"><h3 class="title">Tasks</h3></a>
-            <a th:href="@{/learn}" class="menu-item"><h3 class="title">Course</h3></a>
-            <a th:href="@{/leaderboard}" class="menu-item"><h3 class="title">Leaderboard</h3></a>
+            <a th:href="@{/profile}" class="menu-item"><h3 class="title" th:text="#{mainMenu.profile}"></h3></a>
+            <a th:href="@{/tasks}" class="menu-item"><h3 class="title" th:text="#{mainMenu.tasks}"></h3></a>
+            <a th:href="@{/learn}" class="menu-item"><h3 class="title" th:text="#{mainMenu.course}"></h3></a>
+            <a th:href="@{/leaderboard}" class="menu-item"><h3 class="title" th:text="#{mainMenu.leaderBoard}"></h3></a>
             <a th:href="@{/admin}" class="menu-item" sec:authorize="hasRole('ROLE_ADMIN')">
-                <h3 class="title">Admin panel</h3>
+                <h3 class="title" th:text="#{mainMenu.adminPanel}"></h3>
             </a>
             <form th:action="@{/logout}" method="post" class="menu-item">
                 <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                <button type="submit" class="menu-item logOut"><h3 class="title">Log out</h3></button>
+                <button type="submit" class="menu-item logOut"><h3 class="title" th:text="#{mainMenu.logout}"></h3></button>
             </form>
         </div>
     </header>
