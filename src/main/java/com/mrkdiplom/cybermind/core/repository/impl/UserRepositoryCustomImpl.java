@@ -15,8 +15,9 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
     @Autowired
     private EntityManagerFactory entityManagerFactory;
 
-    private static final String GET_USER_POSITION = "select rank() over (order by points desc) as globalRank " +
-            "from user where user.id = :id";
+    private static final String GET_USER_POSITION = "select globalRank from " +
+            "(select user.id, ROW_NUMBER() over (order by points desc) as globalRank from user) as rankTable " +
+            "where rankTable.id = :id";
 
     @Override
     public Long getUserPosition(Integer id) {

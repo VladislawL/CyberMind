@@ -31,10 +31,10 @@ public class UserProfileConverter implements GenericConverter<User, UserProfileD
         List<SolvedTask> solvedTasks = solvedTaskService.getSolvedTasksForUser(user);
 
         userProfileDTO.setUsername(user.getUsername());
-        userProfileDTO.setLevel(1);
+        userProfileDTO.setPoints(user.getPoints());
+        userProfileDTO.setLevel();
         userProfileDTO.setLeaderBoardPosition(userService.getUserPosition(user.getId()));
         userProfileDTO.setNumberOfSolvedTasks(getNumberOfSolvedTasks(solvedTasks));
-        userProfileDTO.setPoints(user.getPoints());
         userProfileDTO.setTasks(taskConverter.convert(solvedTasks.stream()
                 .map(SolvedTask::getTask)
                 .collect(Collectors.toList())));

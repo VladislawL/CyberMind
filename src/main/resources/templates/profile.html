@@ -20,7 +20,16 @@
                         </div>
                         <div class="mainStats pad">
                             <h3 th:text="'Points: ' + ${userProfile.points}" >Points</h3>
-                            <h3>Level 1</h3>
+                        </div>
+                        <div class="levelStat">
+                            <div class="levelProgress flex">
+                                <h2 class="levelName" th:text="${userProfile.getLevel() + 1}"></h2>
+                                <div class="fullProgress">
+                                    <div class="myProgress" th:style="'width:'+${userProfile.getProgress()}+'%'"></div>
+                                </div>
+                                <h2 class="levelName" th:text="${userProfile.getLevel() + 2}"></h2>
+                            </div>
+                            <p class="nextLevel" th:text="${userProfile.getNextLevelPoint()}+' points to next level!'"></p>
                         </div>
                     </div>
                 </div>
@@ -28,8 +37,9 @@
                 <div class="fullInformation pagesBlock blockMarg">
                     <div class="pad">
                         <div class="totalStats">
-                            <h3 id="level" class="pad">Level 1</h3>
+                            <h3 id="level" class="pad" th:text="'Level: '+${userProfile.getLevel()+1}"></h3>
                             <h3 id="points" class="pad" th:text="'Points: ' + ${userProfile.points}"></h3>
+                            <h3 class="pad" th:text="'Points to next level: ' + ${userProfile.getNextLevelPoint()}"></h3>
                             <h3 id="leaderPosition" class="pad" th:text="'Leaderboard position: ' + ${userProfile.leaderBoardPosition}"></h3>
                             <h3 id="totalTasks" class="pad" th:text="'Total tasks: ' + ${userProfile.getSolvedTasks().size()}"></h3>
                             <th:block th:each="solvedTask : ${userProfile.numberOfSolvedTasks}">
@@ -37,15 +47,6 @@
                             </th:block>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- PROFILE FRIENDS LIST -->
-            <div class="friendsList pagesBlock">
-                <div class="friend">
-                    <span> Friend 1</span>
-                </div>
-                <div class="friend">
-                    <span> Friend 2</span>
                 </div>
             </div>
         </div>

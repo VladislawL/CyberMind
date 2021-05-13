@@ -42,6 +42,25 @@
 .mainStats{
     padding:10px;
 }
+.levelStat{
+    margin: 10px;
+}
+.levelName{
+    padding: 10px;
+}
+.fullProgress{
+    text-align: center;
+    height: auto;
+    background-color: #3a4292;
+    width: 100%;
+}
+.myProgress{
+    height: 100%;
+    background-color: #c35b5b;
+}
+.nextLevel{
+    text-align: center;
+}
 /*/
     PROFILE FULL INFORMATION
  */

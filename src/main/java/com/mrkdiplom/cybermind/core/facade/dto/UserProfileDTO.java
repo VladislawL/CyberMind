@@ -30,8 +30,21 @@ public class UserProfileDTO {
         return level;
     }
 
-    public void setLevel(Integer level) {
-        this.level = level;
+    private Long getLevelPoints(long level){
+        return 10 * (level * level + level);
+    }
+    public Long getNextLevelPoint(){
+        return getLevelPoints(getLevel() + 1) - getPoints();
+    }
+    public Long getProgress(){
+        return (getPoints() - getLevelPoints(getLevel())) * 100 / (getLevelPoints(getLevel()+1) - getLevelPoints(getLevel()));
+    }
+    public void setLevel() {
+        int level = 1;
+        while(points >= getLevelPoints(level)){
+            level++;
+        }
+        this.level = level - 1;
     }
 
     public Long getPoints() {

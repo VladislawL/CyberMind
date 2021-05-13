@@ -1,5 +1,6 @@
 package com.mrkdiplom.cybermind.core.service.impl;
 
+import com.mrkdiplom.cybermind.config.security.userdetails.CybermindUserDetails;
 import com.mrkdiplom.cybermind.core.entity.SolvedTask;
 import com.mrkdiplom.cybermind.core.entity.Task;
 import com.mrkdiplom.cybermind.core.entity.User;
@@ -54,7 +55,7 @@ public class DefaultUserService implements UserService {
     public void addPoints(User user, Task task) {
         SolvedTask solvedTask = solvedTaskService.getSolvedTaskByUserAndTask(user, task);
         if (solvedTask.getSolved() == Boolean.FALSE) {
-            user.setPoints(user.getPoints() + Long.parseLong(task.getLevel()));
+            user.setPoints(user.getPoints() + Long.parseLong(task.getLevel()) * 15);
             userRepository.save(user);
         }
     }
