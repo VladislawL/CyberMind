@@ -1,14 +1,10 @@
 /*
-    width: 100px + 50px + 250px*2 + 30px* 2 = 710px
-*/
-
-/*
     SORT PLACE
 */
 .sortBlock{
 	color: white;
 	margin-top: 20px;
-	padding: 20px;
+	padding: 15px;
 	width: 220px;
 	height: fit-content;
 }
@@ -17,6 +13,12 @@
 }
 .sortBlock a.selected{
 	color: rgb(161, 159, 38);
+}
+.s1{
+	float: left;
+}
+.s2{
+	float: right;
 }
 /*
     FIRST SORT ITEMS BY NAME, LEVEL
@@ -56,9 +58,12 @@
 */
 .tasks{
 	margin: 0 auto;
-	padding: 20px 20px;
+	padding: 0px 20px 20px;
 	background: none;
-	width: 600px;
+	width: calc(100% - 640px);
+}
+.task{
+	margin: 20px auto;
 }
 /*
     SECOND SORT ITEMS BY ATTRIBUTES
@@ -106,13 +111,43 @@
 /*
 	@MEDIA
 */
-@media screen and (min-width:1800px){
+@media screen and (max-width: 1200px){
+	.sortBlock{
+		width: 150px;
+	}
 	.tasks{
-		width: 900px;
+		width: calc(100% - 400px);
 	}
 }
-@media screen and (min-width: 1400px) and (max-width: 1800px) {
+@media screen and (max-width: 900px){
+	.sortBlock{
+		width: 220px;
+	}
 	.tasks{
-		width: 650px;
+		display: inline-block;
+		width: 100%;
+		padding: 20px 0px;
+	}
+}
+@media screen and (max-width: 700px){
+	.s1, .s2 {
+		margin: 20px auto;
+		float: none;
+	}
+	.task{
+		display: block;
+	}
+	.taskContent{
+		width: auto;
+	}
+	.taskStatic{
+		display: block;
+		text-align: center;
+	}
+	.taskColor{
+		height: 20px;
+		width: auto;
+		border-left:none;
+		border-radius: 0px 0px 20px 20px;
 	}
 }

@@ -4,12 +4,12 @@
 *{
     padding: 0;
     margin: 0;
-	font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: normal;
     letter-spacing: .5px;
 }
 a{
-	text-decoration: none;
+    text-decoration: none;
 }
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
@@ -20,7 +20,7 @@ body{
     background-size: cover;
 }
 .block {
-	display: block;
+    display: block;
 }
 .flex{
     display: flex;
@@ -29,14 +29,13 @@ body{
     display: none;
 }
 .content{
-	margin-top: 70px;
-	margin: 0 auto;
-	padding: 100px 50px 50px 100px;
-	max-width: 1500px;
+    margin-top: 70px;
+    margin: 0 auto;
+    padding: 100px 50px 50px 100px;
+    max-width: 2000px;
 }
 .pagesBlock{
     background: #353541;
     border: 2px solid rgb(15, 15, 49);
-	border-radius: 10px;
+    border-radius: 10px;
 }
-

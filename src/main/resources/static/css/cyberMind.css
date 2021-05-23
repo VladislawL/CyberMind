@@ -6,14 +6,16 @@
     max-width: 2000px;
     padding: 50px;
 }
-.fragment .photo,.description{
+.photo,.description{
+    display: block;
     width: 50%;
+    margin: 10px;
     text-align: justify;
 }
 .fragment .photo{
     display: flex;
 }
-.photo>.fragmentImage{
+.fragmentImage{
     display: flex;
     margin: 0 auto;
 }
@@ -27,9 +29,9 @@
     background-color: rgba(0,0,0,0.3);
 }
 .lightBack{
-    background-color:rgba(255, 255, 255, 0.3);   
+    background-color:rgba(255, 255, 255, 0.3);
 }
-/* 
+/*
     Main page HEADER
 */
 .head{
@@ -41,35 +43,35 @@
     font-size: 40px;
 }
 .head a{
-  user-select: none;
-  color: white;
+    user-select: none;
+    color: white;
 }
-.head .headContent{
-  padding: 0px 40px;
+.headContent{
+    padding: 0px 40px;
 }
-.headContent .mainPage{
-  float: left;
+.mainPage{
+    float: left;
 }
 .mainPage .mainPageImg{
-  height: 50px;
-  width: 50px;
-  transition:all .3s;
+    height: 50px;
+    width: 50px;
+    transition:all .3s;
 }
 .mainPage .mainPageImg:hover{
-  transform: rotate(90deg);
+    transform: rotate(90deg);
 }
-.headContent .profile{
-  padding: 0px 10px;
-  float: right;
+.profile{
+    padding: 0px 10px;
+    float: right;
 }
 .profile .profileImg{
-  width: 49px;
-  transition: 0.3s;
+    width: 49px;
+    transition: 0.3s;
 }
 .profile .profileImg:hover{
-  transform: rotate(9deg);
+    transform: rotate(9deg);
 }
-/* 
+/*
     ABOUT CYBERMIND PLATFORM
 */
 .gear{
@@ -86,23 +88,26 @@
         transform: rotateZ(0deg);
     }
 }
-/* 
+/*
     ABOUT LEARN
 */
-/* 
+/*
     ABOUT TASKS
 */
-/* 
+/*
     EARN POINTS AND LEVEL
 */
-/* 
-    CREATORS 
+/*
+    CREATORS
 */
 .fragment>.title{
-  text-align: center;
-  padding-bottom: 10px;
+    text-align: center;
+    padding-bottom: 10px;
 }
-.creators>.creator{
+.creators{
+    display: flex;
+}
+.creator{
     width: 500px;
     margin: 0 auto;
     text-align: center;
@@ -123,26 +128,81 @@
     padding-top: 40px;
     opacity: 0.8;
 }
-/* 
+/*
     FOOTER
 */
 .footer{
-  padding: 3px;
-  flex-direction: column;
-  align-items: center;
+    padding: 3px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    max-width: 2000px;
 }
 .footer .social-icons{
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .social-icon{
-  padding: 10px 15px 0px;
-  transition: all .3s linear;
+    padding: 10px 15px 0px;
+    transition: all .3s linear;
 }
 .social-icon img{
-  height: 25px;
-  width: 25px;
+    height: 25px;
+    width: 25px;
 }
 .social-icon:nth-child(2){
-  border-left: 1px solid #a3a3a3;
-  border-right: 1px solid #a3a3a3;
+    border-left: 1px solid #a3a3a3;
+    border-right: 1px solid #a3a3a3;
+}
+
+@media screen and (max-width: 1000px) {
+    #i1{
+        height: 200px;
+        width: 200px;
+    }
+    #i2{
+        height: 150px;
+        width: 200px;
+    }
+    #i3{
+        height: 75px;
+        width: 250px;
+    }
+    #i4{
+        height: 200px;
+        width: 220px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .head{
+        height: auto;
+    }
+    .head a{
+        display: block;
+    }
+    .headContent{
+        padding: 0px;
+    }
+    .mainPage{
+        border-bottom: 1px solid white;
+    }
+    .mainPage, .profile{
+        float: none;
+        text-align: center;
+    }
+    .fragment{
+        display: block;
+        padding: 20px 5px;
+    }
+    .description,.photo{
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .creators{
+        display: block;
+    }
+    .creator{
+        width: fit-content;
+        margin: 10px 0px;
+    }
+
 }

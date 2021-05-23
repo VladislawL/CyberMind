@@ -70,7 +70,7 @@ ENGINE = InnoDB;
 CREATE TABLE `cybermind`.`task` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(2048) NOT NULL,
+  `description` VARCHAR(5000) NOT NULL,
   `level` INT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;

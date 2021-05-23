@@ -31,7 +31,7 @@
 }
 .descriptionMain{
     margin: 20px;
-    height:-webkit-fill-available;
+    height: calc(100% - 40px);
     border: 2px solid white;
     overflow-y: auto;
     color: white;
@@ -69,4 +69,22 @@
 }
 .submit:hover{
     background: rgb(70,70, 70);
+}
+@media screen and (max-width:900px), (max-height: 700px){
+    .content{
+        padding:100px 10px 10px 120px;
+    }
+    .createForm{
+        display:block;
+        height:auto;
+    }
+    .descriptionPlace{
+        border-right:none;
+        border-bottom: 3px solid rgb(126, 62, 62);
+        width: auto;
+    }
+    .solutionPlace{
+        height: 800px;
+        width: auto;
+    }
 }

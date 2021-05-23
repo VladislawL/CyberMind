@@ -1,8 +1,8 @@
 /* 
     login page style
 */
-.center{
-    padding: 100px;
+.content{
+    padding: 100px 0px;
 }
 .registrationForm{
     box-shadow: inset 0px 0px 10px 1px rgb(255, 255, 255);
@@ -53,5 +53,21 @@
 .registrationForm .signButton:hover{
     background-color: grey;
 }
-
-
+@media screen and (max-width: 500px) {
+    .registrationForm{
+        width: 250px;
+    }
+    .mainImage{
+        width: 150px;
+        height: 150px;
+    }
+    .registrationForm .input-item{
+        width: 150px;
+    }
+    .registrationForm .signButton{
+        width: 150px;
+    }
+    .content{
+        padding: 100px 10px;
+    }
+}

@@ -23,7 +23,7 @@
 */
 .textPlace{
     margin-left: 30px;
-    width:calc(100% - 350px);
+    width: calc(100% - 330px);
     height: fit-content;
     height: -moz-fit-content;
 }
@@ -51,4 +51,22 @@
 .examples th{
     border: 1px solid rgb(140, 140, 140);
     padding: 10px;
+}
+@media screen and (max-width:900px){
+    .content{
+        display:block;
+        padding-right: 10px;
+    }
+    .chapters-name-list{
+        margin:0 auto;
+    }
+    .textPlace{
+        width:auto;
+        margin: 20px 0px 0px;
+    }
+}
+@media screen and (max-width:600px){
+    .chapters-name-list{
+        width:auto;
+    }
 }

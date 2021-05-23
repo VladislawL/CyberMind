@@ -39,3 +39,13 @@
     line-height:1.5;
     padding: 15px;
 }
+@media screen and (max-width: 600px){
+    .userInformation{
+        display: block;
+    }
+    .photoPlace{
+        text-align:center;
+        border-right:none;
+        border-bottom: 3px solid rgb(126, 62, 62);
+    }
+}

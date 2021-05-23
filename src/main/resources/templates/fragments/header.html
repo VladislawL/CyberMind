@@ -8,11 +8,13 @@
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/menu.css}"/>
-    <link rel="stylesheet" th:href="@{/css/footer.css}"/>
-    <link rel="icon" th:href="@{/images/icon.png}" sizes="16x16" type="image/png">
     <th:block th:replace="${links}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}"/>
+
+    <link rel="icon" th:href="@{/images/icon.png}" sizes="16x16" type="image/png">
     <title th:replace="${title}"></title>
 </head>
 <body>

@@ -23,7 +23,7 @@
             </div>
             <div class="static">
                 <div th:text="'Points: ' + ${user.points}" class="poitns"></div>
-                <div class="level">Level</div>
+                <div class="level" th:text="'Level: ' + ${user.getLevel() + 1}" ></div>
             </div>
         </div>
     </div>

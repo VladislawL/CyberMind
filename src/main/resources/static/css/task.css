@@ -2,11 +2,10 @@
 	TASK STYLE
 */
 .task{
-	max-width: 900px;
+	max-width: 700px;
 	width: 100%;
 	color: white;
 	margin-top:20px;
-	/* margin: 0 auto; */
 	border-radius: 20px;
 	background: #353541;
 	justify-content: space-between;
@@ -45,6 +44,10 @@
 }
 .taskAttribute{
 	padding: 15px;
+}
+.edit{
+	padding: 10px;
+	border-top: 3px solid rgb(126, 62, 62);
 }
 /* 
 	TASKS COLOR BY THEY LEVEL

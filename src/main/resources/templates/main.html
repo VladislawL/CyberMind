@@ -1,9 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <title>| CyberMind |</title>
     <link rel="stylesheet" th:href="@{/css/cyberMind.css}">
-
+    <title>| CyberMind |</title>
 </head>
 <body>
     <!-- HEADER CONTENT -->
@@ -27,7 +26,7 @@
     <section class="lightBack fragment flex">
         <!-- <div class="aboutPlatform flex"> -->
         <div class="photo">
-            <img class="gear fragmentImage" th:src="@{/images/gear.png}" height="250px" width="250px"  alt="">
+            <img class="gear fragmentImage" id="i1" th:src="@{/images/gear.png}" height="250px" width="250px"  alt="">
         </div>
         <div class="description">
             <h1 class="blackText">CyberMind is a platform to enchance your skills and knowledges</h1>
@@ -41,13 +40,13 @@
                 structure to guide your progress towards the next step in your programming career.</h1>
         </div>
         <div class="photo">
-            <img class="fragmentImage" th:src="@{/images/learn.JPG}" height="300px" width="400px" alt="">
+            <img class="fragmentImage" th:src="@{/images/learn.JPG}" id="i2" height="300px" width="400px" alt="">
         </div>
     </section>
     <!-- ABOUT TASKS -->
-    <section class="lightBack fragment flex">
+    <section class="lightBack fragment flex" id="task">
         <div class="photo">
-            <img class="fragmentImage" th:src="@{/images/task.png}" height="200px" width="630px"  alt="">
+            <img class="fragmentImage" id="i3" th:src="@{/images/task.png}" height="170px" width="450px"  alt="">
         </div>
         <div class="description">
             <h1 class="blackText">Train on tasks</h1>
@@ -63,7 +62,7 @@
                     you progress through the ranks so we can match you with relevant challenges.</h1>
         </div>
         <div class="photo">
-            <img class="fragmentImage" th:src="@{/images/levels.JPG}" alt="">
+            <img class="fragmentImage" id="i4" th:src="@{/images/levels.JPG}" alt="">
         </div>
     </section>
     <!-- ABOUT CREATORS -->
@@ -92,7 +91,7 @@
         </div>
     </section>
     <!-- FOOTER -->
-    <footer class="darkBack fragment footer flex">
+    <footer class="darkBack footer flex">
         <div class="social-icons flex">
             <a href="#" class="social-icon"><img th:src="@{/images/Mail.png}" alt=""></a>
             <a href="#" class="social-icon"><img th:src="@{/images/Skype.png}" alt=""></a>
@@ -101,6 +100,5 @@
         <p class="whiteText">Copyright: Trus Vladislav | Logvin Vladislav</p>
         <p class="whiteText">All rights reserved</p>
     </footer>
-<!--    <div th:replace="fragments/footer :: footer"></div>-->
 </body>
 </html>

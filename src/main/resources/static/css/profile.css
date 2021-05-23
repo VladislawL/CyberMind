@@ -1,16 +1,9 @@
 /* 
     PROFILE MAIN STYLES
 */
-.content{
-    padding-left: 150px;
-}
-.contentWidth{
-    /* MUST BE DELETED */
-    width: 900px;
-    max-width: 900px;
-}
 .container{
-    max-width: 1300px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 .pad{
     padding: 10px;
@@ -18,7 +11,7 @@
 .blockMarg{
     margin-top: 30px;
 }
-/* 
+/*
     PROFILE PHOTO AND MAIN INFORMATION
 */
 .photo{
@@ -32,7 +25,7 @@
     color: white;
     height: 200px;
     width: calc(100% - 228px);
-	background: #353541;
+    background: #353541;
 }
 .profileName{
     color: rgb(156, 68, 68);
@@ -66,11 +59,12 @@
  */
 .fullInformation{
     color: rgb(255, 255, 255);
+    text-align: justify;
 }
 /*
     PROFILE FRIENDS LIST
  */
- .friendsList{
+.friendsList{
     margin-left: 50px;
     height: 100%;
     width: 300px;
@@ -102,33 +96,49 @@
     padding: 10px 20px 20px 100px;
     background: none;
 }
-/* 
+/*
     MEDIA CONTENT FOR PROFILE PAGE
 */
-/* 
-    MUST BE CHANGED
-*/
-/* @media screen and (min-width:400px) and (max-width: 900px){
-    .content{
-        padding-left: 100px;
-        padding-right: 20px;
-    }
-    .container{
-        display: block;
-    }
+@media screen and (max-width: 750px){
     .profile{
         display: block;
+    }
+    .photo{
+        margin: 0 auto;
+    }
+    .mainInformation{
+        width: auto;
+        margin-top: 10px;
+    }
+    .tasks{
+        padding: 10px 5px;
     }
 }
-@media screen and (min-width: 900px) and (max-width:1200px){
-    
-    .content{
-        padding-left: 50px;
-    }
-    .profile{
+@media screen and (max-width: 610px){
+    .head{
         display: block;
     }
-    .contentWidth{
-        width: 300px;
+    .headItem{
+        text-align: center;
+        margin: 5px 0px;
     }
-}  */
+    .content{
+        padding: 10px;
+    }
+    .task{
+        display: block;
+    }
+    .taskContent{
+        width: auto;
+    }
+    .taskStatic{
+        display: block;
+        text-align: center;
+    }
+    .taskColor{
+        height: 20px;
+        width: 100%;
+        border-left:none;
+        border-radius: 0px 0px 20px 20px;
+    }
+}

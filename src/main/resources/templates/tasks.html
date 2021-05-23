@@ -1,15 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link rel="stylesheet" th:href="@{/css/tasks.css}" />
     <link rel="stylesheet" th:href="@{/css/task.css}" />
+    <link rel="stylesheet" th:href="@{/css/tasks.css}" />
     <title>Cybermind | Tasks</title>
 </head>
 <body>
     <div th:replace="fragments/header :: header"></div>
-    <div class="content flex">
+    <div class="content">
+
         <!-- FIRST SORT BY NAME, LEVEL -->
-        <div class="sortBlock pagesBlock">
+        <div class="sortBlock s1 pagesBlock">
             <div class="search">
                 <form id="searchForm" method="GET">
                     <input class="searchInput" type="text" name="query" id="query" th:value="${currentQuery}">
@@ -22,17 +23,9 @@
                 <div th:replace="fragments/links :: levelLink (level = '3', currentLevel = ${currentLevel}, tags = ${paramTags}, paginationData = ${paginationData})"></div>
             </div>
         </div>
-        <!-- Tasks -->
-            <div class="tasks block">
-                <th:block th:each="t : ${tasks}">
-                    <div th:replace="fragments/task :: task (task = ${t})">
-                    </div>
-                </th:block>
-                <div th:replace="fragments/pagination :: pagination (paginationData = ${paginationData}, tags = ${appliedTags}, paramTags = ${paramTags})"></div>
-            </div>
 
         <!-- sort items by attributes -->
-        <div class="sortBlock pagesBlock">
+        <div class="sortBlock s2 pagesBlock">
             <h1 class="sortBy">Sort by:</h1>
             <div class="attributeSort">
                 <div class="itemSort">
@@ -47,12 +40,21 @@
                 </div>
                 <div class="itemSort">
                     <h2 class="itemHeading">Tags</h2>
-                        <div th:each="t : ${allTags}">
-                            <span th:class="${paramTags.contains(t.name)} ? 'tag selected' : 'tag'" th:text="${t.name}"></span>
-                        </div>
+                    <div th:each="t : ${allTags}">
+                        <span th:class="${paramTags.contains(t.name)} ? 'tag selected' : 'tag'" th:text="${t.name}"></span>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Tasks -->
+            <div class="tasks">
+                <th:block th:each="t : ${tasks}">
+                    <div th:replace="fragments/task :: task (task = ${t})">
+                    </div>
+                </th:block>
+                <div th:replace="fragments/pagination :: pagination (paginationData = ${paginationData}, tags = ${appliedTags}, paramTags = ${paramTags})"></div>
+            </div>
     </div>
 
     <div th:replace="fragments/footer :: footer"></div>

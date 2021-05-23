@@ -93,3 +93,19 @@
     text-align: center;
     color: rgb(20, 117, 16);
 }
+@media screen and (max-width:900px), (max-height: 700px){
+    .content{
+        padding: 100px 15px 10px 120px;
+        display:block;
+        height:auto;
+    }
+    .descriptionPlace{
+        border-right:none;
+        border-bottom: 3px solid rgb(126, 62, 62);
+        width: auto;
+    }
+    .solutionPlace{
+        height: 800px;
+        width: auto;
+    }
+}

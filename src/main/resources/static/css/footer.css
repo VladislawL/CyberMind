@@ -1,0 +1,13 @@
+@media screen and (max-width: 600px) {
+    .content{
+        padding: 100px 10px 10px;
+    }
+    .showMenu{
+        position: absolute;
+    }
+}
+@media screen and (max-height:780px) {
+    .menu{
+        overflow-y: auto;
+    }
+}

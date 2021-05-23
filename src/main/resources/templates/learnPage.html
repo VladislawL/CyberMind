@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header-css(~{::title},~{::link})">
-    <link rel="stylesheet" th:href="@{/css/learnPage.css}" />
     <link rel="stylesheet" th:href="@{/css/chapter.css}" />
+    <link rel="stylesheet" th:href="@{/css/learnPage.css}" />
     <title th:text="'Cybermind | ' + ${learn.name} +' | ' + ${chapter.name}"></title>
 </head>
 <body>

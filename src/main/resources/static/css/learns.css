@@ -11,9 +11,17 @@
     font-size: 30px;
     text-align:center;
 }
+.editLearn{
+    border-top: 3px solid rgb(126, 62, 62);
+}
 .learn-item a{
     color: white;
 }
 .learn-item:hover{
     background: #494958;
+}
+@media screen and (max-width: 1000px){
+    .learn-item{
+        width:auto;
+    }
 }

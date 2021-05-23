@@ -17,3 +17,8 @@
 .admin-item:hover{
     background: #494958;
 }
+@media screen and (max-width: 1000px){
+    .admin-item{
+        width:auto;
+    }
+}
